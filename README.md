@@ -14,10 +14,10 @@ pnpm dev
 
 ## Com Docker
 
-Para rodar o container da aplicação rode os seguintes comandos
+Para rodar o container da aplicação rode os seguintes comandos:
 
 ```bash
-docker build -t app-container .
+$ docker build -t app-container . \
 docker run -it app-container sh
 ```
 
