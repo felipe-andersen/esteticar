@@ -17,17 +17,89 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  background-color: white;
+  display: flex;
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.fdlfd {
+  height: 10%;
+}
+
+
+.yjy {
+  justify-content: flex-start;
+}
+
+
+.jfif {
+  height: calc(100vh - 64px);
+  z-index: 356565;
+}
+
+.hfo {
+  height: calc(100vh - 64px);
+ 
+}
+
+.hdjfhdj {
+  width: calc(75% - 320px);
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 555px;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #e7e7e7;
+}
+
+.imgf {
+  background-image: url("https://m1.behance.net/rendition/modules/100574657/disp/578d5a2ccc39308caa48d56ef7adc2e1.png");
+}
+
+.wwinf {
+  width: calc(100vw - 320px);
+  height: calc(100vh - 64px);
+
+}
+
+.ghfd {
+  height: 100%;
+  
+}
+
+.ghfdhtty {
+  height:100vh;
+}
+
+
+.j {
+  height: calc(100vh -64px);
+  width: 100%;
+  background-color: white;
 }
