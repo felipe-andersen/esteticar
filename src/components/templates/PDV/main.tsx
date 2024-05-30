@@ -61,8 +61,6 @@ export function Main() {
 
                     </div>
 
-                    
-                    
                 </div>
 
                 <div className="border border-zinc-200 w-80 h-min rounded bg-white flex flex-col p-5 ">
@@ -97,7 +95,6 @@ export function Main() {
 
                             </div>
 
-
                             <span className="text-sm">Compras</span>
 
                             <span className="text-xs bg-red-500 text-white h-5 w-5 rounded-full flex items-center justify-center">7</span>
@@ -124,7 +121,6 @@ export function Main() {
 
                             </div>
 
-
                             <span className="text-sm">Orçamentos</span>
 
                         </div>
@@ -136,7 +132,6 @@ export function Main() {
                                 <ShoppingBag size={18} color="#52ff7a"/>
 
                             </div>
-
 
                             <span className="text-sm">Estornos</span>
 

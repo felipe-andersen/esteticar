@@ -26,7 +26,7 @@ export function Main() {
 
     return (
 
-    <main className='flex w-full h-full box-border border-l border-zinc-300 relative ml-80 mt-16'>
+    <main className=' flex w-full h-full box-border border-l border-zinc-300 relative ml-80 mt-16'>
 
         <div className='flex w-full  fixed h-full z-10  border-l border-zinc-150 box-border overflow-hidden overflow-scroll'>
 

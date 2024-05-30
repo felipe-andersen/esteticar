@@ -13,6 +13,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { TopBar } from '@/components/organisms/topBar';
 import { Main } from './main';
+import { NewSale } from '@/components/organisms/newSale';
 
 
 
@@ -27,7 +28,13 @@ export default function Home() {
 
     return (
 
-    <div className='flex h-full box-border  bg-zinc-300  '>
+    <div className='relative flex h-full box-border  bg-zinc-300  '>
+
+        <div className='gjf absolute bg-white z-[356898989] flex flex-col '>
+
+            <NewSale/>
+
+        </div>
 
         <TopBar pageName='CRM'/>
  

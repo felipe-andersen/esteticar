@@ -73,7 +73,7 @@ export default function VerticalMenu() {
                             
                             <p className="text-zinc-800">
 
-                                Colaboradores
+                                Equipe
 
                             </p>
 

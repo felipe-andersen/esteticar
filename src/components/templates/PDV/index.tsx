@@ -9,8 +9,6 @@ export function PDV() {
 
             <TopBar pageName="PDV"/>
  
-
-
             <Main/>
 
         </div>

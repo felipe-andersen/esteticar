@@ -39,9 +39,6 @@ const services = [
         id: "k2fg54f8",
         type: "Sujeira pesada"
     },
-
-    
-
 ]
 
 
