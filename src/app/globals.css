@@ -106,9 +106,9 @@ body {
   width: 100vw;
   height: calc(100vh - 64px);
   margin-top: 64px;
-  background-color: rgba(255, 255, 255, 0.7);
-  -webkit-backdrop-filter: blur(1.5px);
-  backdrop-filter: blur(1.5px);
+  background-color: rgba(0, 0, 0, 0.2);
+  /* -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px); */
 }
 
 

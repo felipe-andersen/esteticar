@@ -33,3 +33,5 @@ para executar o container em segundo plano.
 Consulte a [documentação](https://docs.docker.com/reference/cli/docker/) da CLI do Docker.
 
 Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
+
+// crescimento vertical e horizontal

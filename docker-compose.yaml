@@ -5,7 +5,6 @@ services:
     app:
         build: .
         container_name: esteticar-app
- 
         volumes:
             - .:/usr/share/app
         ports:
@@ -13,24 +12,69 @@ services:
         restart: always
         network_mode: host
 
-    redis:
-        image: redis:latest
-        container_name: redis
-        ports:
-            - 6379:6379
-        restart: always
-        network_mode: host
+    # elasticsearch:
+    #     image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    #     environment:
+    #         - bootstrap.memory_lock=true
+    #         - cluster.name=docker-cluster
+    #         - cluster.routing.allocation.disk.threshold_enabled=false
+    #         - discovery.type=single-node
+    #         - ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g
+    #     ulimits:
+    #     memlock:
+    #         hard: -1
+    #         soft: -1
+    #     volumes:
+    #         - esdata:/usr/share/elasticsearch/data
+    #     ports:
+    #         - 9200:9200
+    #     networks:
+    #         - elastic
+    #     healthcheck:
+    #     interval: 20s
+    #     retries: 10
+    #     test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
 
-    redis_insight:
-        image: redis/redisinsight:latest
-        container_name: redis_insight
-        restart: always
-        ports:
-            - 5540:5540
-   
-    
-   
+    # kibana:
+    #     image: docker.elastic.co/kibana/kibana:7.15.2
+    #     depends_on:
+    #     elasticsearch:
+    #         condition: service_healthy
+    #     environment:
+    #     ELASTICSEARCH_URL: http://elasticsearch:9200
+    #     ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    #     ports:
+    #         - 5601:5601
+    #     networks:
+    #         - elastic
+    #     healthcheck:
+    #     interval: 10s
+    #     retries: 20
+    #     test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:5601/api/status
 
+    # apm_server:
+    #     image: elastic/apm-server
+    #     container_name: apm_server
+    #     ports:
+    #         - 6379:6379
+    #     restart: always
+    #     network_mode: host
+
+    # redis:
+    #     image: redis:latest
+    #     container_name: redis
+    #     ports:
+    #         - 6379:6379
+    #     restart: always
+    #     network_mode: host
+
+    # redis_insight:
+    #     image: redis/redisinsight:latest
+    #     container_name: redis_insight
+    #     restart: always
+    #     ports:
+    #         - 5540:5540
+   
     # adminer:
     #     image: adminer
     #     container_name: adminer

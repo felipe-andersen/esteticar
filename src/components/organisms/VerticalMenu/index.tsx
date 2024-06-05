@@ -205,17 +205,17 @@ export default function VerticalMenu() {
 
                     </div>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-zinc-200">
+                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-zinc-200 ">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
-                            <FileTextIcon strokeWidth={1}/>
+                            <BarChart3 strokeWidth={1}/>
 
                         </div>
                         
                         <div about="nome" className="h-full w-min flex items-center justify-center">
 
-                            <p className="text-zinc-800">Relatórios</p>
+                            <p className="text-zinc-800 whitespace-nowrap">Relatórios e Métricas</p>
 
                         </div>
 
@@ -231,7 +231,7 @@ export default function VerticalMenu() {
                         
                         <div about="nome" className="h-full w-min flex items-center justify-center">
 
-                            <p className="text-zinc-800">Métricas</p>
+                            <p className="text-zinc-800">NFSe</p>
 
                         </div>
 
@@ -298,3 +298,31 @@ export default function VerticalMenu() {
 
     )
 }
+
+
+/** 
+ 
+ Criar page/screen Cadastro de Clientes 
+
+ Informações: Nome, cpf, endereço, data de nascimento, 
+ email, telefones, data de entrada na plataforma, 
+ situação do cliente, veículos, (Razão social, 
+ ome fantasia, endereço e CNPJ se for empresa)
+
+ Essa página vai conter a lista de clientes e um botão 
+ "Cadastrar cliente".
+
+ Criar a page/screen na pasta templates. Deve conter um 
+ formulário para coletar as informações. 
+
+ Utilizar:
+ 
+    Tailwind (bibioteca de estilização)
+    React-hook-form (bibioteca para validação de formulaŕio)
+    React Bootstrap (bibioteca de components, opcional)
+    Lucide (bibioteca de ícones)
+
+ Lançar a funcionalidade na ramificação "feature" no Github.
+
+
+ */
