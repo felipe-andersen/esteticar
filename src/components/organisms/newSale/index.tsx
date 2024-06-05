@@ -17,7 +17,7 @@ interface Sale {
     servicesList?: ServiceItemProtocol[]
     productsList?: ProductsProtocol
     id: string
-    dateTime: string
+    dateTime: Date
     workerUser: string
     duration: string
     startDateTime: {

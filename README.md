@@ -21,17 +21,16 @@ $ docker build -t app-container . \
 docker run -it app-container sh
 ```
 
-Para executar o container em segundo plano:
+Para executar o container em segundo plano substitua a flag -it por -d.
+
+## A partir do docker-compose
 
 ```bash
-$ docker build -t app-container . \
-docker run -d app-container
-```
 
-para executar o container em segundo plano.
+$ docker compose up
+
+```
 
 Consulte a [documentação](https://docs.docker.com/reference/cli/docker/) da CLI do Docker.
 
 Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
-
-// crescimento vertical e horizontal
