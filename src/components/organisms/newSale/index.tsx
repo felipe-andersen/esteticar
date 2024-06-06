@@ -66,9 +66,9 @@ interface ProductsProtocol {
 
 
 
-const hours = Array.from({ length: 24 }, (_, index) => index + 1);
+const hours = Array.from({ length: 23 }, (_, index) => index + 0);
 
-const minutes = Array.from({ length: 60 }, (_, index) => index + 1);
+const minutes = Array.from({ length: 59 }, (_, index) => index + 0);
 
 export function NewSale() {
     return (
@@ -113,11 +113,15 @@ export function NewSale() {
 
                 <div className='flex  gap-3 text-gray-700 mb-4'>
 
-                    <button className='flex items-center gap-2 text-sm bg-zinc-100 h-10 px-3 w-min whitespace-nowrap rounded'><Plus size={18}/> Adicionar cliente</button>
+                    
 
                     <button className='flex items-center gap-2 text-sm bg-zinc-100 h-10 px-3 w-min whitespace-nowrap  rounded'><Search size={18}/>Pesquisar cliente</button>
 
                 </div>
+
+                {
+                    
+                }
 
                 <div className='gap-2 h-min mb-4'>
 
@@ -393,7 +397,11 @@ export function NewSale() {
                     
                 </div>
 
-                <input placeholder="" className='w-full  text-sm h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+                <input placeholder="Ex. DESCONTO10" maxLength={24} className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+
+                <input placeholder="% 1" type="text" maxLength={4} className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+
+                <input placeholder="R$ 000,000,00" maxLength={10}  className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
 
                 <p className="flex flex-col  gap-2 text-zinc-700 mb-6">
 
@@ -417,7 +425,7 @@ export function NewSale() {
 
                 <div className="h-24 w-full border border-zinc-800 rounded"></div>
 
-                <div className='gap-2 h-min mt-10 mb-5'>
+                {/* <div className='gap-2 h-min mt-10 mb-5'>
 
                     <span className='mb-2'>
 
@@ -427,9 +435,23 @@ export function NewSale() {
 
                     <br/>
 
-                    <input placeholder="Nome do Cliente" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                    <div className="w-full mt-2 text-sm h-12 border border-zinc-300 px-2 rounded">
 
-                </div>
+                        <select className="w-full h-full bg-white outline-none" id="cars">
+                            <option className="h-8" value="volvo">Pedro</option>
+                            <option value="saab">José</option>
+                            <option value="opel">Márcio</option>
+                            <option value="audi">Ricardo</option>
+                            <option value="saab">Antônio</option>
+                            <option value="opel">Bernardo</option>
+                            <option value="audi">Henrique</option>
+                        
+                        </select>
+
+                    </div>
+
+
+                </div> */}
 
                 <div className="flex flex-col gap-3 p-3 my-6 text-gray-700 text-sm">
 

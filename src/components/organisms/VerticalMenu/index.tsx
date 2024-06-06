@@ -45,7 +45,7 @@ export default function VerticalMenu() {
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
 
-                    <div about="butões" className="w-min  h-16 rounded-full flex flex-row hover:bg-zinc-200 px-6 gap-5">
+                    <Link href={"/team"}  className="w-min  h-16 rounded-full flex flex-row hover:bg-zinc-200 px-6 gap-5">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -59,9 +59,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full  h-16 flex flex-row hover:bg-zinc-200 px-6 gap-5 w-min">
+                    <Link href={"/team"} className="rounded-full  h-16 flex flex-row hover:bg-zinc-200 px-6 gap-5 w-min">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -79,7 +79,7 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
                     <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-zinc-200">
 
