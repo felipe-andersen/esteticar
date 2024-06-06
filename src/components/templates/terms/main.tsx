@@ -29,4 +29,11 @@ export function Main() {
 }
 
 
+
+// a pasta app é onde fica de fato ás páginas. o sistema indentica a página como por exemplo user/page.tsx
+
+
+// Templates. Pasta onde fica os templates das páginas.
+
+
   
