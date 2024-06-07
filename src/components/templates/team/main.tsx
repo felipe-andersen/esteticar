@@ -21,6 +21,7 @@ const services = [
     {
         name: "Lavagem simples",
         role: "40,00 - 50,00",
+        lastLogin:"",
         
         id: "52fg5gh",
         type: "Sujeira média"
@@ -158,19 +159,23 @@ export function Main() {
                                         
                                         </td>
 
-                                        <td className=''><div className='h-8 w-8 bg-red-100 rounded-full'></div></td>
+                                        <td className=''>
+                                            <div className='overflow-hidden rounded-full h-12 w-12  rounded-full'>
+                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTonTN6a6Kxpt4OvQOqQ2ykL_yMTDuKw7FokbC0Fiqw8IJ95uINpn6PjKhBz6fyX5eE5Fg&usqp=CAU'/>
+                                            </div>
+                                        </td>
                                         
-                                        <td>=fdf</td>
+                                        <td className=''><div className='flex gap-2 items-center h-full '><span>Mateus Nascimento</span><span className='text-xs w-min h-6 flex items-center bg-neutral-700 rounded px-2 text-white font-medium '>admim</span></div></td>
 
-                                        <td>fdfdfdf</td>
+                                        <td className='whitespace-nowrap'>Colaborador  </td>
 
-                                        <td>fdfdfdfdfd</td>
+                                        <td>13/08/24 | 8:35</td>
 
-                                        <td>fdfdfdfdfdfd </td>
+                                        <td>13/08/24 </td>
 
                                         <td className=' w-9'>
 
-                                            <div className='flex items-center '>
+                                            <div className='flex items-center pr-5'>
 
                                                 <div className=' rounded px-2 h-7 hover:bg-zinc-50 flex justify-center items-center bg-zinc-50 text-xs gap-1'>
 
@@ -209,7 +214,7 @@ export function Main() {
 
                     <p className='font-semibold mb-2 text-neutral-800 text-lg'>Mateus Lima</p>
 
-                    <p className='text-sm text-zinc-500 mb-3'>Colaborador/Funcionário</p>
+                    <p className='text-sm text-[#96a0ad] mb-3'>Colaborador/Funcionário</p>
 
                     <p className='text-xs h-6 flex items-center bg-green-600 rounded px-2 text-white font-medium mb-10'>Ativo</p>
 
@@ -226,42 +231,42 @@ export function Main() {
                         
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>ID do usuário</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className='text-[#96a0ad] '>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Email</span>
-                            <span className=' text-neutral-500'>mateus.lima@gmail.com</span>
+                            <span className=' text-[#96a0ad]'>mateus.lima@gmail.com</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Telefone</span>
-                            <span className=' text-neutral-500'>+55 31 99999-9999</span>
+                            <span className=' text-[#96a0ad]'>+55 31 99999-9999</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Endereço</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Data de nascimento</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Natural de</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Salário bruto</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Benefícios</span>
-                            <span className=' text-neutral-500'>jof58568</span>
+                            <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                     </ul>
