@@ -36,4 +36,4 @@ export function Main() {
 // Templates. Pasta onde fica os templates das páginas.
 
 
-  
+  // a página de cadastro de clinte é customerRegistration

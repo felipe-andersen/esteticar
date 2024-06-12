@@ -45,7 +45,7 @@ export default function VerticalMenu() {
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
 
-                    <Link href={"/team"}  className="w-min  h-16 rounded-full flex flex-row hover:bg-zinc-200 px-6 gap-5">
+                    <Link href={"/team"}  className="w-min  h-16 rounded-full flex flex-row hover:bg-orange-300 px-6 gap-5">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -61,7 +61,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <Link href={"/team"} className="rounded-full  h-16 flex flex-row hover:bg-zinc-200 px-6 gap-5 w-min">
+                    <Link href={"/staff"} className="rounded-full  h-16 flex flex-row hover:bg-blue-300 px-6 gap-5 w-min">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -73,7 +73,7 @@ export default function VerticalMenu() {
                             
                             <p className="text-zinc-800">
 
-                                Equipe
+                                Colaboradores
 
                             </p>
 
@@ -81,7 +81,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-zinc-200">
+                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-yellow-300">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -103,7 +103,7 @@ export default function VerticalMenu() {
 
                     </div>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-zinc-200">
+                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-16 flex flex-row hover:bg-green-300">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 

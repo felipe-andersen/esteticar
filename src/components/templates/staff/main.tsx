@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { result } from '@/components/organisms';
-import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ChevronDown, ChevronUp} from "lucide-react";
+import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ChevronDown, ChevronUp, FileDown, ChevronRight} from "lucide-react";
 import VerticalMenu from '@/components/organisms/VerticalMenu';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -14,6 +14,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { TopBar } from '@/components/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
+import RegisterWorker from '@/components/organisms/forms/registerWorker';
 
 
 
@@ -42,12 +43,7 @@ const services = [
     },
 ]
 
-
-
-
 export function Main() {
-
-
 
     return (
 
@@ -57,23 +53,22 @@ export function Main() {
 
             <div className='flex flex-col mb-10 gap-3 '>
 
-                <h2 className='text-2xl font-semibold '>Usuários</h2>
+                <h2 className='text-2xl font-semibold '>Colaborador</h2>
 
-                <p className='text-zinc-400'>Lista de usuários cadastrados</p>
+                <p className='text-zinc-400'>Lista de colaboradores cadastrados</p>
                 
             </div>
 
-            <div className='flex  gap-3 mb-6 items-center w-full justify-between' >
+            <div className='flex  gap-3 mb-6 items-
+            center w-full justify-between' >
 
-                <p className='text-zinc-600 text-md underline'>10 usuários cadastrados</p>
+                <p className='text-zinc-600 text-md underline'>10 colaboradores cadastrados</p>
 
                 <div className='flex gap-3'>
                     
-              
+                <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-blue-600 hover:bg-blue-500 '>
 
-                <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600'>
-
-                    Cadastrar usuário
+                    Cadastrar colaborador
 
                 </button>
 
@@ -86,40 +81,30 @@ export function Main() {
                 </div>
 
             </div>
-
-        
             
             {/* Eventos 
             poarcerias e brindes */}
-
         
-
-            <div className='text-lg h-16 flex items-center border-b border-zinc-300 mb-6'>Estatística de usuário</div>
-
-         
+            <div className='text-lg h-16 flex items-center border-b border-zinc-300 mb-6'>Estatística de colaborador</div>
 
             <div className=' h-16 flex items-center justify-between border-b border-zinc-300 mb-6'>
 
-                <div className='text-lg'>Lista de usuários</div>
+                <div className='text-lg'>Lista de colaborador</div>
 
                 <div className='flex '>
 
-                    <div className='h-9 w-9 rounded   flex items-center justify-center '><Filter size={18} /></div>
+                    <div className='h-9 w-9 rounded   flex items-center justify-center '><Filter size={18} strokeWidth={1}/></div>
 
-                    <button className='h-9  px-3 bg-white bg-violet-100 border border-zinc-300 flex items-center justify-center hover:bg-zinc-100 focus:bg-zinc-200 rounded-l-lg'>Export</button>
+                        <button className='h-9  px-3  flex items-center justify-center hover:bg-zinc-200  mx-3 text-sm flex gap-1'>Exportar <ChevronDown strokeWidth={1} size={18}/></button>
 
-                    <button className='h-9 w-9  bg-white bg-violet-100 border border-zinc-300 flex items-center justify-center hover:bg-zinc-100 focus:bg-zinc-200 rounded-l-lg'><Table size={18} color="grey"/></button>
+                        <button className='h-9 w-9     flex items-center justify-center hover:bg-zinc-200 focus:bg-zinc-300 rounded'><Table size={18} color="black" strokeWidth={1}/></button>
 
-                    <div className='h-9 w-9  bg-white border border-zinc-400 flex items-center justify-center  rounded-r-lg'><List size={18} color="grey" /></div>
+                        <button className='h-9 w-9     flex items-center justify-center hover:bg-zinc-200 focus:bg-zinc-300 rounded'><List size={18} color="black" strokeWidth={1} /></button>
 
-                </div>
+                    </div>
                 
             </div>
 
-
-            
-
-           
             <div className='bg-white py-8  rounded mb-6 border '>
             
                 <table className='bg-white w-full '>
@@ -132,9 +117,10 @@ export function Main() {
                             <th className='text-start text-xs font-normal text-zinc-400'></th>
                             <th className='text-start text-xs font-normal text-zinc-400'>NOME</th>
                             <th className='text-start text-xs font-normal text-zinc-400' >CARGO</th>
-                            <th className='text-start text-xs font-normal text-zinc-400'>ÚLTIMO LOGIN</th>
-                            <th className='text-start text-xs font-normal text-zinc-400'>DATA DE ENTRADA</th>
-                            <th className='text-start text-xs font-normal text-zinc-400'>STATUS</th>
+                            <th className='text-start text-xs font-normal text-zinc-400'>EMAIL</th>
+                            <th className='text-start text-xs font-normal text-zinc-400'>TELEFONE</th>
+                            <th className='text-start text-xs font-normal text-zinc-400'>ID</th>
+                            <th className='text-start text-xs font-normal text-zinc-400'></th>
 
                         </tr>
 
@@ -160,18 +146,20 @@ export function Main() {
                                         </td>
 
                                         <td className=''>
-                                            <div className='overflow-hidden rounded-full h-12 w-12  rounded-full'>
-                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTonTN6a6Kxpt4OvQOqQ2ykL_yMTDuKw7FokbC0Fiqw8IJ95uINpn6PjKhBz6fyX5eE5Fg&usqp=CAU'/>
+                                            <div className='overflow-hidden rounded-full h-10 w-10  rounded-full flex flex-items justify-center'>
+                                                <img className="h-full" src='https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg'/>
                                             </div>
                                         </td>
-                                        
-                                        <td className=''><div className='flex gap-2 items-center h-full '><span>Mateus Nascimento</span><span className='text-xs w-min h-6 flex items-center bg-neutral-700 rounded px-2 text-white font-medium '>admim</span></div></td>
+                                         
+                                        <td className=''><div className='flex gap-2 items-center h-full '><span>Mateus Nascimento</span></div></td>
 
                                         <td className='whitespace-nowrap'>Colaborador  </td>
 
-                                        <td>13/08/24 | 8:35</td>
+                                        <td>mateus@gmail.com</td>
 
-                                        <td>13/08/24 </td>
+                                        <td><span className='text-sm '>+55 21 99999-9999</span></td>
+
+                                        <td>CLT </td>
 
                                         <td className=' w-9'>
 
@@ -202,9 +190,9 @@ export function Main() {
 
             </div>
 
-            <div className='flex w-full  h-full'>
+            <div className='flex w-full  h-full gap-4'>
 
-                <div className='w-96  flex flex-col px-6 py-12 items-center rounded bg-white border border-zinc-100'>
+                <div className='w-[30%]  flex flex-col px-6 py-12 items-center rounded-lg bg-white border border-zinc-100'>
 
                     <div className='mb-6 w-24 h-24 flex items-center justify-center rounded-full overflow-hidden'>
 
@@ -212,25 +200,26 @@ export function Main() {
 
                     </div>
 
-                    <p className='font-semibold mb-2 text-neutral-800 text-lg'>Mateus Lima</p>
+                    <div className='flex gap-2'>
 
-                    <p className='text-sm text-[#96a0ad] mb-3'>Colaborador/Funcionário</p>
+                        <p className='text-xs h-6 flex items-center bg-blue-500 rounded px-2 text-white font-medium mb-10'>Ativo</p>
 
-                    <p className='text-xs h-6 flex items-center bg-green-600 rounded px-2 text-white font-medium mb-10'>Ativo</p>
+                        <p className='text-xs h-6 flex items-center bg-blue-500 rounded px-2 text-white font-medium mb-10'>dgfjhy</p>
 
+                    </div>
 
                     <div className='flex justify-between w-full h-16 border-b border-zinc-100 items-center'>
 
                         <button className='font-semibold flex items-center gap-2'>Detalhes  <ChevronUp size={18}/></button>
 
-                        <button className='bg-green-200 text-xs h-8 rounded px-2 text-green-700 font-medium'>Editar</button>
+                        <button className='bg-blue-200 text-xs h-8 rounded px-2 text-blue-700 font-medium'>Editar</button>
 
                     </div>
 
                     <ul className='flex flex-col w-full py-4'>
-                        
-                        <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
-                            <span className='font-medium'>ID do usuário</span>
+
+                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
+                            <span className='font-medium'>Permição</span>
                             <span className='text-[#96a0ad] '>jof58568</span>
                         </li>
 
@@ -255,25 +244,24 @@ export function Main() {
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
-                            <span className='font-medium'>Natural de</span>
-                            <span className=' text-[#96a0ad]'>jof58568</span>
-                        </li>
-
-                        <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Salário bruto</span>
                             <span className=' text-[#96a0ad]'>jof58568</span>
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
-                            <span className='font-medium'>Benefícios</span>
-                            <span className=' text-[#96a0ad]'>jof58568</span>
+                            <span className='font-medium'>ID do usuário</span>
+                            <span className='text-[#96a0ad] '>jof58568</span>
                         </li>
 
                     </ul>
 
                 </div>
 
-                <div className='w-3/5 bg-blue-100'> 
+                
+
+                <div className='w-[70%] h-full  flex flex-col px-6 py-12 items-center rounded bg-white border border-zinc-100 rounded-lg'> 
+
+                    Conquistas
                 
                 </div>
 
@@ -282,8 +270,8 @@ export function Main() {
 
             </div>
 
+            <RegisterWorker/>
          
-        
         </div>
 
     </main>

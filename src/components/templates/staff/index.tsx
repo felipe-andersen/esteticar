@@ -4,7 +4,7 @@ import { Main } from "./main";
 
 
 
-export function Team() {
+export function Staff() {
     return (
         <>
 

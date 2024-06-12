@@ -3,7 +3,6 @@ import { TopBar } from "@/components/organisms/topBar";
 import { Main } from "./main";
 
 
-
 export function ServicesList() {
     return (
         <>
@@ -13,8 +12,6 @@ export function ServicesList() {
             <VerticalMenu/>
 
             <Main/>
-
-
 
         </>
     )

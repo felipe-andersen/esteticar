@@ -14,8 +14,19 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { TopBar } from '@/components/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
+import { serviceCategories  } from '@/app/services/api/route';
 
 
+interface Category {
+    category: string
+}
+
+const serviceCategories_exemple: Category[] = [
+    {category:"pintura"},
+    {category:"lavagem"},
+]
+
+console.table(serviceCategories_exemple)
 
 const services = [
     {
@@ -41,12 +52,9 @@ const services = [
     },
 ]
 
-
-
-
 export function Main() {
 
-
+    console.table(serviceCategories.lavagem)
 
     return (
 
@@ -64,12 +72,10 @@ export function Main() {
 
             <div className='flex  gap-3 mb-6 items-center w-full justify-between' >
 
-                <p className='text-zinc-600 text-md underline'>59 serviços cadastrados</p>
+                <p className='text-zinc-600 text-md underline'>1 categoria 3 serviços cadastrados</p>
 
                 <div className='flex gap-3'>
                     
-              
-
                 <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600'>
 
                     Cadastrar serviço
@@ -86,16 +92,10 @@ export function Main() {
 
             </div>
 
-        
-            
             {/* Eventos 
             poarcerias e brindes */}
 
-        
-
             <div className='text-lg h-16 flex items-center border-b border-zinc-300 mb-6'>Serviços mais vendidos</div>
-
-         
 
             <div className=' h-16 flex items-center justify-between border-b border-zinc-300 mb-6'>
 
@@ -112,9 +112,6 @@ export function Main() {
                 </div>
                 
             </div>
-
-
-            
 
             <div className='flex justify-between mb-6'>
 
@@ -235,7 +232,6 @@ export function Main() {
 
                                         </div>
 
-                                    
                                     </td>
 
                                     <td className=''>{item.name}</td>
@@ -311,7 +307,6 @@ export function Main() {
                                             <div className=' h-4 w-4 border  border-zinc-300 rounded hover:border-blue-500 '></div>
 
                                         </div>
-
                                     
                                     </td>
 
@@ -336,6 +331,7 @@ export function Main() {
                                     </td>
 
                                     </tr>
+
                                     <div className='line h-[1px] w-full bg-white'></div>
                                 </>
                             ))
@@ -388,7 +384,6 @@ export function Main() {
                                             <div className=' h-4 w-4 border  border-zinc-300 rounded hover:border-blue-500 '></div>
 
                                         </div>
-
                                     
                                     </td>
 
@@ -466,7 +461,6 @@ export function Main() {
 
                                         </div>
 
-                                    
                                     </td>
 
                                     <td className=''>{item.name}</td>
@@ -490,6 +484,7 @@ export function Main() {
                                     </td>
 
                                     </tr>
+
                                     <div className='line h-[1px] w-full bg-white'></div>
                                 </>
                             ))
@@ -543,7 +538,6 @@ export function Main() {
 
                                         </div>
 
-                                    
                                     </td>
 
                                     <td className=''>{item.name}</td>
@@ -551,7 +545,6 @@ export function Main() {
                                     <td>{item.description}</td>
                                     <td>{item.id}</td>
                                     <td>{item.price} </td>
-
                                     <td className=' w-9'>
 
                                         <div className='flex items-center justify-end'>
@@ -567,6 +560,7 @@ export function Main() {
                                     </td>
 
                                     </tr>
+
                                     <div className='line h-[1px] w-full bg-white'></div>
                                 </>
                             ))

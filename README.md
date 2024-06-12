@@ -34,3 +34,7 @@ $ docker compose up
 Consulte a [documentação](https://docs.docker.com/reference/cli/docker/) da CLI do Docker.
 
 Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
+
+## A fazer
+
+- configurar o prettier
