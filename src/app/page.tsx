@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HomePage() {
     return (
       
-        <div className="flex   flex-col   ">
+        <div className="flex  h-screen w-screen flex-col  overflow-hidden ">
 
             <Home/>
 

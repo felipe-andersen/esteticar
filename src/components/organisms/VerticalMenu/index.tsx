@@ -5,7 +5,7 @@ export default function VerticalMenu() {
 
     return (
 
-        <section about=" barra lateral esquerda " className="  flex w-80 fixed mt-16 jfif  flex-col hidden   sm md:flex lg xl 2xl  bg-white border-r border-zinc-200  ">
+        <section  className="flex w-80 fixed mt-16 flex-col h-full hidden sm md:flex lg xl 2xl  bg-white border-r border-zinc-200">
             
             <div about="coluna de botões " className="  w-full  h-full overflow-scroll scroll  flex flex-col  overflow-x-hidden">
                 
@@ -95,7 +95,7 @@ export default function VerticalMenu() {
 
                             Marketing
 
-                            <div className="text-xs bg-violet-700 rounded flex w-min px-2 py-1 text-white justify-center items-center font-semibold gap-2"> <Crown size={14}/></div>
+                            <div className="text-xs  rounded flex w-min px-2 py-1 text-white justify-center items-center font-semibold gap-2"> <Crown size={18} color="#622e88"/></div>
                             
                             </p>
 

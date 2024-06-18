@@ -8,6 +8,11 @@ export default function Components() {
 
             <main className=' w-[100vw] h-[100vh] bg-[#f6f8fa] p-20 scroll flex flex-col overflow-scroll gap-3'>
 
+                <button  type="submit" className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600 hover:bg-teal-500 flex gap-2 items-center justify-center  '>
+
+                    Cadastrar 
+
+                </button> 
 
                 <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600 hover:bg-teal-500 flex gap-2 items-center justify-center border-2 border-teal-600 hover:border-teal-600'>
 

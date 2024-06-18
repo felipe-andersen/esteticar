@@ -257,8 +257,6 @@ export function Main() {
 
                 </div>
 
-                
-
                 <div className='w-[70%] h-full  flex flex-col px-6 py-12 items-center rounded bg-white border border-zinc-100 rounded-lg'> 
 
                     Conquistas

@@ -1,119 +1,248 @@
 'use client'
 
-import { Worker } from "@/app/staff/api"
+// import { Worker } from "@/app/staff/api"
 import { useForm, SubmitHandler } from "react-hook-form"
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import React, { FormEvent, useState } from "react";
+import { Ban, Blocks, Check } from "lucide-react";
+// import startsWith from 'lodash.startswith';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 
-export type Worker_ =  {
-    fullName: string
+
+
+const inputErrorMsg = {
+    fullName: {
+        minChar: "O mínimo é 1 caractere",
+        maxChar:"O máximo é 100 caracteres",
+    },
+    defaultEmail: {
+        min: "",
+        max:"",
+        invalidEmail:"Email inválido",
+    },
+}
+
+
+
+const placeholder = {
+    fullName: "Jonny Albuquerque",
+    defaultEmail: "exemplo@seuemail.com"
+}
+
+/**
+ * Nunca submeta o form para não correr os risco de enviar campos inválidos
+ */
+
+// export type Worker_ =  {
+//     fullName: string   salvar como todas minusculas / Felipe Sousa
     // defaultEmail: string
-    // rule: string
-    // phone?: string
+    // rule: string salvar como todas minusculas
+    // phone?: string "+55 21 99999-9999"
     // id?: string
-    // status : string
+    // status : string primeira me maiúscula
     // permission: string
     // contract: string
-    // birthday: string
-    // salary: string
+    // birthday: string YYYY-MM-DD
+
+    // salary: string 150.50 decimal com pontos $ padrão
     // adress: string
-    // // nativeCountry: string
-    // // birthplace: string
-    // docs_ptBR: string
+    // // nativeCountry: string Brazil
+    // // birthplace: string 
     // RG: string
-    // CPF: string
+    // CPF: string 12345678909
     // CTPS: string
     // TE: string
     // stateProvince: string
     // country: string
     // city: string
-    // zipPostcode: string
+    // zipPostcode: string 12345678 
 
-}
+// }
 
+const Worker = z.object({
+    fullName: z.string()
+    .min(1, `${inputErrorMsg.fullName.minChar ? inputErrorMsg.fullName.minChar :'min 1'}`)
+    .max(100, `${inputErrorMsg.fullName.maxChar ? inputErrorMsg.fullName.maxChar : 'max 100'}`)
+    .toLowerCase(),
+    
+    defaultEmail: z.string()
+    .email("This email is invalid")
+    .toLowerCase(),
+
+    cpf: z.number({required_error: "dkfldkfldkfl", message: "jkfjgkf"}).gte(9).lte(9, "fkdjfdkjf").int().positive().min(9).max(9, "fjgkfjgkjgfk")
+
+});
+
+type WorkerP = z.infer<typeof Worker>
 
 export default function RegisterWorker() {
+
     const {
+       
+        reset,
+        resetField,
+        getValues,
+        control,
+        clearErrors,
+        setValue,
+        setFocus,
+        setError,
+        getFieldState,
         register,
         handleSubmit,
         watch,
-        formState: { errors },
-    } = useForm<Worker>()
+        formState: { errors, isValid, isDirty, isLoading },
+    } = useForm<WorkerP>({ mode: 'all', resolver: zodResolver(Worker) })
 
-    const onSubmit: SubmitHandler<Worker> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<WorkerP> = (data) => console.log(data)
 
-    console.log(watch("fullName")) // watch input value by passing the name of it
+    const [ phone, setPhone ] = useState<string>()
+
+    const prevent = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+    };
+
+    function capitalizeWords(text:string) {
+        let result = text?.toLocaleLowerCase()
+        return result?.replace(/\b\w/g, (c) => c.toUpperCase());
+    }
 
     return (
+
+        <div className="h-full">
    
-        <form  onSubmit={handleSubmit(onSubmit)} className="w-1/2 h-full flex flex-col p-10 bg-white gap-5 text-sm">
+        <form  onSubmit={ prevent } className="w-1/2 h-full flex flex-col p-10 bg-white gap-5 text-sm">
         
-            <div className=" w-full flex  flex flex-col gap-2">
+            <div className=" w-full h-min  flex  flex flex-col gap-2">
 
-                <span>Name</span>
+                <span>Name *</span>   
 
-                <div className="h-10 border border-zinc-300 flex flex-col rounded  justify-center">
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center hover:border-zinc-400">
 
                     <input
-                        className=" w-full h-full px-3"
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
                         // name="fullName" 
-                        placeholder="Nome Completo"
+                        spellCheck="false"
+                        placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}
                         type="text" 
                         {...register("fullName") }
-                        maxLength={20}
-                        pattern="/^[A-Za-z]+$/i"
+                        aria-invalid={errors.fullName ? "true" : "false"} 
+                       
+                        value={capitalizeWords(watch('fullName'))}
+                        // onChange={(data) => data}
+                        // onChange={(e) => e.isPropagationStopped() && }
                     />
 
-              
+                    <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
+                        <span className="loader"/>
+                    </span>
+
+
                 </div>
+           
+                {errors.fullName?.message && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{errors.fullName?.message}</p>}
 
             </div>
 
-            <div className="w-full flex  flex flex-col gap-3">
+            <div className=" w-full h-min  flex  flex flex-col gap-2">
 
                 <span>Email</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col rounded  justify-center">
+                <div className="h-12 w-full border-[2px] px-1 border-zinc-200 flex  rounded-lg  items-center ">
 
                     <input
-                        className=" w-full h-full px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
+                        className="  w-full h-full px-2 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
+                        // name="fullName" 
+                        placeholder={`${placeholder.defaultEmail ? placeholder.defaultEmail : 'exemple@youremail.com'}`}
                         type="text" 
+                        spellCheck="false"
+                        {...register("defaultEmail") }
+                        aria-invalid={errors.defaultEmail ? "true" : "false"} 
+                        // pattern="/^[A-Za-z]+$/i"
+                        value={watch("defaultEmail")}
                     />
 
+                    <span className="w-8 h-8 flex items-center justify-center ">
+                        {errors.defaultEmail?.message &&  watch("defaultEmail") ? <span className="h-8 h-8 flex items-center justify-center text-red-400 "><Ban  size={14}/></span> : watch("defaultEmail") && <span className="w-8 h-8 flex items-center justify-center "><Check color='green' size={16}/></span>}
+                    </span>
+
                 </div>
+           
+                {errors.defaultEmail?.message && getValues("defaultEmail") && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{inputErrorMsg.defaultEmail.invalidEmail ? inputErrorMsg.defaultEmail.invalidEmail : errors.defaultEmail?.message}</p>}
+
+               
+
+               
+
 
             </div>
 
             <div className=" w-full flex  flex flex-col gap-3">
 
-                <span>Telefone</span>
+                <span>Celular</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="px-1 h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center  ">
 
-                    <input
-                        className=" w-full h-full px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
+                    <PhoneInput
+                        // isValid={(inputNumber, country, countries) => {
+                        //     return countries.some((country) => {
+                        //     return startsWith(inputNumber, country.dialCode) || startsWith(country.dialCode, inputNumber);
+                        //     });
+                        // }}
+
+                       
+                    
+                       containerStyle={{width:"100%", height:"100%", border:"none", backgroundColor:"transparent"}}
+                       inputStyle = {
+                        {width: "100%",
+                             height:"100%",
+                           borderRadius: "none",
+                            border: "none",
+                            backgroundColor:"transparent"
+                        }
+                       }
+                       buttonStyle = {{height:"100%", border:"none", backgroundColor:"transparent"}}
+                        country={'us'}
+                        inputProps={{
+                            name: 'phone',
+                            required: true,
+                          
+                          }}
+                        enableAreaCodes = {true}
+                         defaultErrorMessage="kfdlfkdf"
+                         
+                         value={phone}
+                         onChange={() => setPhone(phone)}
                     />
 
                 </div>
+
+               
 
             </div>
 
              <div className=" w-full flex  flex flex-col gap-3">
 
-                <span>Cargo</span>
+                <span>Cargo *</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="h-12 px-2 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
-                    <input
-                        className=" w-full h-full px-3"
+                    <select className=" w-full h-full  outline-none bg-transparent placeholder:text-neutral-400 ">
+                       
+                        <option value="Freelance">Administrador</option>
+                        <option value="Freelance">Gerente</option>
+                        <option  value="CLT">Colaborador</option>
+                    </select>
+
+                    {/* <input
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         name="fullName" 
-                        placeholder="Nome Completo"
+                        placeholder=""
                         type="text" 
-                    />
+                    /> */}
 
                 </div>
 
@@ -123,14 +252,22 @@ export default function RegisterWorker() {
 
                 <span>Contrato</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="px-2 h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
-                    <input
-                        className=" w-full h-full px-3"
+                    <select className=" w-full h-full  outline-none bg-transparent placeholder:text-neutral-400 ">
+                        <div className="h-8 w-full">
+                            <option value="Freelance">Freelance</option>
+                        </div>
+                        <option value="Freelance">Freelance</option>
+                        <option  value="CLT">CLT</option>
+                    </select>
+
+                    {/* <input
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         name="fullName" 
-                        placeholder="Nome Completo"
+                        // placeholder="Nome Completo"
                         type="text" 
-                    />
+                    /> */}
 
                 </div>
 
@@ -140,61 +277,70 @@ export default function RegisterWorker() {
 
                 <span>Data de Nascimento</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
                     <input
-                        className=" w-full h-full px-3"
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase placeholder:text-xs"
                         name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
+                        placeholder="DD/MM/AAAA"
+                        type="date" 
+                        value={'12/08/1992'}
                     />
 
                 </div>
 
             </div>
 
-             <div className=" w-full flex  flex flex-col gap-3">
+        
 
-                <span>Salário</span>
-
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
-
-                    <input
-                        className=" w-full h-full px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
-                    />
-
-                </div>
-
-            </div>
-
-             <div className=" w-full flex  flex flex-col gap-3">
+             {/*<div className=" w-full flex  flex flex-col gap-3">
 
                 <span>Contrato</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
                     <input
-                        className=" w-full h-full px-3"
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         name="fullName" 
-                        placeholder="Nome Completo"
+                        // placeholder=""
                         type="text" 
                     />
 
                 </div>
 
-            </div>
+            </div> */}
 
             <div className=" w-full flex  flex flex-col gap-3">
 
                 <span>CPF</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
                     <input
-                        className=" w-full h-full px-3"
+                     {...register("cpf")}
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase no-spinner"
+                        // name="fullName" 
+                        placeholder="012.345.678-91"
+                        type="text" 
+                        maxLength={11}
+                        pattern="/^\d+$/"
+                    
+                    />
+
+                </div>
+
+                {errors.cpf?.message && getValues("cpf") && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{errors.cpf?.message}</p>}
+
+            </div>
+
+            <div className=" w-full flex  flex flex-col gap-3">
+
+                <span>Conta</span>
+
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
+
+                    <input
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         name="fullName" 
                         placeholder="Nome Completo"
                         type="text" 
@@ -206,12 +352,14 @@ export default function RegisterWorker() {
 
             <div className=" w-full flex  flex flex-col gap-3">
 
-                <span>RG</span>
+                <span>Pix</span>
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
+                {/* Brazilian instant payment service: Key and key type */}
+
+                <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center ">
 
                     <input
-                        className=" w-full h-full px-3"
+                        className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         name="fullName" 
                         placeholder="Nome Completo"
                         type="text" 
@@ -221,58 +369,27 @@ export default function RegisterWorker() {
 
             </div>
 
-             <div className=" w-full flex  flex flex-col gap-3">
+           {
+                isValid && isDirty ?
 
-                <span>Titulo de Eleitor</span>
+                <button  type="submit" className='h-10 w-full px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600 hover:bg-teal-500 flex gap-2 items-center justify-center  '>
+                    Cadastrar 
+                </button> 
 
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
-
-                    <input
-                        className=" w-full h-full px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
-                    />
-
-                </div>
-
-            </div>
-
-            <div className=" w-full flex  flex flex-col gap-3">
-
-                <span>Título de Eleitor</span>
-
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
-
-                    <input
-                        className=" w-full h-full px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
-                    />
-
-                </div>
-
-            </div>
-
-            <div className=" w-full flex  flex flex-col gap-3">
-
-                <span>CTPS</span>
-
-                <div className="h-10 border border-zinc-300 flex flex-col justify-center rounded">
-
-                    <input
-                        className=" w-full h-full px-3 px-3"
-                        name="fullName" 
-                        placeholder="Nome Completo"
-                        type="text" 
-                    />
-
-                </div>
-
-            </div>
-
+                : 
+                
+                <button
+               
+                disabled 
+                type="submit" 
+                className='h-10 w-full px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-teal-600  flex gap-2 items-center justify-center border-2 border-teal-600  disabled:opacity-30'>
+                    Cadastrar
+                </button>
+           }
+        
         </form>
+        
+        </div>
     )
 }
 

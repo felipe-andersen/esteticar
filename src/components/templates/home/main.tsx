@@ -26,9 +26,9 @@ export function Main() {
 
     return (
 
-    <main className=' flex w-full h-full box-border border-l border-zinc-300 relative ml-80 mt-16'>
+    <main className=' flex w-full h-[100%] box-border border-l border-zinc-300 relative ml-80 mt-16  overflow-hidden'>
 
-        <div className='flex w-full  fixed h-full z-10  border-l border-zinc-150 box-border overflow-hidden overflow-scroll'>
+        <div className='flex w-3/4  fixed h-[100%] z-10  border-l border-zinc-150 box-border overflow-hidden'>
 
             {/* <div  about="pdv" className='w-full h-40 flex items-center yjy  lg:justify-between  px-6 gap:6 border-b border-zinc-150 sm:flex-col lg:flex-row '>
 
@@ -60,7 +60,7 @@ export function Main() {
 
            
 
-            <div className='flex flex-col border-r border-r-zinc-300 hdjfhdj bg-zinc-400  '>
+            <div className='flex flex-col border-r border-r-zinc-300 hdjfhdj bg-zinc-400 overflow-hidden '>
 
                 <div about="Pátio" className='w-full bg-white  flex border-b border-b-zinc-300 '>
 
@@ -602,7 +602,7 @@ export function Main() {
                 
             </div>
 
-            <div className=' w-1/4 h-screen  p-4 sm md lg xl 2xl max-h-[700px] '>
+            <div className=' w-1/4 h-full  p-4 sm md lg xl 2xl max-h-[700px] '>
 
                 <div className='flex flex-col justify-between gap-3 p-5 text-white imgf w-full h-72 bg-red-100  overflow-hidden rounded'>
                 
@@ -620,8 +620,6 @@ export function Main() {
 
 
                 </div>
-                        
-           
                 
             </div>
 

@@ -1,127 +1,115 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+
+
+/* Chrome, Safari, Edge, Opera */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Firefox */
+.no-spinner[type='number'] {
+    -moz-appearance: textfield;
+}
+
+
+
+.loader {
+  width: 20px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side,#818181 90%,#0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+@keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}
+
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
+
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 222.2 84% 4.9%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+    }
   }
-}
 
-body {
-  background-color: white;
-  display: flex;
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
-}
-
-.dffd {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/022/429/675/original/abstract-colorful-low-poly-geometric-shapes-background-png.png");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
- 
-}
-
-.fdlfd {
-  height: 10%;
-}
-
-
-.yjy {
-  justify-content: flex-start;
-}
-
-
-.jfif {
-  height: calc(100vh - 64px);
-  z-index: 356565;
-}
-
-.hfo {
-  height: calc(100vh - 64px);
- 
-}
-
-.hdjfhdj {
-  width: calc(75% - 320px);
-}
-
-.scroll::-webkit-scrollbar {
-  width: 10px;
-}
-
-.scroll::-webkit-scrollbar-track {
-  background: transparent;
-
-}
-
-/* Handle */
-.scroll::-webkit-scrollbar-thumb {
-  background: #cecece;
-  border-radius: 555px;
-}
-
-/* Handle on hover */
-.scroll::-webkit-scrollbar-thumb:hover {
-  background: #e7e7e7;
-}
-
-.imgf {
-  background-image: url("https://m1.behance.net/rendition/modules/100574657/disp/578d5a2ccc39308caa48d56ef7adc2e1.png");
-}
-
-.wwinf {
-  width: calc(100vw - 320px);
-  height: calc(100vh - 64px);
-
-}
-
-.ghfd {
-  height: 100%;
-  
-}
-
-.ghfdhtty {
-  height:100vh;
-}
-
-.gyhd {
-  margin-left: calc(100vw - 700px);
-}
-
-
-.gjf {
-  width: 100vw;
-  height: calc(100vh - 64px);
-  margin-top: 64px;
-  background-color: rgba(0, 0, 0, 0.2);
-  /* -webkit-backdrop-filter: blur(1.5px);
-  backdrop-filter: blur(1.5px); */
-}
-
-
-
-.j {
-  height: calc(100vh - 64px);
-  width: 100%;
-
-}

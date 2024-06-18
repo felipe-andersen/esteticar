@@ -28,24 +28,13 @@ export default function Home() {
 
     return (
 
-    <div className='relative flex h-full box-border  bg-zinc-300  '>
-
-        <div className='gjf absolute bg-white z-[356898989] flex flex-col '>
-
-            <NewSale/>
-
-        </div>
-
+    <div className='relative flex h-full w-full box-border  bg-zinc-300 overflow-hidden '>
+       
         <TopBar pageName='CRM'/>
  
         <VerticalMenu/>
 
-        <Main/>
-
-
-        
-        
-        
+        {/* <Main/> */}
 
     </div>
 
