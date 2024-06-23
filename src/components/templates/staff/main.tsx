@@ -15,33 +15,19 @@ import { TopBar } from '@/components/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
 import RegisterWorker from '@/components/organisms/forms/registerWorker';
+import { worker } from './apiUtils';
 
-
-
-const services = [
-    {
-        name: "Lavagem simples",
-        role: "40,00 - 50,00",
-        lastLogin:"",
-        
-        id: "52fg5gh",
-        type: "Sujeira média"
-    },
-    {
-        name: "Lavagem simples",
-        role: "40,00 - 50,00",
-     
-        id: "j5fff4x3",
-        type: "Sujeira média"
-    },
-    {
-        name: "Lavagem simples",
-        role: "40,00 - 50,00",
-      
-        id: "k2fg54f8",
-        type: "Sujeira média"
-    },
-]
+export interface Worker {
+    name: string,
+    role: string,
+    lastLogin?: string,
+    id: string,
+    phoneDevice: string,
+    email: string, 
+    contract: string,
+    profilePicture: string
+    alternatePhone?: string
+}
 
 export function Main() {
 
@@ -129,11 +115,11 @@ export function Main() {
                     <tbody className=''>
 
                         {
-                            services.map(item => (
+                            worker.map(worker => (
 
                                 <>
-
-                                    <tr className='h-16 w-full border-b border-zinc-100  font-medium text-sm text-[#53626b]  group/item '>
+                                    
+                                    <tr className='h-16 w-full border-b border-zinc-100  font-medium text-sm text-[#53626b] hover:bg-neutral-50  group/item '>
 
                                         <td className='bg-blue-0 text-center '>
 
@@ -151,21 +137,21 @@ export function Main() {
                                             </div>
                                         </td>
                                          
-                                        <td className=''><div className='flex gap-2 items-center h-full '><span>Mateus Nascimento</span></div></td>
+                                        <td className=''><div className='flex gap-2 items-center h-full '><span>{worker.name}</span></div></td>
 
-                                        <td className='whitespace-nowrap'>Colaborador  </td>
+                                        <td className='whitespace-nowrap'>{worker.role}  </td>
 
-                                        <td>mateus@gmail.com</td>
+                                        <td>{worker.email} </td>
 
-                                        <td><span className='text-sm '>+55 21 99999-9999</span></td>
+                                        <td><span className='text-sm '>{worker.phoneDevice} </span></td>
 
-                                        <td>CLT </td>
+                                        <td>{worker.contract}  </td>
 
                                         <td className=' w-9'>
 
                                             <div className='flex items-center pr-5'>
 
-                                                <div className=' rounded px-2 h-7 hover:bg-zinc-50 flex justify-center items-center bg-zinc-50 text-xs gap-1'>
+                                                <div className=' rounded px-2 h-7 hover:bg-zinc-100 flex justify-center items-center bg-zinc-100 text-xs gap-1'>
 
                                                     Actions
 
@@ -190,9 +176,9 @@ export function Main() {
 
             </div>
 
-            <div className='flex w-full  h-full gap-4'>
+            <div className='flex w-full  h-full gap-4 '>
 
-                <div className='w-[30%]  flex flex-col px-6 py-12 items-center rounded-lg bg-white border border-zinc-100'>
+                <div className='w-[35%]  flex flex-col px-6 py-12 items-center rounded-lg bg-white border border-zinc-100'>
 
                     <div className='mb-6 w-24 h-24 flex items-center justify-center rounded-full overflow-hidden'>
 
@@ -208,9 +194,9 @@ export function Main() {
 
                     </div>
 
-                    <div className='flex justify-between w-full h-16 border-b border-zinc-100 items-center'>
+                    <div className='flex justify-between w-full h-12 border-b border-zinc-100 items-center'>
 
-                        <button className='font-semibold flex items-center gap-2'>Detalhes  <ChevronUp size={18}/></button>
+                        <button className='font-semibold flex items-center gap-2 text-sm'>Detalhes  <ChevronUp size={18}/></button>
 
                         <button className='bg-blue-200 text-xs h-8 rounded px-2 text-blue-700 font-medium'>Editar</button>
 
@@ -218,10 +204,10 @@ export function Main() {
 
                     <ul className='flex flex-col w-full py-4'>
 
-                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
+                         {/* <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Permição</span>
                             <span className='text-[#96a0ad] '>jof58568</span>
-                        </li>
+                        </li> */}
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
                             <span className='font-medium'>Email</span>
@@ -229,7 +215,12 @@ export function Main() {
                         </li>
 
                         <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
-                            <span className='font-medium'>Telefone</span>
+                            <span className='font-medium'>Telefone </span>
+                            <span className=' text-[#96a0ad]'>+55 31 99999-9999</span>
+                        </li>
+
+                        <li className='h-16 w-full flex gap-1 flex-col justify-center text-sm text-neutral-900 '>
+                            <span className='font-medium'>Telefone Alternativo</span>
                             <span className=' text-[#96a0ad]'>+55 31 99999-9999</span>
                         </li>
 

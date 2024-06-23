@@ -2,6 +2,9 @@ import { Crown } from "lucide-react";
 import Link from "next/link";
 
 export default function Components() {
+
+    
+
     return (
 
         <div className="flex flex-col ">
