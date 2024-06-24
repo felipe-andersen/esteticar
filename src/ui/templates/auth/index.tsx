@@ -1,8 +1,8 @@
 'use server'
 
 import { createUser } from "@/app/auth/page";
-import VerticalMenu from "@/components/organisms/VerticalMenu";
-import { TopBar } from "@/components/organisms/topBar";
+import VerticalMenu from "@/ui/organisms/VerticalMenu";
+import { TopBar } from "@/ui/organisms/topBar";
 import Link from "next/link";
 
 

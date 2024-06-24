@@ -1,5 +1,5 @@
 
-import { Terms } from "@/components/templates/terms";
+import { Terms } from "@/ui/templates/terms";
 
 export default function TermsPage() {
   return (

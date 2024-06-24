@@ -4,16 +4,16 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { result } from '@/components/organisms';
+import { result } from '@/ui/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical} from "lucide-react";
-import VerticalMenu from '@/components/organisms/VerticalMenu';
+import VerticalMenu from '@/ui/organisms/VerticalMenu';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { TopBar } from '@/components/organisms/topBar';
+import { TopBar } from '@/ui/organisms/topBar';
 import { Main } from './main';
-import { NewSale } from '@/components/organisms/newSale';
+import { NewSale } from '@/ui/organisms/newSale';
 
 
 

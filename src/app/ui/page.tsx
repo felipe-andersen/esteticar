@@ -1,4 +1,4 @@
-import Components from "@/components";
+import Components from "@/ui/package";
 
 
 export default function ComponentsPage() {

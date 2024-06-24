@@ -1,5 +1,5 @@
-import Home from "@/components/templates/home";
-import { ServicesList } from "@/components/templates/services-list";
+import Home from "@/ui/templates/home";
+import { ServicesList } from "@/ui/templates/services-list";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -13,13 +13,13 @@ export function TopBar ({pageName}:f) {
 
             <div className='w-full h-16 flex items-center justify-between p-6 border-b border-zinc-150  bg-white'>
 
-                <Link href={"/"} className="text-xl flex items-center gap-2"><RotateCcw size={18}/> Esteticar | <span className=" text-zinc-300">{pageName}</span></Link>
+                <Link href={"/"} className="text-xl flex items-center gap-2 "><RotateCcw size={18}/> Esteticar | <span className=" text-zinc-300">{pageName}</span></Link>
 
-                Offline há {result}
+                <span className="text-sm text-neutral-400">Offline há {result}</span>
 
-                <div className='flex gap-2'>
+                <div className='flex gap-2 flex'>
 
-                    <button className="bg-violet-500 hover:opacity-100 text-white h-10 px-3 rounded font-semibold text-sm opacity-10">Upgrade</button>
+                    <Link href={'/subscribe'} className="flex items-center justify-center bg-violet-500 hover:opacity-100 text-white h-10 px-3 rounded font-semibold text-sm opacity-70 mr-5">Upgrade</Link>
 
                     <div className="w-10 h-10  hover:bg-zinc-50 rounded-full flex items-center justify-center relative">
 

@@ -13,4 +13,13 @@ export let worker: Worker[] = [
     },
 ]
 
+function request() { 
+    const r = new Request("https://example.com", {
+        method: "POST",
+        body: '{"foo": "bar"}',
+    });
+}
+
+  
+
 // worker = []

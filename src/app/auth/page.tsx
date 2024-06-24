@@ -1,5 +1,5 @@
 
-import { LoginSignin } from "@/components/templates/auth";
+import { LoginSignin } from "@/ui/templates/auth";
 import { NextApiRequest, NextApiResponse } from "next";
 import Image from "next/image";
 import Link from "next/link";

@@ -4,18 +4,18 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { result } from '@/components/organisms';
+import { result } from '@/ui/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ChevronDown, ChevronUp, FileDown, ChevronRight} from "lucide-react";
-import VerticalMenu from '@/components/organisms/VerticalMenu';
+import VerticalMenu from '@/ui/organisms/VerticalMenu';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { TopBar } from '@/components/organisms/topBar';
+import { TopBar } from '@/ui/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
-import RegisterWorker from '@/components/organisms/forms/registerWorker';
-import { worker } from './apiUtils';
+import RegisterWorker from '@/ui/organisms/forms/registerWorker';
+import { worker } from './utils';
 
 export interface Worker {
     name: string,
@@ -33,7 +33,7 @@ export function Main() {
 
     return (
 
-    <main className=' wwinf bg-[#f6f8fa]  scroll ml-80 mt-16 overflow-scroll '>
+    <main className='  bg-[#f6f8fa]  h-full ml-80 mt-16 overflow-scroll mr-1'>
 
         <div className='w-full h-min relative  p-6 flex flex-col '>
 
@@ -119,7 +119,7 @@ export function Main() {
 
                                 <>
                                     
-                                    <tr className='h-16 w-full border-b border-zinc-100  font-medium text-sm text-[#53626b] hover:bg-neutral-50  group/item '>
+                                    <tr key={worker.id}  className='h-12 w-full border-b border-zinc-100  font-medium text-sm text-[#53626b] hover:bg-neutral-50  group/item '>
 
                                         <td className='bg-blue-0 text-center '>
 
@@ -132,7 +132,7 @@ export function Main() {
                                         </td>
 
                                         <td className=''>
-                                            <div className='overflow-hidden rounded-full h-10 w-10  rounded-full flex flex-items justify-center'>
+                                            <div className='overflow-hidden rounded-full h-7 w-7  rounded-full flex flex-items justify-center'>
                                                 <img className="h-full" src='https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg'/>
                                             </div>
                                         </td>
@@ -151,13 +151,13 @@ export function Main() {
 
                                             <div className='flex items-center pr-5'>
 
-                                                <div className=' rounded px-2 h-7 hover:bg-zinc-100 flex justify-center items-center bg-zinc-100 text-xs gap-1'>
+                                                <button className=' rounded px-2 h-7  flex justify-center items-center  text-xs gap-1'>
 
                                                     Actions
 
                                                     <ChevronDown size={14}/>
 
-                                                </div>
+                                                </button>
 
                                             </div>
                                             
