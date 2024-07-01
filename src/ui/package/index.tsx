@@ -1,8 +1,9 @@
 import { Crown } from "lucide-react";
 import Link from "next/link";
 import RegisterWorker from "../organisms/forms/registerWorker";
+import { NewSale } from "../organisms/forms/newSale";
 
-export default function Components() {
+export default function ComponentList() {
 
     
 
@@ -218,6 +219,9 @@ export default function Components() {
                     Editar
                     Excuir
                 </div>
+
+
+                <NewSale/>
 
             </main>
 

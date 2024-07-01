@@ -1,12 +1,12 @@
-import Components from "@/ui/package";
+import ComponentList from "@/ui/package";
 
 
-export default function ComponentsPage() {
+export default function ComponentListPage() {
     return (
 
         <div className="flex flex-col ">
 
-            <Components/>
+            <ComponentList/>
 
         </div>
     );

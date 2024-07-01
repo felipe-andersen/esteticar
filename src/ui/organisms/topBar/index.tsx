@@ -19,7 +19,7 @@ export function TopBar ({pageName}:f) {
 
                 <div className='flex gap-2 flex'>
 
-                    <Link href={'/subscribe'} className="flex items-center justify-center bg-violet-500 hover:opacity-100 text-white h-10 px-3 rounded font-semibold text-sm opacity-70 mr-5">Upgrade</Link>
+                    <Link href={'/subscribe'} className="flex items-center text-[13px] justify-center bg-violet-500 hover:opacity-100 text-white h-9 px-3 rounded font-semibold  opacity-70 mr-5">Upgrade</Link>
 
                     <div className="w-10 h-10  hover:bg-zinc-50 rounded-full flex items-center justify-center relative">
 

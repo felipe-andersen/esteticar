@@ -3,7 +3,17 @@
 export default function SubscribePage() {
     return ( 
         <div className="w-full h-full bg-white">
-            <div>Oferta por tempo limitado</div>
+
+
+            <div>
+                Plano padrão
+
+                <div>Lorem Ipson</div>
+
+
+
+            </div>
+            {/* <div>Oferta por tempo limitado</div>
 
             <div className="">
 
@@ -13,7 +23,7 @@ export default function SubscribePage() {
 
                 <span>Selecione seu plano</span>
 
-                <span>Plano Free </span>
+               
                 <span>Plano 1 MẼS </span>
                 <span>Plano 12 MESES </span>
                 <span>Plano 24 MESES </span>
@@ -23,7 +33,7 @@ export default function SubscribePage() {
 
                 <span>Selecione uma forma de pagamento</span>
 
-            </div>
+            </div> */}
 
 
 

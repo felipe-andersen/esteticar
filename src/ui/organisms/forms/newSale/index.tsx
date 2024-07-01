@@ -7,12 +7,16 @@ import { ChevronLeft, ChevronRight, Plus, Search, UserRound } from "lucide-react
 
 interface Sale {
     name: string
-    phone: string
-    email?: string
+    // alternatePhone: string
+    // alternateEmail?: string
+    defaultPhone: string
+    defaultEmail?: string
     // address: string
     // city: string
     // state: string
     // zip: string
+    // country: string
+    // region: string
     cpf?: string
     servicesList?: ServiceItemProtocol[]
     productsList?: ProductsProtocol
@@ -49,9 +53,10 @@ interface ServiceItemProtocol {
     details: string
     price: string
     discount: {
-        value: string
+        value: string | number
         type: discountTypeProtocol
     }
+    catergory: string
 }
 
 interface discountTypeProtocol {

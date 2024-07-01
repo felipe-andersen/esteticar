@@ -52,7 +52,7 @@ export function Main() {
 
                 <div className='flex gap-3'>
                     
-                <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-sm font-semibold rounded bg-blue-600 hover:bg-blue-500 '>
+                <button className='h-10 w-min px-3 whitespace-nowrap  text-white text-[13px] font-semibold rounded bg-blue-600 hover:bg-blue-500 '>
 
                     Cadastrar colaborador
 

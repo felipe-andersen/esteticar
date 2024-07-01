@@ -13,7 +13,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { TopBar } from '@/ui/organisms/topBar';
 import { Main } from './main';
-import { NewSale } from '@/ui/organisms/newSale';
+
 
 
 
