@@ -11,11 +11,11 @@ export function Main() {
 
                 <div className="flex items-center gap-2">
 
-                    <button className="bg-teal-500 border-[2px] border-transparent hover:border-teal-500 hover:bg-teal-400 text-white h-10 px-3 rounded font-semibold text-sm">Nova venda</button>
+                    <button className="bg-teal-500 border-[2px] border-transparent hover:border-teal-500 hover:bg-teal-400 text-white h-9 px-3 rounded font-semibold text-sm">Nova venda</button>
 
-                    <button className="bg-yellow-500 border-[2px] border-transparent hover:border-yellow-500 hover:bg-yellow-400 text-white h-10 px-3 rounded font-semibold text-sm">Novo orçamento</button>
+                    <button className="bg-yellow-500 border-[2px] border-transparent hover:border-yellow-500 hover:bg-yellow-400 text-white h-9 px-3 rounded font-semibold text-sm">Novo orçamento</button>
 
-                    <button className=" flex gap-2 items-center hover:bg-zinc-200  h-10 px-3 rounded font-semibold text-sm"><Search size={18}/>Consultar ordem de serviço</button>
+                    <button className=" flex gap-2 items-center hover:bg-zinc-200  h-9 px-3 rounded font-semibold text-sm"><Search size={18}/>Consultar ordem de serviço</button>
 
                 </div>
 
@@ -55,9 +55,11 @@ export function Main() {
 
                     <div className="flex flex-col gap-3 py-6 h-full">
 
-                        <button className="bg-neutral-700  hover:bg-blue-400 text-white h-9 px-3 rounded font-semibold text-sm w-min whitespace-nowrap">Efetuar pagamentos</button>
+                        <button className="bg-neutral-700  hover:bg-blue-400 text-white h-8 px-3 rounded font-semibold text-xs w-min whitespace-nowrap ">Efetuar pagamentos</button>
 
-                        <button className="bg-neutral-700  hover:bg-blue-400 text-white h-9 px-3 rounded font-semibold text-sm w-min whitespace-nowrap">Estornar compra</button>
+                        <button className="bg-neutral-700  hover:bg-blue-400 text-white h-8 px-3 rounded font-semibold text-xs w-min whitespace-nowrap ">Receber pagamentos</button>
+
+                        <button className="bg-neutral-700  hover:bg-blue-400 text-white h-9 px-3 rounded font-semibold text-sm w-min whitespace-nowraph-8 px-3 rounded font-semibold text-xs w-min whitespace-nowrap ">Estornar compra</button>
 
                     </div>
 
@@ -69,7 +71,7 @@ export function Main() {
 
                         <div className="">
 
-                            <h3 className="font-semibold ">Resumo do caixa</h3>
+                            <h3 className="font-semibold ">Resumo do dia</h3>
 
                             <span className="text-xs text-zinc-400 mt-[-12px]">Hoje </span>
 
@@ -95,7 +97,7 @@ export function Main() {
 
                             </div>
 
-                            <span className="text-sm">Compras</span>
+                            <span className="text-sm">Vendas</span>
 
                             <span className="text-xs bg-red-500 text-white h-5 w-5 rounded-full flex items-center justify-center">7</span>
 
@@ -121,7 +123,7 @@ export function Main() {
 
                             </div>
 
-                            <span className="text-sm">Orçamentos</span>
+                            <span className="text-sm">Recebimentos</span>
 
                         </div>
 
@@ -149,7 +151,7 @@ export function Main() {
 
                         <div className="">
 
-                            <h3 className="font-semibold ">Histórico</h3>
+                            <h3 className="font-semibold ">Histórico do Caixa</h3>
 
                             <span>Entrada e saída</span>
 

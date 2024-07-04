@@ -9,6 +9,7 @@ import { Ban, Blocks, Check } from "lucide-react";
 // import startsWith from 'lodash.startswith';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { capitalizeWords } from "@/utils/capitalizeWords";
 
 
 
@@ -105,10 +106,7 @@ export default function RegisterWorker() {
         event.preventDefault();
     };
 
-    function capitalizeWords(text:string) {
-        let result = text?.toLocaleLowerCase()
-        return result?.replace(/\b\w/g, (c) => c.toUpperCase());
-    }
+   
 
     return (
 
@@ -130,16 +128,16 @@ export default function RegisterWorker() {
                         type="text" 
                         {...register("fullName") }
                         aria-invalid={errors.fullName ? "true" : "false"} 
-                       
                         value={capitalizeWords(watch('fullName'))}
                         // onChange={(data) => data}
                         // onChange={(e) => e.isPropagationStopped() && }
                     />
 
                     <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
-                        <span className="loader"/>
-                    </span>
 
+                        <span className="loader"/>
+
+                    </span>
 
                 </div>
            
@@ -166,17 +164,14 @@ export default function RegisterWorker() {
                     />
 
                     <span className="w-8 h-8 flex items-center justify-center ">
-                        {errors.defaultEmail?.message &&  watch("defaultEmail") ? <span className="h-8 h-8 flex items-center justify-center text-red-400 "><Ban  size={14}/></span> : watch("defaultEmail") && <span className="w-8 h-8 flex items-center justify-center "><Check color='green' size={16}/></span>}
+
+                        { errors.defaultEmail?.message &&  watch("defaultEmail") ? <span className="h-8 h-8 flex items-center justify-center text-red-400 "><Ban  size={14}/></span> : watch("defaultEmail") && <span className="w-8 h-8 flex items-center justify-center "><Check color='green' size={16}/></span> }
+
                     </span>
 
                 </div>
            
-                {errors.defaultEmail?.message && getValues("defaultEmail") && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{inputErrorMsg.defaultEmail.invalidEmail ? inputErrorMsg.defaultEmail.invalidEmail : errors.defaultEmail?.message}</p>}
-
-               
-
-               
-
+                { errors.defaultEmail?.message && getValues("defaultEmail") && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{inputErrorMsg.defaultEmail.invalidEmail ? inputErrorMsg.defaultEmail.invalidEmail : errors.defaultEmail?.message}</p> }
 
             </div>
 
@@ -192,8 +187,6 @@ export default function RegisterWorker() {
                         //     return startsWith(inputNumber, country.dialCode) || startsWith(country.dialCode, inputNumber);
                         //     });
                         // }}
-
-                       
                     
                        containerStyle={{width:"100%", height:"100%", border:"none", backgroundColor:"transparent"}}
                        inputStyle = {
@@ -219,8 +212,6 @@ export default function RegisterWorker() {
                     />
 
                 </div>
-
-               
 
             </div>
 
@@ -290,8 +281,6 @@ export default function RegisterWorker() {
                 </div>
 
             </div>
-
-        
 
              {/*<div className=" w-full flex  flex flex-col gap-3">
 

@@ -81,7 +81,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-yellow-300">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-yellow-300">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -101,9 +101,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-green-300">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-green-300">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -117,7 +117,7 @@ export default function VerticalMenu() {
                             
                         </div>
 
-                    </div>
+                    </Link>
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
             
@@ -137,7 +137,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                             
@@ -155,9 +155,9 @@ export default function VerticalMenu() {
                             
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                         
@@ -171,9 +171,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                         
@@ -187,9 +187,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                         
@@ -203,9 +203,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200 ">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200 ">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -219,9 +219,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -235,11 +235,11 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -253,9 +253,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -269,9 +269,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-                    <div about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -285,10 +285,9 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
-
-                    <div about="butões" className="rounded-full px-6 gap-5 w-full  h-12 flex flex-row hover:bg-zinc-200 items-center">
+                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-full  h-12 flex flex-row hover:bg-zinc-200 items-center">
 
                         <div about='' className="w-full h-full rounded-full overflow-hidden flex items-center justify-center ">
 
@@ -304,7 +303,7 @@ export default function VerticalMenu() {
 
                         </div>
 
-                    </div>
+                    </Link>
 
                 </div>
 

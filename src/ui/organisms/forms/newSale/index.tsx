@@ -1,83 +1,58 @@
+'use client'
+
 import { ChevronLeft, ChevronRight, Plus, Search, UserRound } from "lucide-react";
-
-// Informações que vou salvar no banco. Venda 
-
-// Amarrar tudo. conferir a tipagem
-
-
-interface Sale {
-    name: string
-    // alternatePhone: string
-    // alternateEmail?: string
-    defaultPhone: string
-    defaultEmail?: string
-    // address: string
-    // city: string
-    // state: string
-    // zip: string
-    // country: string
-    // region: string
-    cpf?: string
-    servicesList?: ServiceItemProtocol[]
-    productsList?: ProductsProtocol
-    id: string
-    dateTime: Date
-    workerUser: string
-    duration: string
-    startDateTime: {
-        date: string
-        time: string
-    }
-    endDateTime: {
-        date: Date
-        time: string
-    }
-    saleDetails?: string
-    payment: object
-    vehicle: {
-        name: string
-        model: string
-        brand: string
-    }
-    wasTaxed: boolean
-}
-
-interface payment {
-    bankSlip: string
-    card: string
-    currency: string
-}
-
-interface ServiceItemProtocol {
-    item: string
-    details: string
-    price: string
-    discount: {
-        value: string | number
-        type: discountTypeProtocol
-    }
-    catergory: string
-}
-
-interface discountTypeProtocol {
-    percent: number
-    code: string
-    currency: string
-}
-
-interface ProductsProtocol {
-
-}
+import { useForm, SubmitHandler, UseFormSetValue } from "react-hook-form"
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { capitalizeWords } from "@/utils/capitalizeWords";
+import { FormEvent, useState } from "react";
+import { textWithoutSpecials } from "@/utils/textWithoutSpecials";
+import { phoneFormatter } from "@/utils/phoneFormatter";
 
 
+const newSale = z.object({
+    fullName: z.string()
+    .min(1, 'min 1')
+    .max(100, 'max 100 ')
+    .toLowerCase(),
+    phone: z.string()
+    .min(13, 'min 8')
+    .max(14, 'max 14 '),
+    email: z.string().email().min(1, "Required: min 1").max(100, "max: 100"),
+    brand: z.string(),
+    model: z.string(),
+    licensePlate: z.string(),
+    scvItem: z.string(),
+    svcDetails: z.string(),
+    price: z.string(),
+
+    
+});
+
+type NewSaleProtocol = z.infer<typeof newSale>
 
 const hours = Array.from({ length: 23 }, (_, index) => index + 0);
 
 const minutes = Array.from({ length: 59 }, (_, index) => index + 0);
 
 export function NewSale() {
+
+    const [ phone, setPhone ] = useState<string>('')
+
+    const {
+      
+        register,
+       
+        watch,
+        formState: { errors, isValid, isDirty, isLoading },
+    } = useForm<NewSaleProtocol>({mode: 'all', resolver: zodResolver(newSale)})
+
+    const prevent = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+    };
+
     return (
-        <section className='w-[700px] h-full px-6 py-6 bg-white  overflow-scroll scroll border-r border-l border-zinc-200 gyhd '>
+        <form onSubmit={prevent} className='w-[700px] h-full px-6 py-6 bg-white  overflow-scroll scroll border-r border-l border-zinc-200 gyhd '>
 
             <h2 className=' w-full text-xl font-bold mb-6'>Nova venda</h2>
 
@@ -108,7 +83,7 @@ export function NewSale() {
 
             </div>
 
-            <div className="w-full bg-red-50">
+            <div className="w-full ">
 
                 <div className="">
 
@@ -128,17 +103,31 @@ export function NewSale() {
                     
                 }
 
-                <div className='gap-2 h-min mb-4'>
+                <div className='gap-2 h-min mb-4 flex flex-col'>
 
-                    <span className='mb-2'>
+                    <label className="text-sm text-gray-700">Nome * {capitalizeWords("fdkfjdGGFGFGFDF")}</label>   
 
-                        <label className='text-sm mb-4 text-gray-700'>Nome do Cliente</label>
+                    <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center hover:border-zinc-400">
 
-                    </span>
+                        <input
+                            className="text-sm w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 outline-none placeholder:text-sm"
+                            // name="fullName" 
+                            spellCheck="false"
+                            placeholder={"Ricardo Albuquerque"}
+                            type="text" 
+                            {...register("fullName") }
+                            aria-invalid={errors.fullName ? "true" : "false"} 
+                            value={capitalizeWords(watch('fullName'))}
+                        />
 
-                    <br/>
+                        <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
 
-                    <input placeholder="Nome do Cliente" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                            <span className="loader"/>
+
+                        </span>
+
+
+                    </div>
 
                 </div>
 
@@ -155,8 +144,8 @@ export function NewSale() {
                     </span>
 
                     <br/>
-
-                    <input placeholder="Nome do Cliente" className=' w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                   
+                    <input {...register('phone')} placeholder="Nome do Cliente" type="text"  className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5 ' minLength={13} maxLength={14} value={phoneFormatter(watch("phone"))}/>
 
                 </div>
 
@@ -174,7 +163,7 @@ export function NewSale() {
 
                     <br/>
 
-                    <input placeholder="Nome do Cliente" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                    <input placeholder="Nome do Cliente" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
 
                 </div>
 
@@ -182,9 +171,9 @@ export function NewSale() {
 
             </div>
 
-            <div className="w-full bg-blue-50">
+            <div className="w-full ">
 
-                <h3 className='text-md font-bold mt-10 mb-5'>Cadastrar serviço</h3>
+                <h3 className='text-md font-bold mt-10 mb-5'>Informações do veículo</h3>
 
                 <div className="flex flex-col w-full  mb-4">
 
@@ -213,7 +202,7 @@ export function NewSale() {
 
                         <p className="block text-sm  text-gray-700">Marca</p>
 
-                        <input aria-label="" type="text" placeholder="" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
+                        <input aria-label="" type="text" placeholder="" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
 
                     </div>
 
@@ -221,7 +210,7 @@ export function NewSale() {
 
                         <p className="block text-sm  text-gray-700">Modelo</p>
 
-                        <input aria-label="" type="text" placeholder="" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
+                        <input aria-label="" type="text" placeholder="" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
 
                     </div>
 
@@ -229,23 +218,31 @@ export function NewSale() {
 
                         <p className="block text-sm  text-gray-700">Placa</p>
 
-                        <input aria-label="" type="text" placeholder="" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
+                        <input aria-label="" type="text" placeholder="" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
                         
                     </div>
 
                 </div>
 
+            </div>
+
+            <div className="w-full ">
+
+                <h3 className='text-md font-bold mt-10 mb-5'>Cadastrar serviço</h3>
+
+               
+
                  <div className='gap-2 h-min mb-4'>
 
                     <span className='mb-2'>
 
-                        <label className='text-sm mb-4 text-gray-700'>Item</label>
+                        <label className='text-sm mb-4 text-gray-700'>Serviço (item)</label>
 
                     </span>
 
                     <br/>
 
-                    <input placeholder="" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                    <input placeholder="" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'></input>
 
                 </div>
 
@@ -261,9 +258,9 @@ export function NewSale() {
                     
                     <div className="flex flex-col w-full mb-4">
 
-                        <p className="block text-sm  text-gray-700">Valor</p>
+                        <p className="block text-sm  text-gray-700">Preço</p>
 
-                        <input aria-label="Valor" type="text" placeholder="R$" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
+                        <input aria-label="Valor" type="text" placeholder="R$" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
 
                     </div>
 ''
@@ -291,11 +288,11 @@ export function NewSale() {
                     
                 </div>
 
-                <input placeholder="" className='w-full  text-sm h-12 border border-zinc-300 rounded pl-5'></input>
+                <input placeholder="" className='w-full outline-none text-sm h-12 border border-zinc-300 rounded pl-5'></input>
 
             </div>
 
-            <div className=" w-full bg-red-50">
+            <div className=" w-full ">
             
                 <h3 className='text-md font-bold  mt-10 mb-5'>Cadastrar produto</h3>
 
@@ -309,7 +306,7 @@ export function NewSale() {
 
             </div>
 
-            <div className="bg-blue-50 w-full">
+            <div className=" w-full">
 
                 <h3 className='text-md font-bold  mt-10 mb-5'>Agendar</h3>
 
@@ -321,9 +318,9 @@ export function NewSale() {
 
                         <div className="flex flex gap-3">
 
-                            <input aria-label="Data" type="date" placeholder="Data" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
+                            <input aria-label="Data" type="date" placeholder="Data" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>
 
-                            <input aria-label="Hora" type="time" placeholder="Hora" className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>  
+                            <input aria-label="Hora" type="time" placeholder="Hora" className='outline-none w-full mt-2 text-sm h-12 border border-zinc-300 rounded px-5'></input>  
 
                         </div>
 
@@ -339,18 +336,18 @@ export function NewSale() {
                             >
                                  dia
 
-                                <input aria-label="Dia" type="text" placeholder="" className='w-full  text-sm h-full  bg-red- outline-none '/>
+                                <input aria-label="Dia" type="text" placeholder="" className='outline-none w-full  text-sm h-full  bg-red- outline-none '/>
 
                             </div>
 
-                            <select className="w-full bg-red-500 h-12 mt-2   rounded px-5 border border-zinc-300" id="cars">
+                            <select className="w-full  h-12 mt-2   rounded px-5 border border-zinc-300" id="cars">
                                 {
                                     hours.map((hour) => <option>{hour}</option>)
                                 }
                             </select>
 
 
-                            <select className="w-full bg-red-500 h-12 mt-2  rounded px-5 border border-zinc-300" id="cars">
+                            <select className="w-full  h-12 mt-2  rounded px-5 border border-zinc-300" id="cars">
                                 {
                                     minutes.map((minute) => <option>{minute}</option>)
                                 }
@@ -364,17 +361,17 @@ export function NewSale() {
 
             </div>
 
-            <div className="w-full bg-red-50">
+            <div className="w-full ">
 
                 <h3 className='text-md font-bold  mt-10 mb-5'>Informações gerais</h3>
 
-                <textarea className='flex gap-3 w-full h-24 border border-zinc-300 rounded'>
+                <textarea className='outline-none flex gap-3 w-full h-24 border border-zinc-300 rounded'>
 
                 </textarea>
 
             </div>
 
-            <div className="w-full bg-blue-50">
+            <div className="w-full ">
 
                 <h3 className='text-md font-bold  mt-10 mb-5 '>Pagamento</h3>
 
@@ -402,11 +399,11 @@ export function NewSale() {
                     
                 </div>
 
-                <input placeholder="Ex. DESCONTO10" maxLength={24} className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+                <input placeholder="Ex. DESCONTO10" maxLength={24} className='outline-none w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
 
-                <input placeholder="% 1" type="text" maxLength={4} className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+                <input placeholder="% 1" type="text" maxLength={4} className='outline-none w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
 
-                <input placeholder="R$ 000,000,00" maxLength={10}  className='w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
+                <input placeholder="R$ 000,000,00" maxLength={10}  className='outline-none w-full  text-xs h-12 border border-zinc-300 rounded pl-5 mb-6'></input>
 
                 <p className="flex flex-col  gap-2 text-zinc-700 mb-6">
 
@@ -416,7 +413,7 @@ export function NewSale() {
 
                 {/* Vai ser input tipo checkbox */}
 
-                <h4 className='text-xs font-bold  mt-10 mb-5 '>Pagamento</h4>
+                <h4 className='text-xs font-bold  mt-10 mb-5 '>Método de Pagamento</h4>
 
                 <div className="flex border border-zinc-500 w-min rounded mb-3 text-gray-700">
 
@@ -462,7 +459,7 @@ export function NewSale() {
 
                     <div className="flex gap-3">
 
-                        <div className=""><input type="checkbox"/></div>
+                        <div className=""><input type="checkbox" className=""/></div>
 
                         Enviar Ordem de Serviço
 
@@ -508,7 +505,7 @@ export function NewSale() {
 
             </div>
 
-        </section>
+        </form>
     )
 }
 

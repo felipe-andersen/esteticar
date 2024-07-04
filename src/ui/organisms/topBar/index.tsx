@@ -1,12 +1,13 @@
+import { result } from "@/lib/date-fns/config";
 import { Bell, MessageSquareText, MessagesSquareIcon, RotateCcw } from "lucide-react";
-import { result } from "..";
+
 import Link from "next/link";
 
-interface f {
+interface Props {
     pageName: string
 }
 
-export function TopBar ({pageName}:f) {
+export function TopBar ({pageName}:Props) {
     return (
 
         <div about='barra superior' className='w-full z-40 h-16 flex flex-col fixed bg-white shadow z-50 '>

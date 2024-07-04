@@ -1,4 +1,4 @@
-interface Sale {
+export interface Sale {
     name: string
     // alternatePhone: string
     // alternateEmail?: string

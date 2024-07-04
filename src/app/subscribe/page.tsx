@@ -4,13 +4,11 @@ export default function SubscribePage() {
     return ( 
         <div className="w-full h-full bg-white">
 
-
             <div>
+
                 Plano padrão
 
                 <div>Lorem Ipson</div>
-
-
 
             </div>
             {/* <div>Oferta por tempo limitado</div>
@@ -51,6 +49,5 @@ export default function SubscribePage() {
 
         </div>
 
-  
     )
 }
