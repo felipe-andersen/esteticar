@@ -1,13 +1,11 @@
-'use server'
+'use client'
 
-import { createUser } from "@/app/auth/page";
-import VerticalMenu from "@/ui/organisms/VerticalMenu";
-import { TopBar } from "@/ui/organisms/topBar";
+
 import Link from "next/link";
 
 
 
-export async function LoginSignin() {
+export function Login() {
     return (
         <div className="bg-[#97cbff] dffd  w-[100vw]  h-[110vh] py-16 px-36 flex flex-col items-end">
 
@@ -79,3 +77,4 @@ export async function LoginSignin() {
         </div>
     )
 }
+
