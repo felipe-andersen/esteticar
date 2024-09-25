@@ -1,5 +1,5 @@
-import { PDV } from "@/ui/templates/PDV";
-import Link from "next/link";
+import { PDV } from "@/components/templates/PDV";
+
 
 export default function PDFpage() {
   return (

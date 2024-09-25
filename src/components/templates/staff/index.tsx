@@ -1,8 +1,6 @@
-import VerticalMenu from "@/ui/organisms/VerticalMenu";
-import { TopBar } from "@/ui/organisms/topBar";
+import VerticalMenu from "@/components/organisms/VerticalMenu";
+import { TopBar } from "@/components/organisms/topBar";
 import { Main } from "./main";
-import { worker } from "./utils";
-
 
 
 export function Staff() {

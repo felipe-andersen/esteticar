@@ -1,16 +1,11 @@
+import Pricing from "@/components/templates/pricing";
 
 
 export default function SubscribePage() {
     return ( 
-        <div className="w-full h-full bg-white">
-
-            <div>
-
-                Plano padrão
-
-                <div>Lorem Ipson</div>
-
-            </div>
+        <div className="flex flex-col">
+            
+            <Pricing/>
             {/* <div>Oferta por tempo limitado</div>
 
             <div className="">

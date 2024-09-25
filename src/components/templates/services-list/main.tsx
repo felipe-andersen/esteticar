@@ -4,17 +4,17 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { result } from '@/ui/organisms';
+import { result } from '@/components/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter} from "lucide-react";
-import VerticalMenu from '@/ui/organisms/VerticalMenu';
+import VerticalMenu from '@/components/organisms/VerticalMenu';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { TopBar } from '@/ui/organisms/topBar';
+import { TopBar } from '@/components/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
-import { serviceCategories  } from '@/app/services/api/route';
+import { ServiceCategories } from '@/interfaces/ServiceCategory';
 
 
 interface Category {
@@ -57,7 +57,7 @@ const services = [
 
 export function Main() {
 
-    console.table(serviceCategories.lavagem)
+    // console.table(serviceCategories.lavagem)
 
     return (
 

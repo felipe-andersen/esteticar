@@ -34,7 +34,7 @@ export default function Dashboard() {
  
         <VerticalMenu/>
 
-        {/* <Main/> */}
+        <Main/>
 
     </div>
 

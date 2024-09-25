@@ -1,14 +1,13 @@
-import Home from "@/ui/templates/home";
-import { ServicesList } from "@/ui/templates/services-list";
-import Image from "next/image";
-import Link from "next/link";
+
+import { ServicesList } from "@/components/templates/services-list";
+
 
 export default function ServicesPage() {
-  return (
-    <div className="flex   flex-col   ">
-     
-     <ServicesList/>
+    return (
+        <div className="flex   flex-col   ">
+        
+            <ServicesList/>
 
-    </div>
-  );
+        </div>
+    );
 }

@@ -4,17 +4,17 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { result } from '@/ui/organisms';
+import { result } from '@/components/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ChevronDown, ChevronUp, FileDown, ChevronRight} from "lucide-react";
-import VerticalMenu from '@/ui/organisms/VerticalMenu';
+import VerticalMenu from '@/components/organisms/VerticalMenu';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { TopBar } from '@/ui/organisms/topBar';
+import { TopBar } from '@/components/organisms/topBar';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
-import RegisterWorker from '@/ui/organisms/forms/registerWorker';
+import RegisterWorker from '@/components/organisms/forms/registerWorker';
 import { worker } from './utils';
 
 export interface Worker {

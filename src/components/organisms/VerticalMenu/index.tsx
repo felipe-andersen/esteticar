@@ -9,9 +9,9 @@ export default function VerticalMenu() {
             
             <div about="coluna de botões " className="  w-full  h-full overflow-scroll scroll  flex flex-col  overflow-x-hidden">
                 
-                <div className=" flex flex-col  h-max p-5 ">
+                <div className=" flex flex-col  h-max p-5 text-sm whitespace-nowrap ">
 
-                    <Link href={"/"} about="link" className="w-min h-12 text-[15px] font-medium text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200   rounded px-6 gap-5">
+                    <Link href={"/"} about="link" className="w-min h-12 text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200   rounded px-6 gap-5">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -27,7 +27,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <Link href="/PDV" target="_blank" about="link" className="w-full  h-12 text-[15px] font-medium text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200 w-min  rounded px-6 gap-5">
+                    <Link href="/PDV" target="_blank" about="link" className="w-full  h-12  text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200 w-min  rounded px-6 gap-5">
 
                         <div about='icone' className="w-min  h-full flex items-center ">
 
@@ -45,7 +45,7 @@ export default function VerticalMenu() {
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
 
-                    <Link href={"/team"}  className="w-min  h-12 rounded-full flex flex-row hover:bg-orange-300 px-6 gap-5 text-[15px] font-medium text-zinc-700">
+                    <Link href={"/team"}  className="w-min  h-12 rounded-full flex flex-row hover:bg-orange-300 px-6 gap-5  text-zinc-700">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -61,7 +61,7 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <Link href={"/staff"} className="rounded-full  h-12 text-[15px] font-medium text-zinc-700 flex flex-row hover:bg-blue-300 px-6 gap-5 w-min ">
+                    <Link href={"/staff"} className="rounded-full  h-12  text-zinc-700 flex flex-row hover:bg-blue-300 px-6 gap-5 w-min ">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
 
@@ -93,9 +93,9 @@ export default function VerticalMenu() {
                             
                             <p className="text-zinc-800 flex gap-2">
 
-                            Marketing
+                                Marketing
 
-                            <div className="text-xs  rounded flex w-min px-2 py-1 text-white justify-center items-center font-semibold gap-2"> <Crown size={18} color="#622e88"/></div>
+                                <div className="text-xs  rounded flex w-min px-2 py-1 text-white justify-center items-center font-semibold gap-2"> <Crown size={18} color="#622e88"/></div>
                             
                             </p>
 
@@ -167,7 +167,7 @@ export default function VerticalMenu() {
 
                         <div about="nome" className="h-full w-min flex items-center justify-center">
                             
-                            <p className="text-zinc-800">Agenda</p>
+                            <p className="text-zinc-800">Calendário</p>
 
                         </div>
 
@@ -189,22 +189,6 @@ export default function VerticalMenu() {
 
                     </Link>
 
-                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
-
-                        <div about='icone' className="w-min  h-full flex items-center justify-center">
-                        
-                            <Gift strokeWidth={1} size={18}/>
-
-                        </div>
-
-                        <div about="nome" className="h-full w-min flex items-center justify-center">
-                            
-                            <p className="text-zinc-800">Brindes</p>
-
-                        </div>
-
-                    </Link>
-
                     <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200 ">
 
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
@@ -215,27 +199,13 @@ export default function VerticalMenu() {
                         
                         <div about="nome" className="h-full w-min flex items-center justify-center">
 
-                            <p className="text-zinc-800 whitespace-nowrap">Relatórios e Métricas</p>
+                            <p className="text-zinc-800 whitespace-nowrap">Relatórios</p>
 
                         </div>
 
                     </Link>
 
-                    <Link href={"/staff"} about="butões" className="rounded-full px-6 gap-5 w-min  h-12 flex flex-row hover:bg-zinc-200">
-
-                        <div about='icone' className="w-min  h-full flex items-center justify-center">
-
-                            <BarChart3 strokeWidth={1} size={18}/>
-
-                        </div>
-                        
-                        <div about="nome" className="h-full w-min flex items-center justify-center">
-
-                            <p className="text-zinc-800">NFSe</p>
-
-                        </div>
-
-                    </Link>
+                    {/*  */}
 
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
 
@@ -281,7 +251,7 @@ export default function VerticalMenu() {
                         
                         <div about="nome" className="h-full w-min flex items-center justify-center">
 
-                            <p className="text-zinc-800">Crédito</p>
+                            <p className="text-zinc-800">Crédito para crescer</p>
 
                         </div>
 
