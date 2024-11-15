@@ -113,13 +113,10 @@ export default function RegisterWorker() {
         <div className="h-full">
    
         <form  onSubmit={ prevent } className="w-1/2 h-full flex flex-col p-10 bg-white gap-5 text-sm">
-        
+            {/* name */}
             <div className=" w-full h-min  flex  flex flex-col gap-2">
-
                 <span>Name *</span>   
-
                 <div className="h-12 w-full border-[2px] border-zinc-200 flex  rounded-lg  items-center hover:border-zinc-400">
-
                     <input
                         className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
                         // name="fullName" 
@@ -132,17 +129,16 @@ export default function RegisterWorker() {
                         // onChange={(data) => data}
                         // onChange={(e) => e.isPropagationStopped() && }
                     />
-
                     <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
-
                         <span className="loader"/>
-
                     </span>
-
                 </div>
-           
-                {errors.fullName?.message && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{errors.fullName?.message}</p>}
-
+                {
+                    errors.fullName?.message && 
+                    <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">
+                        {errors.fullName?.message}
+                    </p>
+                }
             </div>
 
             <div className=" w-full h-min  flex  flex flex-col gap-2">

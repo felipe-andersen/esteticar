@@ -33,7 +33,7 @@ export function Main() {
 
     return (
 
-    <main className='  bg-[#f6f8fa]  h-full ml-80 mt-16 overflow-scroll mr-1 bg-gradient'>
+    <main className='  bg-[#f6f8fa]  h-full ml-80 mt-16 overflow-scroll mr-1 '>
 
         <div className='w-full h-min relative  p-6 flex flex-col '>
 

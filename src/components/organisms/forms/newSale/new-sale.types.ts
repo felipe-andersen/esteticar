@@ -1,9 +1,11 @@
+
+
 export interface NewSale {
     name: string
     // alternatePhone: string
     // alternateEmail?: string
-    defaultPhone?: string
-    defaultEmail?: string
+    phone?: string
+    email?: string
     // address: string
     // city: string
     // state: string
@@ -15,7 +17,7 @@ export interface NewSale {
     legalesponsibilities?: 'legalEntity' | 'naturalPerson'
     // cpf?: string
     servicesList?: ServiceItemProtocol[]
-    productsList?: ProductsProtocol
+    // productsList?: ProductsProtocol
     // id: string
     dateTime: Date
     employee: string
@@ -40,7 +42,7 @@ export interface NewSale {
         value: string | number
         type: discountTypeProtocol
     },
-    finalPrice: number,
+    tatalPrice_USD: number,
 }
 
 export interface payment {
@@ -52,7 +54,7 @@ export interface payment {
 export interface ServiceItemProtocol {
     item: string
     details: string
-    price: string
+    price_USD: string
     discount: {
         value: string | number
         type: discountTypeProtocol
@@ -85,7 +87,86 @@ export interface discountTypeProtocol {
     currency: string
 }
 
-export interface ProductsProtocol {
 
+
+
+
+
+
+
+
+export interface NewSale {
+    name: string
+    phone?: string
+    email?: string
+    idCustomer?: string
+    customerType: "registered" | "notRegistered"
+    legalesponsibilities?: 'legalEntity' | 'naturalPerson'
+    servicesList?: ServiceItemProtocol[]
+  
+    dateTime: Date
+    employee: string
+    duration: string
+    startDateTime: {
+        date: string
+        time: string
+    }
+    completionDate: {
+        date: Date
+        time: string
+    }
+    saleDetails?: string
+    payment: object
+    vehicle: {
+        model: string
+        brand: string
+        licensePlate: string
+    },
+    wasTaxed: boolean,
+    discountOnTheTotalAmount: {
+        value: string | number
+        type: discountTypeProtocol
+    },
+    tatalPrice_USD: number,
 }
+
+export interface payment {
+    bankSlip: string
+    card: string
+    currency: string
+}
+
+export interface ServiceItemProtocol {
+    item: string
+    details: string
+    price_USD: string
+    discount: {
+        value: string | number
+        type: discountTypeProtocol
+    }
+    deadline: {
+        durationInMinutes: string
+        startDateTime: {
+            date: string
+            time: string
+        }
+       
+    }
+    catergory: string
+    vehicleArrivalDateTime: {
+        date: string
+        time: string
+    }
+    vehicleDeliveryDateTime: {
+        date: string
+        time: string
+    }
+}
+
+export interface discountTypeProtocol {
+    percent: number
+    code: string
+    currency: string
+}
+
 

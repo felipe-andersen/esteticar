@@ -199,32 +199,18 @@ export default function ComponentList() {
                             <div className="flex  w-[30%] flex-col  justify-center text-neutral-400 text-xs">
                              6 PM
                             </div>
-
                         </div>
-                        
                     </div>
-                    
                 </div>
-
                 <div>
-
                     Expórtar para
                 </div>
-
-
                 <div>
-
                     Ações
-
                     Editar
                     Excuir
                 </div>
-
-
-                <NewSale/>
-
             </main>
-
         </div>
     );
 }

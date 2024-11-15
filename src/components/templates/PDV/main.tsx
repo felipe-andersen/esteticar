@@ -1,17 +1,20 @@
 import { EllipsisIcon, HelpCircle, LifeBuoy, Maximize2, Search, ShoppingBag } from "lucide-react";
 import Link from "next/link";
+import { NewSale } from "@/components/organisms/forms/newSale";
+
 
 export function Main() {
 
     return (
-
         <main className="w-full h-full mt-16 p-6 bg-[#f6f8fa]  fixed flex flex-col gap-5 ">
-
+            <NewSale/>
             <div className="h-16 w-full flex items-center justify-between gap-5">
-
                 <div className="flex items-center gap-2">
-
-                    <button className="bg-teal-500 border-[2px] border-transparent hover:border-teal-500 hover:bg-teal-400 text-white h-9 px-3 rounded font-semibold text-sm">Nova venda</button>
+                    <button 
+                        className="bg-teal-500 border-[2px] border-transparent hover:border-teal-500 hover:bg-teal-400 text-white h-9 px-3 rounded font-semibold text-sm"
+                    >
+                        Nova venda
+                    </button>
 
                     <button className="bg-yellow-500 border-[2px] border-transparent hover:border-yellow-500 hover:bg-yellow-400 text-white h-9 px-3 rounded font-semibold text-sm">Novo orçamento</button>
 
@@ -93,7 +96,7 @@ export function Main() {
 
                             <div className="h-9 w-9 rounded-full bg-green-400 flex items-center justify-center">
 
-                                <ShoppingBag className="opacity-60" size={18} color="#1a972b"/>
+                                <ShoppingBag className="opacity-100" size={18} color="#1a972b"/>
 
                             </div>
 

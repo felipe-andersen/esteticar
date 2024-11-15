@@ -5,6 +5,12 @@ networks:
     driver: bridge
 
 services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token eyJhIjoiODBhNTkxMDQxZTBjMzg2ZjgxNzA5OTFkYzhlODNiMGEiLCJ0IjoiMTJlYTlkN2ItZmZkZC00NmM2LWE0NTgtNTg2NjFhOGRmM2RjIiwicyI6IllXTTFaR05pWm1RdFptWmlZeTAwTmpKakxXSmtNR0l0TldWa1ltVTBOalF6TXpjMiJ9
+    restart: unless-stopped
+    network_mode: host
+
   frontend_a:
     build: .
     container_name: esteticar-frontend-a

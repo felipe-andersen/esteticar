@@ -1,5 +1,3 @@
-
-
 import type { Metadata } from 'next'
 
 
@@ -17,11 +15,8 @@ export async function generateMetadata({ params }:Props) {
 
 export default function InitialPage() {
     return (
-      
         <div className="flex  h-screen w-screen flex-col  overflow-hidden ">
-
             dffdfd
-
         </div>
     );
 }
