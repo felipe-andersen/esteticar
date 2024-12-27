@@ -1,4 +1,4 @@
-import { ServicesList } from "@/components/templates/services";
+import { ServicesList } from "@/layout/templates/services/services.view";
 
 
 export default function ServicesPage() {

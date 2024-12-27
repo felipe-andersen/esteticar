@@ -21,17 +21,19 @@ services:
     restart: always
     networks:
       - esteticar_net
+    environment:
+      - PASS=123456
 
-  frontend_b:
-    build: .
-    container_name: esteticar-frontend-b
-    volumes:
-      - .:/usr/share/app
-    ports:
-      - 3021:3000
-    restart: always
-    networks:
-      - esteticar_net
+  # frontend_b:
+  #   build: .
+  #   container_name: esteticar-frontend-b
+  #   volumes:
+  #     - .:/usr/share/app
+  #   ports:
+  #     - 3021:3000
+  #   restart: always
+  #   networks:
+  #     - esteticar_net
 
   # elasticsearch:
   #     image: elasticsearch
@@ -134,8 +136,8 @@ services:
     image: jenkins/jenkins:lts
     container_name: jenkins
     ports:
-      - "8085:8080" # Porta de acesso ao Jenkins
-      - "50000:50000" # Porta para conexão de agentes Jenkins
+      - "8086:8080" # Porta de acesso ao Jenkins
+      - "50001:50000" # Porta para conexão de agentes Jenkins
     volumes:
       - jenkins_home:/var/jenkins_home # Volume para persistência dos dados do Jenkins
       - /var/run/docker.sock:/var/run/docker.sock # Permite que o Jenkins controle o Docker do host

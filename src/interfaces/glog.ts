@@ -2,11 +2,11 @@ interface  f {
     numeroDeVagas: number
     horarioDeFucionamento: {
         segunda: {
-            aberto: {
+            aberto: boolean | 'partial'
+            intervals: {
                 inicio: string
                 fim: string
-            }
-            fechado: boolean
+            }[]
         }
         terca: string
         quarta: string
@@ -14,7 +14,7 @@ interface  f {
         sexta: string
         sabado: string
         domingo: string
-        feriados: {}
+        feriados: boolean | 'partial' | string
 
     }
 }
@@ -37,3 +37,8 @@ function createParkingLot(totalSpaces: number, occupiedSpaces: number): ParkingL
 
 // Example usage
 const parkingLot: ParkingLot = createParkingLot(100, 25);
+
+// workingHours: {
+//     open: "08:00",
+//     close: "18:00"
+//   },

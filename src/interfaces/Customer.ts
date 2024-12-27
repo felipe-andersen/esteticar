@@ -1,4 +1,6 @@
-interface Custormer  {
+export interface CustormerData  {
+    publicID: string
+    id: string
     name: string
     alternatePhone: string
     alternateEmail?: string
