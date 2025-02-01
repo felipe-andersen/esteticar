@@ -1,0 +1,8 @@
+- Dividir a tela em grids
+- começar fazer a intereração com os formularios (mesmo sem backend)
+- usar os postgres como backend e o strapi
+- conectar pagamento
+- criar um sistema de login com postgres
+- implementar tests
+- offline fist
+- criar reducers

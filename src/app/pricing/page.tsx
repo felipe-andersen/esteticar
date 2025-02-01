@@ -2,7 +2,7 @@ import Pricing from "@/layout/templates/pricing/pricing.view";
 
 
 
-export default function SubscribePage() {
+export default function PricingPage() {
     return ( 
         <div className="flex flex-col">
             <Pricing/>

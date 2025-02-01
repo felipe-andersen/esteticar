@@ -3,12 +3,13 @@ import VerticalMenu from "@/layout/organisms/VerticalMenu";
 import { Main } from "./main";
 
 
-export function Settings() {
+export default function Settings() {
     return (
         <div>
             <TopBar />
             {/* <VerticalMenu /> */}
             <Main/>
+           
         </div>
     )
 }

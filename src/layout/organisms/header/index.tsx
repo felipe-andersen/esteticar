@@ -11,6 +11,10 @@ import { usePathname, useSearchParams } from 'next/navigation'
 interface Props {
     pageName?: string
 }
+// sum.js
+export function sum(a:number, b: number) {
+    return a + b
+}
 
 export function TopBar ({
     pageName
@@ -20,7 +24,7 @@ export function TopBar ({
     const router = useRouter()
     const currentRoute = usePathname()
     return (
-        <div  className='w-full z-40  flex flex-col fixed bg-white  z-50 '>
+        <header  className='w-full z-40  flex flex-col fixed bg-white  z-50 '>
             <div className='w-full h-14 sm:h-16 flex items-center justify-between p-6 border-b border-zinc-150  bg-white'>
                 <Link href={"/"} className="text-xl flex items-center gap-2 ">
                     <RotateCcw size={18}/> 
@@ -42,7 +46,7 @@ export function TopBar ({
                         <button 
                             // href={'/pricing'} 
                             onClick={() => router.push('/pricing')}
-                            className="hidden sm:flex items-center text-[13px] justify-center bg-violet-500 hover:opacity-100 text-white h-9 px-3 rounded font-semibold  opacity-70 mr-5"
+                            className=" sm:flex items-center text-[13px] justify-center bg-violet-500 hover:opacity-100 text-white h-9 px-3 rounded font-semibold  opacity-70 mr-5"
                         >
                             Upgrade
                         </button>
@@ -68,7 +72,7 @@ export function TopBar ({
                 <Modal setShowModal={setShowModal} />,
                 document.body
             )}
-        </div>
+        </header>
     )
 }
 

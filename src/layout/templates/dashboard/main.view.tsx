@@ -5,21 +5,35 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Search, Plus, ArrowUpRight} from "lucide-react";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 
-const vagas = ['1', "2", "3", "4", "5", "6", "7"]
+const vagas = ['1', "2", "3", "4", "5", "6", "7", '8' , 9]
 
 export function Main() {
+    // states
     const [show, setShow] = useState(false);
+
+    // mutations
+    useEffect(()=> {
+
+    }, []
+    )
+
+
+    // hooks
+
+
+
+    // refs
     const target = useRef(null);
 
     return (
-    <main className=' flex w-full h-[100%] box-border border-l border-zinc-300 relative ml-80 mt-16  overflow-hidden'>
-        <div className='flex w-3/4  fixed h-[100%] z-10  border-l border-zinc-150 box-border overflow-hidden'>
+    <main className=' flex w-[calc(100%-320px)]  h-[calc(100%-64px)] box-border   ml-80 mt-16   fixed overflow-hidden'>
+        <div className='flex w-full overflow-y-scroll   h-full z-10   box-border '>
             {/* <div  about="pdv" className='w-full h-40 flex items-center yjy  lg:justify-between  px-6 gap:6 border-b border-zinc-150 sm:flex-col lg:flex-row '>
                 <div className='flex flex-row items-center  w-75 h-full  overflow-hidden'>
                     <div className='h-[64px] w-[64px] overflow-hidden flex justify-center items-center  rounded-full  mr-2 bg-zinc-300' >
@@ -34,7 +48,7 @@ export function Main() {
                         <button className='h-12 px-6 bg-zinc-100 hover:bg-zinc-50 text-zinc-900 rounded text-nowrap'>Novo Orçamento</button>
                 </div>
             </div> */}
-            <div className='flex flex-col border-r border-r-zinc-300 hdjfhdj bg-zinc-400 overflow-hidden '>
+            <div className='flex flex-col h-full w-full'>
                 <div className='w-full bg-white  flex border-b border-b-zinc-300 '>
                     <div className='flex flex-col p-6 py-9 gap-6 w-full'> 
                         <div className='flex justify-between items-center '>
@@ -612,7 +626,7 @@ export function Main() {
                     </div>
                 </section>
             </div>
-            <div className=' w-1/4 h-full  p-4 sm md lg xl 2xl max-h-[700px] '>
+            {/* <div className=' w-1/4 h-full  p-4 sm md lg xl 2xl max-h-[700px] '>
                 <div className='flex flex-col justify-between gap-3 p-5 text-white imgf w-full h-72 bg-red-100  overflow-hidden rounded'>
                     <div className='flex flex-col gap-3'>
                         <h3 className=' h-8 border-b-2 border-zinc-100 w-min whitespace-nowrap text-md font-semibold'>
@@ -629,7 +643,7 @@ export function Main() {
                         Ver Planos
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     </main>
 

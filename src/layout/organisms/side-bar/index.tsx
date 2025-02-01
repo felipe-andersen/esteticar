@@ -1,22 +1,27 @@
-import { BarChart2, BarChart3, Barcode, CalendarCheck, Contact, Crown, FileText, FileTextIcon, FlagTriangleLeft, Gift, HandHelping, Handshake, LandPlot, LockKeyhole, Pyramid, Settings } from "lucide-react";
+import { ArrowLeftToLine, BarChart2, BarChart3, Barcode, CalendarCheck, Contact, Crown, FileText, FileTextIcon, FlagTriangleLeft, Gift, HandHelping, Handshake, LandPlot, LockKeyhole, LogOut, Pyramid, Settings, User } from "lucide-react";
 import Link from "next/link";
-
+import './vertical-menu.css'
+import { Profiler, useState } from "react";
+import { CgProfile } from "react-icons/cg";
 
 export default function VerticalMenu() {
+    const [width, setWidth] = useState<'max' | 'min'>('max')
 
     return (
-        <section  className="flex w-80 fixed mt-16 flex-col h-full hidden sm md:flex lg xl 2xl  bg-white border-r border-zinc-200">
-            <div about="coluna de botões " className="  w-full  h-full overflow-scroll scroll  flex flex-col  overflow-x-hidden">
-                <div className=" flex flex-col  h-max p-5 text-sm whitespace-nowrap ">
-                    {/* <Link href={"/"} about="link" className="w-min h-10 text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200   rounded px-6 gap-5">
-                        <div about='icone' className="w-min  h-full flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                        </div>
-                        <div about="nome" className="h-full w-min text-[15px] flex items-center justify-center">
-                            <p className="">Home</p>
-                        </div>
-                    </Link> */}
-                    <Link href="/dashboard/PDV" target="_blank" about="link" className="w-full  h-10  text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200 w-min  rounded px-6 gap-5">
+        <section  className={`relative max-w-80 w-80 flex flex-col fixed bg-white  mt-16 h-[calc(100%-128px)] border-r`}>
+            {/* <button
+                onClick={() => width === 'max' ? setWidth('min') : setWidth("max")}
+                className="bg-white h-8 w-8 rounded-full absolute top-12 left-[calc(320px-16px)] z-20 border flex items-center justify-center hover:bg-neutral-100"
+            >
+                <ArrowLeftToLine
+                    size={18}
+                    strokeWidth={1}
+                />
+            </button> */}
+            <div  className="  w-full  h-full overflow-scroll  scroll-v flex flex-col  overflow-x-hidden ">
+                <div className=" flex flex-col  p-5 text-sm whitespace-nowrap relative">
+                    
+                    <Link href="/dashboard/PDV" target="_blank"  className="w-full  h-10  text-zinc-700 flex flex-row rounded-full hover:bg-zinc-200 w-min  rounded px-6 gap-5">
                         <div about='icone' className="w-min  h-full flex items-center ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
@@ -63,12 +68,12 @@ export default function VerticalMenu() {
                         </div>
                     </Link>
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
-                    <Link href={"/dashboard/services"} about="butões" className="rounded-full px-6 gap-5 w-minl  h-10 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/dashboard/services"} about="butões" className="rounded-full px-6 gap-5 w-minl  h-10 flex flex-row hover:bg-zinc-200 ">
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                             <Barcode strokeWidth={1} size={18}/>
                         </div>
                         <div about="nome" className="h-full w-min flex items-center justify-center">
-                            <p className="text-zinc-800 whitespace-nowrap">Produtos e Serviços</p>
+                            <span className="text-zinc-800 whitespace-nowrap">Produtos e Serviços</span>
                         </div>
                     </Link>
                     <Link href={"/dashboard/customers"} about="butões" className="rounded-full px-6 gap-5 w-min  h-10 flex flex-row hover:bg-zinc-200">
@@ -105,7 +110,7 @@ export default function VerticalMenu() {
                             <p className="text-zinc-800 whitespace-nowrap">Relatórios</p>
                         </div>
                     </Link>
-                    {/*  */}
+                   
                     <div className="h-[1px] border-b border-zinc-200 w-full my-4"></div>
                     <Link href={"/dashboard/settings"} about="butões" className="rounded-full px-6 gap-5 w-min  h-10 flex flex-row hover:bg-zinc-200">
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
@@ -139,16 +144,22 @@ export default function VerticalMenu() {
                             <p className="text-zinc-800">User</p>
                         </div>
                     </Link>
-
-                    <Link href={"/dashboard/user-profile"} about="butões" className="rounded-full px-6 gap-5 w-full  h-10 flex flex-row hover:bg-zinc-200 items-center">
-                        <div about='' className="w-full h-full rounded-full overflow-hidden flex items-center justify-center ">
-                            <img className="  w-8 h-8 rounded-full" src="https://files.tecnoblog.net/wp-content/uploads/2021/07/wagner-perfil.jpg"/>
-                        </div>
-                        <div about="nome" className="h-full w-full flex justify-center  flex-col  overflow-hidden ">
-                            <p className="text-sm font-semibold truncate">Mateus Limeira</p>
-                            <p className="text-zinc-800 text-sm text-neutral-400 font-bold truncate ">mateus.limeira@gmail.comfdfdfdf</p>
-                        </div>
-                    </Link>
+                    <div className="h-16 border-t w-full flex  bg-white  bottom-0  justify-center items-center fixed max-w-80 left-0">
+                        <Link href={"/dashboard/user-profile"}  className="rounded-full px-6 gap-3 w-full  h-10 flex flex-row -hover:bg-zinc-200 items-center ">
+                            <div  className="w-8 h-8  rounded-full overflow-hidden flex items-center justify-center ">
+                                {/* <img className="  w-8 h-8 rounded-full" src="https://files.tecnoblog.net/wp-content/uploads/2021/07/wagner-perfil.jpg"/> */}
+                                <User strokeWidth={1}/>
+                            </div>
+                            <div  className="h-full w-full flex justify-between items-center  flex  overflow-hidden ">
+                                <p className="text-sm font-semibold truncate hover:text-blue-600">Mateus Limeira</p>
+                                <LogOut
+                                    strokeWidth={1}
+                                    size={21}
+                                />
+                                {/* <p className="text-zinc-800 text-sm text-neutral-400 font-bold truncate ">mateus.limeira@gmail.comfdfdfdf</p> */}
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,7 +1,6 @@
-
 'use client'
-
 import { useState } from "react"
+
 
 export function Main() {
     return (
@@ -122,62 +121,125 @@ export function Main() {
                         <label className=" text-sm">
                             Horário de funcionamento *
                         </label>   
-                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex py-1 rounded-lg  items-center hover:border-zinc-300">
-                            <div className="flex items-center text-xs rounded px-2 border ml-1 h-full bg-neutral-200">
-                                Domingo
+                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex p-1 rounded-lg  items-center hover:border-zinc-300 gap-2 overflow-hidden">
+                            <div className="w-[40%] h-full">
+                                <div className="flex items-center whitespace-nowrap justify-center text-xs rounded  border  h-full w-min bg-neutral-200 px-2 font-semibold">
+                                    Domingo
+                                </div>
                             </div>
-                            <input
-                                className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
-                                // name="fullName" 
-                                spellCheck="false"
-                                // placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}
-                                type="text" 
-                                // {...register("fullName") }
-                                // aria-invalid={errors.fullName ? "true" : "false"} 
-                                // value={capitalizeWords(watch('fullName'))}
-                                // onChange={(data) => data}
-                                // onChange={(e) => e.isPropagationStopped() && }
-                            />
+                            <div className="flex justify-center  h-full  items-center w-min w-[60%]">
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden ">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            -
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden  ml-4">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  flex "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            </div>
                             <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
                                 <span className="loader"/>
                             </span>
                         </div>
-                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex py-1 rounded-lg  items-center hover:border-zinc-300">
-                            <div className="flex items-center rounded px-2 text-xs border ml-1 h-full bg-neutral-200">
-                                Segunda
+                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex p-1 rounded-lg  items-center hover:border-zinc-300 gap-2 overflow-hidden">
+                            <div className="w-[40%] h-full">
+                                <div className="flex items-center whitespace-nowrap justify-center text-xs rounded  border  h-full w-min bg-neutral-200 px-2 font-semibold">
+                                    Segunda-feira
+                                </div>
                             </div>
-                            <input
-                                className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
-                                // name="fullName" 
-                                spellCheck="false"
-                                // placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}
-                                type="text" 
-                                // {...register("fullName") }
-                                // aria-invalid={errors.fullName ? "true" : "false"} 
-                                // value={capitalizeWords(watch('fullName'))}
-                                // onChange={(data) => data}
-                                // onChange={(e) => e.isPropagationStopped() && }
-                            />
+                            <div className="flex justify-center  h-full  items-center w-min w-[60%]">
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden ">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            -
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden  ml-4">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  flex "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            </div>
                             <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
                                 <span className="loader"/>
                             </span>
                         </div>
-                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex py-1 rounded-lg  items-center hover:border-zinc-300">
-                            <div className="flex items-center rounded px-2 text-xs border ml-1 h-full bg-neutral-200">
-                                Terça
+                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex p-1 rounded-lg  items-center hover:border-zinc-300 gap-2 overflow-hidden">
+                            <div className="w-[40%] h-full">
+                                <div className="flex items-center whitespace-nowrap justify-center text-xs rounded  border  h-full w-min bg-neutral-200 px-2 font-semibold">
+                                    Terça-feita
+                                </div>
                             </div>
-                            <input
-                                className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
-                                // name="fullName" 
-                                spellCheck="false"
-                                // placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}
-                                type="text" 
-                                // {...register("fullName") }
-                                // aria-invalid={errors.fullName ? "true" : "false"} 
-                                // value={capitalizeWords(watch('fullName'))}
-                                // onChange={(data) => data}
-                                // onChange={(e) => e.isPropagationStopped() && }
-                            />
+                            <div className="flex justify-center  h-full  items-center w-min w-[60%]">
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden ">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            -
+                            <div className="flex items-center justify-center  h-full w-14 overflow-hidden  ml-4">
+                                <input
+                                    className="  h-full outline-none bg-transparent placeholder:text-neutral-400  w-full  flex "
+                                    // name="fullName" 
+                                    spellCheck="false"
+                                    placeholder={`00:00`}
+                                    type="text" 
+                                    // {...register("fullName") }
+                                    // aria-invalid={errors.fullName ? "true" : "false"} 
+                                    // value={capitalizeWords(watch('fullName'))}
+                                    // onChange={(data) => data}
+                                    // onChange={(e) => e.isPropagationStopped() && }
+                                />
+                            </div>
+                            </div>
                             <span className="h-10 hidden w-10 scale-90 flex items-center justify-center ">
                                 <span className="loader"/>
                             </span>
@@ -245,9 +307,9 @@ export function General() {
                         <label className=" text-sm">
                             País *
                         </label>   
-                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex  rounded-lg  items-center hover:border-zinc-300">
+                        <div className="h-10 w-[360px] border-[2px] border-zinc-200 flex  rounded-lg  items-center hover:border-zinc-300 px-3">
                             <select
-                                className=" w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400  "
+                                className=" w-full h-full  outline-none bg-transparent placeholder:text-neutral-400  "
                                 // name="fullName" 
                                 spellCheck="false"
                                 // placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}

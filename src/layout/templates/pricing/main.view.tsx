@@ -6,7 +6,7 @@ import { FaPix } from "react-icons/fa6"
 
 
 
-export function Main() {
+export default function Main() {
     const router = useRouter()
     return (
         <div className=" bg-neutral-100 ">
@@ -69,14 +69,14 @@ export function Main() {
                     </div>
                     <div className="flex flex-col p-6 bg-neutral-100">
                         <div className="flex justify-between ">
-                            <span>
-                            Subtotal
+                            <span className="text-xl font-semibold">
+                                Subtotal
                             </span>
                             <div className="flex gap-2">
-                                <span>
+                                <span className="text-neutral-600">
                                 R$2.207,52
                                 </span>
-                                <span>
+                                <span className="text-green-800">
                                 R$527,52
                                 </span>
                             </div>

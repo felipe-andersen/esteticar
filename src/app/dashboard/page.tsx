@@ -1,4 +1,4 @@
-import Dashboard from "@/layout/templates/dashboard";
+import Dashboard from "@/layout/templates/dashboard/dashboard.view";
 
 type Props = {
     params?: any

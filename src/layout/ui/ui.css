@@ -1,0 +1,13 @@
+.scroll-v::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+  }
+
+.scroll-v::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 4px;
+  }
+
+.scroll-v::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+}

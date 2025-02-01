@@ -6,6 +6,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "node 23.5.0"
+    }
+
     environment {
         // 1. Define variáveis de ambiente pegar as secrets
         NODE_ENV = 'production'

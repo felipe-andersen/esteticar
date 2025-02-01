@@ -194,6 +194,7 @@ export function NewSale({
                         </label>
                         <div className="h-12 w-full border-[2px] border-zinc-200 flex rounded-lg  items-center hover:border-zinc-400">
                             <input
+                                data-test="full-name"
                                 className="text-sm w-full h-full px-3 outline-none bg-transparent placeholder:text-neutral-400 outline-none placeholder:text-sm"
                                 // name="fullName" 
                                 spellCheck="false"

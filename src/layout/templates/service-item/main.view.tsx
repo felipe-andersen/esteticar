@@ -3,7 +3,7 @@
 
 import { result } from '@/layout/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ArrowRightIcon, ArrowLeft} from "lucide-react";
-import VerticalMenu from '@/layout/organisms/VerticalMenu';
+import VerticalMenu from '@/layout/organisms/side-bar';
 import { useState, useRef } from 'react';
 import { TopBar } from '@/layout/organisms/header';
 import { FaSquareBehance } from 'react-icons/fa6';
@@ -103,6 +103,7 @@ export function Main() {
                                 className={`w-full h-full ${isEdit? 'px-3' : 'font-semibold'} outline-none bg-transparent placeholder:text-neutral-400 text-sm`}
                                 // name="fullName" 
                                 spellCheck="false"
+                                disabled={isEdit ? false : true}
                                 // placeholder={`${placeholder.fullName ? placeholder.fullName : "Jon Doe"}`}
                                 type="text" 
                                 // {...register("fullName") }

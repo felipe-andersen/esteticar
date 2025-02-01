@@ -1,15 +1,15 @@
-version: "3.8"
+# version: "3.8"
 
 networks:
   esteticar_net:
     driver: bridge
 
 services:
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token eyJhIjoiODBhNTkxMDQxZTBjMzg2ZjgxNzA5OTFkYzhlODNiMGEiLCJ0IjoiMTJlYTlkN2ItZmZkZC00NmM2LWE0NTgtNTg2NjFhOGRmM2RjIiwicyI6IllXTTFaR05pWm1RdFptWmlZeTAwTmpKakxXSmtNR0l0TldWa1ltVTBOalF6TXpjMiJ9
-    restart: unless-stopped
-    network_mode: host
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   command: tunnel --no-autoupdate run --token eyJhIjoiODBhNTkxMDQxZTBjMzg2ZjgxNzA5OTFkYzhlODNiMGEiLCJ0IjoiMTJlYTlkN2ItZmZkZC00NmM2LWE0NTgtNTg2NjFhOGRmM2RjIiwicyI6IllXTTFaR05pWm1RdFptWmlZeTAwTmpKakxXSmtNR0l0TldWa1ltVTBOalF6TXpjMiJ9
+  #   restart: unless-stopped
+  #   network_mode: host
 
   frontend_a:
     build: .
@@ -100,51 +100,61 @@ services:
     networks:
       - esteticar_net
 
-  postgresql:
-    image: postgres
-    container_name: postgresql
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: cloudbeaver
+    restart: unless-stopped
     ports:
-      - 5452:5432
-    restart: always
+      - "8998:8978"
+    # volumes:
+    #   - cloudbeaver-data:/opt/cloudbeaver/workspace
+    # environment:
+    #   - CB_ADMIN_NAME=admin
+    #   - CB_ADMIN_PASSWORD=Admin123
     networks:
       - esteticar_net
-    # volumes:
-    #     - ./storage/postgresql:var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=psqlpass
-      - POSTGRES_PASSWORD=psqlpass #pgpass
-      # - PGDATA=/var/lib/postgresql/data/pgdata
-    # volumes:
-    #     - /home/felipe/Documents/esteticar/data:var/lib/postgresql/data
+# postgres:
+#   image: postgres
+#   container_name: postgres
+#   ports:
+#     - 5453:5432
+#   restart: always
+#   networks:
+#     - esteticar_net
+#   # volumes:
+#   #     - ./data/postgresql:var/lib/postgresql/data
+#   environment:
+#     - POSTGRES_USER=esteticar
+#     - POSTGRES_PASSWORD=esteticar #pgpass
+#     # - PGDATA=/var/lib/postgresql/data/pgdata
 
-  redis-stack:
-    image: redis/redis-stack:latest
-    container_name: esteticar-redis-stack
-    ports:
-      - "6399:6379"
-      - "8031:8001"
-    networks:
-      - esteticar_net
-    # environment:
-    #   - REDIS_PASSWORD=yourpassword
-    # volumes:
-    #   - redis_data:/data
-  # volumes:
-  #   redis_data:
+#   redis-stack:
+#     image: redis/redis-stack:latest
+#     container_name: esteticar-redis-stack
+#     ports:
+#       - "6399:6379"
+#       - "8031:8001"
+#     networks:
+#       - esteticar_net
+#     # environment:
+#     #   - REDIS_PASSWORD=yourpassword
+#     # volumes:
+#     #   - redis_data:/data
+#   # volumes:
+#   #   redis_data:
 
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    ports:
-      - "8086:8080" # Porta de acesso ao Jenkins
-      - "50001:50000" # Porta para conexão de agentes Jenkins
-    volumes:
-      - jenkins_home:/var/jenkins_home # Volume para persistência dos dados do Jenkins
-      - /var/run/docker.sock:/var/run/docker.sock # Permite que o Jenkins controle o Docker do host
-    # environment:
-    #   - JAVA_OPTS=-Djenkins.install.runSetupWizard=false # Pula o assistente de configuração inicial
-    restart: always
-    # network_mode: host
-
-volumes:
-  jenkins_home:
+#   jenkins:
+#     image: jenkins/jenkins:lts
+#     container_name: jenkins_1
+#     ports:
+#       - "8086:8080" # Porta de acesso ao Jenkins
+#       - "50001:50000" # Porta para conexão de agentes Jenkins
+#     volumes:
+#       - jenkins_home:/var/jenkins_home # Volume para persistência dos dados do Jenkins
+#       - /var/run/docker.sock:/var/run/docker.sock # Permite que o Jenkins controle o Docker do host
+#     # environment:
+#     #   - JAVA_OPTS=-Djenkins.install.runSetupWizard=false # Pula o assistente de configuração inicial
+#     restart: always
+#     # network_mode: host
+# volumes:
+#   jenkins_home:

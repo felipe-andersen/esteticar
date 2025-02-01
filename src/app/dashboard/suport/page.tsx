@@ -2,7 +2,7 @@
 
 
 
-export function SuportPage() {
+export default function SuportPage() {
     return (
         <div></div>
     )
