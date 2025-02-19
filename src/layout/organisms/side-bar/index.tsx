@@ -1,6 +1,6 @@
-import { ArrowLeftToLine, BarChart2, BarChart3, Barcode, CalendarCheck, Contact, Crown, FileText, FileTextIcon, FlagTriangleLeft, Gift, HandHelping, Handshake, LandPlot, LockKeyhole, LogOut, Pyramid, Settings, User } from "lucide-react";
+import { ArrowLeftToLine, BarChart2, BarChart3, Barcode, CalendarCheck, ChevronsUpDown, Contact, Crown, FileText, FileTextIcon, FlagTriangleLeft, Gift, HandHelping, Handshake, LandPlot, LockKeyhole, LogOut, Pyramid, Settings, User } from "lucide-react";
 import Link from "next/link";
-import './vertical-menu.css'
+import './side-bar.css'
 import { Profiler, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 
@@ -152,7 +152,7 @@ export default function VerticalMenu() {
                             </div>
                             <div  className="h-full w-full flex justify-between items-center  flex  overflow-hidden ">
                                 <p className="text-sm font-semibold truncate hover:text-blue-600">Mateus Limeira</p>
-                                <LogOut
+                                <ChevronsUpDown
                                     strokeWidth={1}
                                     size={21}
                                 />

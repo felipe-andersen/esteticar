@@ -10,6 +10,8 @@ import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 
+import createCustomer from './dashboard.model';
+
 
 const vagas = ['1', "2", "3", "4", "5", "6", "7", '8' , 9]
 
@@ -31,8 +33,10 @@ export function Main() {
     // refs
     const target = useRef(null);
 
+
+
     return (
-    <main className=' flex w-[calc(100%-320px)]  h-[calc(100%-64px)] box-border   ml-80 mt-16   fixed overflow-hidden'>
+    <main className=' flex   h-[calc(100%-64px)] box-border  mt-16   fixed overflow-hidden'>
         <div className='flex w-full overflow-y-scroll   h-full z-10   box-border '>
             {/* <div  about="pdv" className='w-full h-40 flex items-center yjy  lg:justify-between  px-6 gap:6 border-b border-zinc-150 sm:flex-col lg:flex-row '>
                 <div className='flex flex-row items-center  w-75 h-full  overflow-hidden'>
@@ -105,312 +109,7 @@ export function Main() {
                         </div>
                     </div>
                 </div>
-                <div className='flex w-full   justify-between grid_ '>
-                    <div className='  w-full  border border-zinc-200'>
-                        <div className='col-item w-full flex flex-col p-6 border-b  '>
-                            <div className='flex justify-between items-center '>
-                                <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
-                                    Ranking de Vendedores 
-                                    <MoveRight size={18}/>
-                                </h2>
-                                <i>
-                                    <X size={18}/>
-                                </i>
-                            </div>
-                            <p className='mt-3'>
-                                Colaboradores com mais vendas
-                            </p>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex gap-6 p-6'>
-                                    <div className='w-16  flex flex-col items-center  mb- justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://i.pinimg.com/736x/31/6c/37/316c371de23a36343b999508c71270bf.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-600 h-24'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://st.depositphotos.com/1726139/2724/i/450/depositphotos_27245917-stock-photo-portrait-of-a-handsome-black.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-900 h-48'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://img.freepik.com/fotos-premium/homem-negro-africano-e-modelo-com-fundo-colorido_539191-1358.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-300 h-36'></div>
-                                    </div>
-                                </div>
-                                <div className='p-6 flex flex-col w-96 gap-6 '>
-                                    <div className='flex justify-between w-full h-10'>
-                                        <span>
-                                            Marlon Freitas
-                                        </span> 
-                                        <span className='text-lg font-bold'>
-                                            R$ 2698,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1561,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1129,00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=''>
-                                <div className='h-16 w-full  p-6'>
-                                    <h2>
-                                        AGendamentos
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-item w-full flex flex-col p-6 border-b border-zinc-300 '>
-                            <div className='flex justify-between items-center '>
-                                <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
-                                    Mais vendidos 
-                                    <MoveRight size={18}/>
-                                </h2>
-                                <i>
-                                    <X size={18}/>
-                                </i>
-                            </div>
-                            <p>
-                                Mais vendidos em planos, serviços e produtos
-                            </p>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex gap-6 p-6'>
-                                    <div className='w-16  flex flex-col items-center  mb- justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://i.pinimg.com/736x/31/6c/37/316c371de23a36343b999508c71270bf.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-600 h-24'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://st.depositphotos.com/1726139/2724/i/450/depositphotos_27245917-stock-photo-portrait-of-a-handsome-black.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-900 h-48'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://img.freepik.com/fotos-premium/homem-negro-africano-e-modelo-com-fundo-colorido_539191-1358.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-300 h-36'></div>
-                                    </div>
-                                </div>
-                                <div className='p-6 flex flex-col w-96 gap-6 '>
-                                    <div className='flex justify-between w-full h-10'>
-                                        <span>
-                                            Marlon Freitas
-                                        </span> 
-                                        <span className='text-lg font-bold'>
-                                            R$ 2698,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1561,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1129,00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=''>
-                                <div className='h-16 w-full  p-6'>
-                                    <h2>
-                                        AGendamentos
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-item w-full flex flex-col p-6 border-b border-zinc-300 '>
-                            <div className='flex justify-between items-center'>
-                                <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
-                                    Ticket médio por cliente e Clientes que mais gastaram
-                                    <MoveRight size={18}/>
-                                </h2>
-                                <i>
-                                    <X size={18}/>
-                                </i>
-                            </div>
-                            <p>
-                                Mais vendidos em planos, serviços e produtos
-                            </p>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex gap-6 p-6'>
-                                    <div className='w-16  flex flex-col items-center  mb- justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://i.pinimg.com/736x/31/6c/37/316c371de23a36343b999508c71270bf.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-600 h-24'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://st.depositphotos.com/1726139/2724/i/450/depositphotos_27245917-stock-photo-portrait-of-a-handsome-black.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-900 h-48'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://img.freepik.com/fotos-premium/homem-negro-africano-e-modelo-com-fundo-colorido_539191-1358.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-300 h-36'></div>
-                                    </div>
-                                </div>
-                                <div className='p-6 flex flex-col w-96 gap-6 '>
-                                    <div className='flex justify-between w-full h-10'>
-                                        <span>
-                                            Marlon Freitas
-                                        </span>
-                                        <span className='text-lg font-bold'>
-                                            R$ 2698,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1561,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1129,00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=''>
-                                <div className='h-16 w-full  p-6'>
-                                    <h2>
-                                        AGendamentos
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-item w-full flex flex-col p-6 border-b border-zinc-300 '>
-                            <div className='flex justify-between items-center '>
-                                <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
-                                    Agenda
-                                    <MoveRight size={18}/>
-                                </h2>
-                                <i>
-                                    <X size={18}/>
-                                </i>
-                            </div>
-                            <p>
-                                Agenda
-                            </p>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex gap-6 p-6'>
-                                    <div className='w-16  flex flex-col items-center  mb- justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://i.pinimg.com/736x/31/6c/37/316c371de23a36343b999508c71270bf.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-600 h-24'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://st.depositphotos.com/1726139/2724/i/450/depositphotos_27245917-stock-photo-portrait-of-a-handsome-black.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-900 h-48'></div>
-                                    </div>
-                                    <div className='w-16  flex flex-col items-center  justify-end'>
-                                        <div className='h-9 w-9 rounded bg-zinc-200 mb-2 overflow-hidden'>
-                                            <img src='https://img.freepik.com/fotos-premium/homem-negro-africano-e-modelo-com-fundo-colorido_539191-1358.jpg'></img>
-                                        </div>
-                                        <div className='nowrap text-sm text-center mb-4'>
-                                            Marlon Freitas
-                                        </div>
-                                        <div className='w-14 bg-blue-300 h-36'>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='p-6 flex flex-col w-96 gap-6 '>
-                                    <div className='flex justify-between w-full h-10'>
-                                        <span>
-                                            Marlon Freitas
-                                        </span>
-                                        <span className='text-lg font-bold'>
-                                            R$ 2698,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1561,00
-                                        </span>
-                                    </div>
-                                    <div className='flex justify-between w-full h-10'>
-                                        Marlon Freitas 
-                                        <span className='text-lg font-bold'>
-                                            R$ 1129,00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=''>
-                                <div className='h-16 w-full  p-6'>
-                                    <h2>
-                                        AGendamentos
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-{/* 
-                    <div className='bg-blue-300  h-screen  w-[380px] sm md lg xl 2xl max-h-[700px]'>
-                        <img className='h-full' src='https://m1.behance.net/rendition/modules/100574657/disp/578d5a2ccc39308caa48d56ef7adc2e1.png'></img>
-                    </div> */}
-                </div>
+                
                 <section className='w-[700px] p-6 bg-white'>
                     <h2 className=' w-full text-xl font-bold mb-6'>
                         Nova venda
@@ -471,8 +170,13 @@ export function Main() {
                     <h3 className='text-md font-bold  mt-6 mb-4'>
                         Produto
                     </h3>
-                    <div className='flex  gap-3'>
-                        <button className='flex items-center gap-2 bg-zinc-100 h-10 px-3 w-min whitespace-nowrap rounded'>
+                    <div 
+                        className='flex  gap-3'
+                    >
+                        <button 
+                            className='flex items-center gap-2 bg-zinc-100 h-10 px-3 w-min whitespace-nowrap rounded'
+                            onClick={() => createCustomer('felipe')}
+                        >
                             <Plus size={18}/> 
                             Adicionar produto
                         </button>
@@ -481,6 +185,8 @@ export function Main() {
                             Pesquisar produto
                         </button>
                     </div>
+
+                    
                     <h3 className='text-md font-bold  mt-6 mb-4'>
                         Subtotal
                     </h3>

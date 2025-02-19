@@ -105,7 +105,7 @@ function CategoryModal({isOpen, onClose}: CategoryModalType)  {
         role="dialog"
         aria-modal="true"
         >
-        Modal categoria {process.env.}
+        Modal categoria 
         </div>
     );
 };
@@ -191,18 +191,18 @@ export async function Main() {
     // my mutations
    
     return (
-    <main className='  bg-[#f6f8fa]  mr-1 h-full ml-80 mt-16 overflow-scroll '>
+    <main className='  bg-[#f6f8fa]   h-full mt-16 overflow-scroll '>
         <CategoryModal
             onClose={setIsModalOpen}
             isOpen={isModalOpen}
         />
-        <div className='w-full h-min   p-6 flex flex-col '>
+        <div className='w-full h-min   sm:p-6 flex flex-col '>
             <div className='flex justify-between '>
                 <div className='flex flex-col mb-10 gap-3'>
-                    <h2 className='text-xl font-semibold '>
+                    <h2 className='text-md font-semibold '>
                         Serviços 
                     </h2>
-                    <p className='text-zinc-400'>
+                    <p className='text-zinc-400 text-sm'>
                         1 categoria 3 serviços cadastrados
                     </p>
                 </div>
@@ -256,7 +256,7 @@ export async function Main() {
                 </h2>
             </div> */}
             <div className='bg-white py-8 rounded-xl border-dashed  mb-6 border overflow-x-scroll'>
-                <div className='flex justify-between px-8 items-center mb-6'>
+                <div className='flex justify-between px-4 sm:px-8 items-center mb-6'>
                     <h2 className='font-medium text-md '>
                         Lavagem
                     </h2>
@@ -266,7 +266,7 @@ export async function Main() {
                             className='h-10 w-min px-3 whitespace-nowrap  text-white text-[13px] rounded-xl bg-[#4fc9da] '>
                             Cadastrar serviço 
                         </button>
-                        <div className='flex '>
+                        <div className='flex -mr-2'>
                             <div className='h-9 w-9 rounded  hover:bg-zinc-100 flex items-center justify-center '>
                                 <Filter 
                                     strokeWidth={1} 
@@ -275,7 +275,7 @@ export async function Main() {
                             </div>
                             <button
                                 onClick={() => tableView === "table" ? setTableView("list") : setTableView("table")}
-                                className='h-9 w-9  bg-white bg-violet-100   flex items-center justify-center hover:bg-zinc-100 target:bg-zinc-200 rounded-l-lg'
+                                className='h-9 w-9  bg-white bg-violet-100   flex items-center justify-center hover:bg-zinc-100 target:bg-zinc-200 rounded-l-lg '
                             >
                                 {
                                     tableView === "table" ? 
@@ -292,13 +292,7 @@ export async function Main() {
                                     />
                                 }
                             </button>
-                            <div className='h-9 w-9 hover:bg-zinc-100 bg-white  flex items-center justify-center  rounded-r-lg'>
-                                <List 
-                                    strokeWidth={1}
-                                    size={19} 
-                                    // color="grey" 
-                                />
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -332,8 +326,7 @@ export async function Main() {
                                 services.map(item => (
                                     <>
                                         <tr 
-                                        
-                                            className='h-12 border-b border-b-[3px] border-blue-0  hover:border-blue-500 text-sm text-[#53626b]  group/item  '
+                                            className='h-12 border-b  border-blue-0  hover:border-blue-500 text-sm text-[#53626b]  group/item whitespace-nowrap  '
                                         >
                                             <td className='bg-blue-0 text-center '>
                                                 <div className='flex items-center '>

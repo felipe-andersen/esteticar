@@ -24,7 +24,8 @@ export default function Dashboard() {
     return (
         <div className='relative flex h-full box-border  bg-zinc-300 overflow-hidden '>
             <TopBar pageName='CRM'/>
-            <VerticalMenu/>
+
+            {/* <VerticalMenu/> */}
             <Main/>
         </div>
     );

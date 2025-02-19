@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
 }
 
 datasource db {
@@ -8,6 +9,13 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model Customer {
+  customer_id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  customer_public_id String? @unique @default(dbgenerated("gen_random_uuid()"))
+  customer_name      String  @unique
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model User {
   user_id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user_created_at           DateTime @default(now()) @db.Timestamptz(6)
