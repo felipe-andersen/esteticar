@@ -1,9 +1,9 @@
 export interface WorkerOrder {
     id: number;
-    workerId: number;
-    orderId: number;
+
+    publicId: number;
     status: string;
     createdAt: string;
     updatedAt: string;
-    deletedAt: string;
+    deletedAt?: string;
 }

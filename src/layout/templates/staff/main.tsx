@@ -6,12 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { result } from '@/layout/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ChevronDown, ChevronUp, FileDown, ChevronRight} from "lucide-react";
-import VerticalMenu from '@/layout/organisms/VerticalMenu';
+
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { TopBar } from '@/layout/organisms/header';
+
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
 import RegisterWorker from '@/layout/organisms/forms/employee-registration-form';

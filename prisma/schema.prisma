@@ -9,13 +9,25 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+enum UserStatus {
+  active
+  inactive
+  suspended
+}
+
 model Customer {
   customer_id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   customer_public_id String? @unique @default(dbgenerated("gen_random_uuid()"))
-  customer_name      String  @unique
+  customer_name      String
 }
 
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+enum UserType {
+  admin
+  client
+  employee
+  manager
+}
+
 model User {
   user_id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user_created_at           DateTime @default(now()) @db.Timestamptz(6)
@@ -28,3 +40,22 @@ model User {
   user_password_hash        String?
   user_status               String   @db.VarChar
 }
+
+// model User {
+//   id                   String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   createdAt            DateTime   @default(now()) @db.Timestamptz(6)
+//   updatedAt            DateTime   @updatedAt
+
+//   userName             String     @unique
+//   defaultEmail         String     @unique
+//   alternativeEmail     String?    @unique
+//   defaultCellphone     String     @unique
+//   alternativeCellphone String?    @unique
+
+//   // Senha segura (obrigatória para evitar problemas de autenticação)
+//   passwordHash         String     @db.Text
+//   passwordSalt         String     @db.Text
+
+//   status               UserStatus @default(active) 
+//   userType             UserType   @default(client) 
+// }

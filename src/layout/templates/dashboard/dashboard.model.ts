@@ -65,3 +65,14 @@ export const addTeste = async (formData: FormData) => {
 //     return returnMessage
 //   }
 // }
+
+/**
+
+Não se engane!
+São necessários umas 2000 horas de estudo para se tornar um desenvolverdor júnior. Então se vc caiu de paraqueda na área e acha que em pouco tempo vai deslanchar, só digo uma coisa - pé no chão!
+A jornada exige dedicação, consistência e muita prática.
+
+#Desenvolvimento #CarreiraTech #Programação
+
+*/
+

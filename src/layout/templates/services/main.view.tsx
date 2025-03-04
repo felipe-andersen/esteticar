@@ -1,9 +1,9 @@
 
 'use client'
 import { result } from '@/layout/organisms';
-import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter} from "lucide-react";
+import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, Sidebar} from "lucide-react";
 
-import { TopBar } from '@/layout/organisms/header';
+import { Header } from '@/layout/organisms/header';
 import { FaSquareBehance } from 'react-icons/fa6';
 import { CgAdd } from 'react-icons/cg';
 import { ServiceCategories } from '@/interfaces/ServiceCategory';
@@ -26,6 +26,7 @@ import { capitalizeWords } from '@/utils/capitalizeWords';
 import { createPortal } from 'react-dom';
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { prisma } from '@/lib/prisma/prisma-client';
+import VerticalMenu from '@/layout/organisms/side-bar';
 // mswjs
 
 interface Category {
@@ -655,6 +656,7 @@ export async function Main() {
                 </button>
             </div>
         </div>
+        <VerticalMenu/>
     </main>
     );
 }

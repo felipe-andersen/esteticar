@@ -1,5 +1,6 @@
 import Dashboard from "@/layout/templates/dashboard/dashboard.view";
 
+
 type Props = {
     params?: any
     searchParams?: any
@@ -14,11 +15,8 @@ export async function generateMetadata({ params }:Props) {
 
 export default function InitialPage() {
     return (
-      
         <div className="flex  h-screen w-screen flex-col  overflow-hidden ">
-
             <Dashboard/>
-
         </div>
     );
 }

@@ -1,7 +1,8 @@
-import VerticalMenu from "@/layout/organisms/VerticalMenu";
-import { TopBar } from "@/layout/organisms/header";
+import { Header } from "@/layout/organisms/header";
 import { Main } from "./main.view";
 import { db } from "@/lib/dexie";
+import { BottomNavigation } from "@/layout/organisms/bottom-navigation/bottom-navigation.view";
+
 
 type Props = {
     name: string
@@ -24,9 +25,9 @@ async function addFriend(props:Props) {
 export function PDV() {
     return (
         <div className="bg-[#f6f8fa]">
-            <TopBar pageName="PDV"/>
+            <Header pageName="PDV"/>
             <Main/>
-            <div id="portal-modal"></div>
+            <BottomNavigation/>
         </div>
     )
 }

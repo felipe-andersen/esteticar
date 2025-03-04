@@ -1,23 +1,59 @@
-interface  f {
-    numeroDeVagas: number
-    horarioDeFucionamento: {
-        segunda: {
-            aberto: boolean | 'partial'
+interface OperatingSchedule {
+    numberOfSlots: number;
+    operatingHours: {
+        monday: {
+            open: boolean | 'partial';
             intervals: {
-                inicio: string
-                fim: string
-            }[]
-        }
-        terca: string
-        quarta: string
-        quinta: string
-        sexta: string
-        sabado: string
-        domingo: string
-        feriados: boolean | 'partial' | string
-
-    }
+                start: string;
+                end: string;
+            }[];
+        };
+        tuesday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        wednesday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        thursday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        friday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        saturday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        sunday: {
+            open: boolean | 'partial';
+            intervals: {
+                start: string;
+                end: string;
+            }[];
+        };
+        holidays: boolean | 'partial' | string;
+    };
 }
+
 
 interface ParkingLot {
     totalSpaces: number;

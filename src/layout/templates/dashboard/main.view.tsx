@@ -4,39 +4,44 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Search, Plus, ArrowUpRight} from "lucide-react";
+import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Search, Plus, ArrowUpRight, Sidebar, CheckIcon, ArrowRightFromLine, ArrowLeftToLine} from "lucide-react";
 import { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 import createCustomer from './dashboard.model';
+import { Modal } from '@/layout/organisms/modal/modal.view';
+import { Spinnaker } from 'next/font/google';
+import { CgSpinner } from 'react-icons/cg';
 
 
 const vagas = ['1', "2", "3", "4", "5", "6", "7", '8' , 9]
 
 export function Main() {
-    // states
+    // 
     const [show, setShow] = useState(false);
-
-    // mutations
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSidebarExtended, setSidebarExtended] = useState(false);
+    const [sidebarMounted, setSidebarMounted] = useState(false);
+    // 
     useEffect(()=> {
 
     }, []
     )
 
 
-    // hooks
+    // 
 
 
 
-    // refs
+    // 
     const target = useRef(null);
 
 
 
     return (
-    <main className=' flex   h-[calc(100%-64px)] box-border  mt-16   fixed overflow-hidden'>
+    <main className={`flex   h-[calc(100%-120px)] box-border  mt-14 sm:mt-16   fixed overflow-hidden ${sidebarMounted ? "ml-[320px]" : "ml-0"}`}>
         <div className='flex w-full overflow-y-scroll   h-full z-10   box-border '>
             {/* <div  about="pdv" className='w-full h-40 flex items-center yjy  lg:justify-between  px-6 gap:6 border-b border-zinc-150 sm:flex-col lg:flex-row '>
                 <div className='flex flex-row items-center  w-75 h-full  overflow-hidden'>
@@ -53,8 +58,95 @@ export function Main() {
                 </div>
             </div> */}
             <div className='flex flex-col h-full w-full'>
+                <section className='bg-white p-4 py-9 w-full'>
+                    <div className='flex items-center justify-center border w-8 h-8 rounded-full'>
+                       {
+                        !sidebarMounted ?  
+                            <button className="w-full h-full" onClick={() => setSidebarMounted(true)}>
+                                <ArrowRightFromLine size={18}/>
+                            </button>
+                            :
+                            <button className="w-full h-full" onClick={() => setSidebarMounted(false)}>
+                                <ArrowLeftToLine size={18}/>
+                            </button>
+                        }
+                    </div>
+                   
+                    <p className='text-xl font-semibold mb-1'>Bem vindo!</p>
+                    <p className='text-zinc-500 text-md'>
+                            Gerencie sua empresa
+                    </p>
+                    <div className='p-4 flex flex-col border rounded-2xl'>
+                        <p>Vamos começar</p>
+                        <p className='mb-3'>Faça sua primeira venda</p>
+                        <div className='flex flex-col gap-2 mb-6'>
+                            <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
+                                1
+                                {/* <CheckIcon/> */}
+                            
+                            </div>
+                            <p className='font-bold text-sm'>cadastre um produto ou serviço</p>
+                            <p className='text-sm'>Well done!</p>
+                        </div>
+                        <div className='flex flex-col gap-2 mb-3'>
+                            <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
+                                1
+                                {/* <CheckIcon/> */}
+                            
+                            </div>
+                            <p className='font-bold text-sm'>cadastre um produto ou serviço</p>
+                            <p className='text-sm'>Well done!</p>
+                        </div>
+                    </div>
+                    <div className='p-4 flex flex-col border rounded-2xl'>
+                        <div className='mb-6'>
+                            <div>
+                                <p className='font-bold'>Ckecklist</p>
+                                <p className='mb-3 text-sm text-neutral-0'>Faça sua primeira venda</p>
+                            </div>
+                            <div className='rounded-full px-3 h-7 w-min  whitespace-nowrap text-sm bg-orange-100 text-orange-600 flex items-center justify-center'>Lorem ipsum</div>
+                            <div className='flex items-center'>
+                                <CgSpinner/>
+                                <span>
+                                     <p className='text-[11px]'>progress</p>
+                                    <p className='text-xl font-bold'>25%</p>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        <div className='flex flex-col gap-2 mb-6'>
+                            {/* <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
+                                1
+                                
+                            
+                            </div> */}
+                            <p className='font-bold text-sm'>Adicione um nome para sua empresa</p>
+                            <p className='text-sm'>Acesse a aba settings e configure um nome</p>
+                        </div>
+                        <div className='flex flex-col gap-2 mb-6'>
+                            {/* <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
+                                1
+                                
+                            
+                            </div> */}
+                            <p className='font-bold text-sm'>Adicione um nome para sua empresa</p>
+                            <p className='text-sm'>Acesse a aba settings e configure um nome</p>
+                            <span className=''>Recomendado</span>
+                        </div>
+                        <div className='flex flex-col gap-2 mb-3'>
+                            <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-xs'>
+                                1
+                                {/* <CheckIcon/> */}
+                            
+                            </div>
+                            <p className='font-bold text-sm'>Cadastre um produto ou serviço</p>
+                            <p className='text-sm'>Well done!</p>
+                        </div>
+                    </div>
+                </section>
+
                 <div className='w-full bg-white  flex border-b border-b-zinc-300 '>
-                    <div className='flex flex-col p-6 py-9 gap-6 w-full'> 
+                    <div className='flex flex-col p-4 sm:p-6 py-9 gap-6 w-full bg-red-0'> 
                         <div className='flex justify-between items-center '>
                             <h2 className='flex  gap-1 group/item  text-lg font-semibold flex gap-2 h-10'>
                                 <div className='h-full border-b-2 border-zinc-900'>
@@ -70,11 +162,15 @@ export function Main() {
                         <p className='text-zinc-500'>
                             Gerencie as vagas no pátio
                         </p>
-                        <div className='flex gap-6  flex-wrap  overflow-hidden'>
+                        <div className='flex gap-3 sm:gap-6  w-full flex-nowrap  overflow-hidden'>
                             {
                                 vagas.map((name, key) => (
                                     <>
-                                        <button className='flex h-44 w-40 bg-zinc-50 hover:bg-zinc-100 rounded border border-zinc-500 flex-col py-4 px-4 items-center justify-between gap-3 overflow-hidden'>
+                                        <div 
+                                            role='btn' 
+                                            onClick={() => setIsModalOpen(true)} 
+                                            className='flex h-44 w-40 bg-zinc-50 hover:bg-zinc-100 rounded border border-zinc-500 flex-col py-4 px-4 items-center justify-between gap-3 overflow-hidden'
+                                        >
                                             <div className='border text-xs p- px-1 rounded border-zinc-900 flex justify-center'>
                                                 VAGA {key + 1}
                                             </div>
@@ -102,119 +198,22 @@ export function Main() {
                                                     80%
                                                 </span>
                                             </div>
-                                        </button>
+                                        </div>
                                     </>
                                 ))
                             }
+                           <Modal
+                                onClose={setIsModalOpen}
+                                isOpen={isModalOpen}
+                            >
+                                <div>olá</div>
+                            </Modal>
                         </div>
                     </div>
                 </div>
                 
-                <section className='w-[700px] p-6 bg-white'>
-                    <h2 className=' w-full text-xl font-bold mb-6'>
-                        Nova venda
-                    </h2>
-                    <h3 className='text-md font-bold mb-6'>
-                        Dados do Cliente
-                    </h3>
-                    <div className='gap-2 h-min mb-4'>
-                        <span className='mb-2'>
-                            <label className='text-sm mb-4'>
-                                Nome do Cliente
-                            </label>
-                        </span>
-                        <br/>
-                        <input 
-                            placeholder="Nome do Cliente" 
-                            className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'>
-                        </input>
-                    </div>
-                    <div className='gap-2 h-min mb-4'>
-                        <span className='mb-2'>
-                            <label className='text-sm mb-4'>
-                                Telefone
-                            </label>
-                        </span>
-                        <br/>
-                        <input 
-                            placeholder="Nome do Cliente" 
-                            className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'
-                        ></input>
-                    </div>
-                    <div className='gap-2 h-min mb-4'>
-                        <span className='mb-2'>
-                            <label className='text-sm mb-4'>
-                                Email
-                            </label>
-                        </span>
-                        <br/>
-                        <input 
-                            placeholder="Nome do Cliente" 
-                            className='w-full mt-2 text-sm h-12 border border-zinc-300 rounded pl-5'>
-                        </input>
-                    </div>
-                    <button className='text-xs'>
-                        ADICIONAR ENDEREÇO DE ENTREGA
-                    </button>
-                    <h3 className='text-md font-bold mt-6 mb-4'>
-                        Serviço
-                    </h3>
-                    <div className='flex  gap-3'>
-                        <button className='bg-zinc-100 h-10 px-3 w-min whitespace-nowrap rounded'>
-                            Adicionar serviço
-                        </button>
-                        <button className='bg-zinc-100 h-10 px-3 w-min whitespace-nowrap  rounded'>
-                            Pesquisar serviço
-                        </button>
-                    </div>
-                    <h3 className='text-md font-bold  mt-6 mb-4'>
-                        Produto
-                    </h3>
-                    <div 
-                        className='flex  gap-3'
-                    >
-                        <button 
-                            className='flex items-center gap-2 bg-zinc-100 h-10 px-3 w-min whitespace-nowrap rounded'
-                            onClick={() => createCustomer('felipe')}
-                        >
-                            <Plus size={18}/> 
-                            Adicionar produto
-                        </button>
-                        <button className='flex items-center gap-2 bg-zinc-100 h-10 px-3 w-min whitespace-nowrap  rounded'>
-                            <Search size={18}/>
-                            Pesquisar produto
-                        </button>
-                    </div>
-
-                    
-                    <h3 className='text-md font-bold  mt-6 mb-4'>
-                        Subtotal
-                    </h3>
-                    <h3 className='text-md font-bold  mt-6 mb-4'>
-                        Pagamento
-                    </h3>
-                    <h4 className='text-sm font-bold  mt-6 mb-4'>
-                        Data e hora prevista para liberação
-                    </h4>
-                    <div>
-                        <span>
-                            Enviar Ordem de Serviço
-                        </span>
-                        <span>
-                            Enviar Comprovante de Pagamento
-                        </span>
-                        <span>
-                            Enviar Nota Fiscal
-                        </span>
-                    </div>
-                    <button>
-                        Gerar Venda
-                    </button>
-                    <button>
-                        Cancelar
-                    </button>
-                </section>
-                <section className='bg-white mt-6 p-6 flex flex-col  py-9 gap-6 '>
+                
+                <section className='bg-white p-6 flex flex-col  py-9 gap-6 '>
                     <div className='flex justify-between items-center '>
                         <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
                             Cronograma 
@@ -331,6 +330,8 @@ export function Main() {
                         </div>
                     </div>
                 </section>
+
+              
             </div>
             {/* <div className=' w-1/4 h-full  p-4 sm md lg xl 2xl max-h-[700px] '>
                 <div className='flex flex-col justify-between gap-3 p-5 text-white imgf w-full h-72 bg-red-100  overflow-hidden rounded'>

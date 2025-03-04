@@ -1,15 +1,13 @@
-import { TopBar } from "@/layout/organisms/header";
-import VerticalMenu from "@/layout/organisms/VerticalMenu";
+import { Header } from "@/layout/organisms/header";
 import { Main } from "./main";
 
 
 export default function Settings() {
     return (
         <div>
-            <TopBar />
-            {/* <VerticalMenu /> */}
+            <Header />
+            {/* <SideBar /> */}
             <Main/>
-           
         </div>
     )
 }

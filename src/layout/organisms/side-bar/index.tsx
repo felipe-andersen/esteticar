@@ -1,10 +1,12 @@
+'use client'
 import { ArrowLeftToLine, BarChart2, BarChart3, Barcode, CalendarCheck, ChevronsUpDown, Contact, Crown, FileText, FileTextIcon, FlagTriangleLeft, Gift, HandHelping, Handshake, LandPlot, LockKeyhole, LogOut, Pyramid, Settings, User } from "lucide-react";
 import Link from "next/link";
 import './side-bar.css'
 import { Profiler, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 
-export default function VerticalMenu() {
+export default function SideBar() {
+    //
     const [width, setWidth] = useState<'max' | 'min'>('max')
 
     return (
@@ -136,12 +138,12 @@ export default function VerticalMenu() {
                             <p className="text-zinc-800">Crédito para crescer</p>
                         </div>
                     </Link>
-                    <Link href={"/settings"} about="butões" className="rounded-full px-6 gap-5 w-min  h-10 flex flex-row hover:bg-zinc-200">
+                    <Link href={"/dashboard/acount"} about="butões" className="rounded-full px-6 gap-5 w-min  h-10 flex flex-row hover:bg-zinc-200">
                         <div about='icone' className="w-min  h-full flex items-center justify-center">
                             <LandPlot strokeWidth={1} size={18}/>
                         </div>
                         <div about="nome" className="h-full w-min flex items-center justify-center">
-                            <p className="text-zinc-800">User</p>
+                            <p className="text-zinc-800">Conta</p>
                         </div>
                     </Link>
                     <div className="h-16 border-t w-full flex  bg-white  bottom-0  justify-center items-center fixed max-w-80 left-0">

@@ -1,0 +1,311 @@
+enum CustomerType {
+    registered
+    notRegistered
+}
+
+enum LegalResponsibilities {
+    legalEntity
+    naturalPerson
+}
+
+enum DiscountTypeProtocol {
+    percentage // Percentual (ex.: 10%)
+    fixed // Valor fixo (ex.: 100.00)
+}
+
+enum TaskStatus {
+    pending
+    inProgress
+    completed
+    canceled
+}
+
+enum PaymentType {
+    PAYMENT
+    REFUND
+}
+
+enum PaymentMethod {
+    cash // Dinheiro
+    creditCard // Cartão de crédito
+    debitCard // Cartão de débito
+    pix // PIX
+    transfer // Transferência bancária
+}
+
+/**
+ * o usuer admin ele é o unico que pode criar novos usuários
+ * User pode ser qual qie coisa employer, admin
+ * eu quero que o admin atribuia usuários
+ * habilitar permiões para cada tipo de usuário
+ * usuário padrão que, determinados níveis de acesso só permitido com autenticação
+ */
+
+model TransactionHistory {
+    id            String        @id @default(uuid())
+    amount        Float // Valor da transação
+    paymentMethod PaymentMethod // Método de pagamento
+    PaymentType   PaymentType
+    date          DateTime      @default(now()) // Data e hora da transação
+    saleId        String // Chave estrangeira para a venda
+    sale          Sale          @relation(fields: [saleId], references: [id]) // Relação com a venda
+    customer      Customer?     @relation(fields: [customerId], references: [id])
+    customerId    String
+}
+
+model Sale {
+    id       String @id @default(uuid())
+    publicId String @unique @default(uuid())
+
+    // Informações do Cliente
+    customerId       String?
+    customer         Customer?    @relation(fields: [customerId], references: [id])
+    nameCustomer     String?
+    defaultCellPhone String
+    defaultEmail     String?
+    cpfCnpj          String?      @unique
+    customerType     CustomerType
+
+    // Informações do Funcionário Responsável
+    employeeId String?
+    employee   User?   @relation(fields: [employeeId], references: [id])
+
+    // Informações de Venda
+    isTaxed    Boolean @default(false)
+    isPaid     Boolean @default(false)
+    amountPaid Float   @default(0.0) // Valor pago
+    finalPrice Float // Preço final da venda
+    details    String? // Notas adicionais
+
+    // Relacionamentos
+    transactions TransactionHistory[] // Pagamentos relacionados
+    tasks        Task[] // Serviços inclusos na venda
+
+    // Datas
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Quotation {
+    id       String @id @default(uuid())
+    publicId String @unique @default(uuid())
+
+    customerId       String?
+    customer         Customer?    @relation(fields: [customerId], references: [id])
+    nameCustomer     String?
+    defaultCellPhone String
+    defaultEmail     String?
+    cpfCnpj          String?      @unique
+    customerType     CustomerType
+
+    employeeId String?
+    employee   User?   @relation(fields: [employeeId], references: [id])
+
+    isTaxed Boolean @default(false)
+
+    finalPrice Float
+    details    String?
+
+    tasks Task[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+/**
+ * o meu maior desafio, é construir regra de negócio, pq toma tempo, é parte importante pq é a partir daí que as features são eleboradas
+ */
+
+/**
+ * Se task não tiver data de início então é serviço não agendado. unchedule-service acho que não precia de db
+ */
+
+model Task {
+    id   String  @id @default(uuid())
+    name String?
+
+    serviceId String?
+    service   Service? @relation(fields: [serviceId], references: [id])
+
+    saleId String?
+    sale   Sale?   @relation(fields: [saleId], references: [id])
+
+    vehicleId       String?
+    vehicle         Vehicle? @relation(fields: [vehicleId], references: [id])
+    vehicleTempData Json? // Dados temporários do veículo
+
+    status         TaskStatus // Ex.: Em andamento, Concluído, Cancelado
+    details        String? // Descrição opcional
+    startDateTime  DateTime? // Início da tarefa
+    completionDate DateTime? // Conclusão da tarefa
+    duration       Int
+
+    discountValue Float? // Valor do desconto
+    discountType  DiscountTypeProtocol? // Tipo do desconto (percentual ou fixo)
+    initialPrice  Float? // Preço inicial da tarefa
+    finalPrice    Float? // Preço final (após desconto)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum WorkerOrderStatus {
+    pending
+    issued
+}
+
+model WorkerOrder {
+    id                String            @id
+    sale              Sale              @relation(fields: [saleId], references: [id])
+    saleId            String
+    publicId          String
+    workerOrderStatus WorkerOrderStatus
+    createdAt         DateTime
+    updatedAt         DateTime
+    deletedAt         DateTime?
+}
+
+model Vehicle {
+    id           String    @id @default(uuid())
+    model        String
+    brand        String
+    licensePlate String
+    services     Service[] // Relacionamento com vários serviços
+    customer     String
+    Task         Task[]
+}
+
+model Service {
+    id           String   @id @default(uuid())
+    name         String
+    description  String?
+    price        Float
+    type         String?
+    category     Category @relation(fields: [categoryName], references: [categoryName])
+    categoryName String
+    Task         Task[]
+    Vehicle      Vehicle? @relation(fields: [vehicleId], references: [id])
+    vehicleId    String?
+}
+
+model Category {
+    id           String    @id @default(uuid())
+    categoryName String    @unique
+    Service      Service[]
+}
+
+model Schedule {
+    id             String    @id @default(uuid())
+    startDateTime  DateTime // Data e hora de início do agendamento
+    completionDate DateTime? // Data de conclusão (opcional)
+
+    vehicleId String // Relacionamento com veículo
+    vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
+
+    status ScheduleStatus @default(pending) // Status do agendamento (ex.: pendente, confirmado, concluído)
+
+    createdAt DateTime @default(now()) // Data de criação do registro
+    updatedAt DateTime @updatedAt // Atualiza automaticamente
+}
+
+enum SlotType {
+    common
+    emergency
+}
+
+model Slot {
+    publicId   Int
+    type       SlotType
+    id         String
+    tasksCount Int
+    // duration   Int      
+    usedTime   Int
+}
+
+model Company {
+    id            String        @id @unique @default(auto()) @map("uuid")
+    name          String
+    address       String
+    businessHours String?
+    users         CompanyUser[]
+    customDomain  String?       @unique
+    currency      String
+    createdAt     DateTime      @default(now())
+    slug          String        @unique
+}
+
+// interface OperatingSchedule {
+//     numberOfSlots: number;
+//     operatingHours: {
+//         monday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         tuesday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         wednesday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         thursday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         friday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         saturday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         sunday: {
+//             open: boolean | 'partial';
+//             intervals: {
+//                 start: string;
+//                 end: string;
+//             }[];
+//         };
+//         holidays: boolean | 'partial' | string;
+//     };
+// }
+
+// interface ParkingLot {
+//     totalSpaces: number;
+//     occupiedSpaces: number;
+//     availableSpaces: number;
+// }
+
+model Settings {
+    userId        String   @id
+    user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    contry
+    cpf_cnpj
+    language      String   @default("en-US") // "en-US", "pt-BR"
+    theme         String   @default("light") // "light", "dark"
+    notifications Json     @default(json("{}"))
+    security      Json? // { "2fa_required": true, "allowed_ips": ["192.168.1.1"] }
+    billing       Json     @default("{}") // { "plan": "premium", "payment_method": "credit_card", "invoice_email": "financeiro@empresa.com" }
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+}
