@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    
     "lib": [
       "dom",
       "dom.iterable",
@@ -32,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "vitest.setup.mts"  ],
   "exclude": [
     "node_modules"
   ]

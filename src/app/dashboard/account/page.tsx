@@ -1,4 +1,4 @@
-import Settings from "@/layout/templates/settings";
+import Settings from "@/components/templates/settings";
 
 
 export default function AccountPage() {

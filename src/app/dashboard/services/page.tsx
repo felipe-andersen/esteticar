@@ -1,5 +1,5 @@
 'use client'
-import { ServicesList } from "@/layout/templates/services/services.view";
+import { ServicesList } from "@/components/templates/services/services.view";
 
 
 export default function ServicesPage() {

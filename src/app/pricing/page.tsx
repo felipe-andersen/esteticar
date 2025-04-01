@@ -1,4 +1,4 @@
-import Pricing from "@/layout/templates/pricing/pricing.view";
+import Pricing from "@/components/templates/pricing/pricing.view";
 
 
 

@@ -1,4 +1,4 @@
-import Cart from "@/layout/templates/cart/cart.view";
+import Cart from "@/components/templates/cart/cart.view";
 
 export default function CartPage () {
     return (

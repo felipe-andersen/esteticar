@@ -1,4 +1,4 @@
-import Payment from "@/layout/templates/payment/payment.view";
+import Payment from "@/components/templates/payment/payment.view";
 
 export default function PricingPage () {
     return (

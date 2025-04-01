@@ -1,7 +1,7 @@
 // sum.test.js
 import { expect, it, test, vi, describe } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react';
-import Pricing from '@/layout/templates/pricing/pricing.view';
+import Pricing from '@/components/templates/pricing/pricing.view';
 
 
 
@@ -53,16 +53,16 @@ import Pricing from '@/layout/templates/pricing/pricing.view';
   
   // Usando 'typeof' para referenciar o tipo do componente
 
-const Name = () => <div>felipe</div>
+// const Name = () => <div>felipe</div>
 
-describe('Main component', () => {
-    it('Deve renderizar componente corretamente', () => {
-        render(<Name/>)
-        // const mainComponent = screen.getByTestId("main-component")
-        // expect(mainComponent).toBeInTheDocument();
+// describe('Main component', () => {
+//     it('Deve renderizar componente corretamente', () => {
+//         render(<Name/>)
+//         // const mainComponent = screen.getByTestId("main-component")
+//         // expect(mainComponent).toBeInTheDocument();
         
-    });
-})
+//     });
+// })
 
 // describe('api test', () => {
 //     it('adds 1 + 2 to equal 3', async () => {
@@ -104,3 +104,10 @@ describe('Main component', () => {
 // // //     expect(data.title).toBeTypeOf('string');
 // // //   });
 // // });
+export function sum(a:any, b:any) {
+    return a + b
+  }
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+})

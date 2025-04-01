@@ -36,3 +36,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+@/src/layout
+@/src/interfaces
+@/src/assets
+@/src/mystorybook

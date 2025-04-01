@@ -1,4 +1,4 @@
-import { PDV } from "@/layout/templates/PDV/PDV.view";
+import { PDV } from "@/components/templates/PDV/PDV.view";
 
 
 export default function PDFpage() {
