@@ -27,7 +27,6 @@ export function PDV() {
         <div className="bg-[#f6f8fa]">
             <Header pageName="PDV"/>
             <Main/>
-            <BottomNavigation/>
         </div>
     )
 }

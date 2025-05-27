@@ -1,6 +1,6 @@
 import { Header } from "@/components/organisms/header";
 import { Main } from "./main";
-import SideBar from "@/components/organisms/side-bar";
+import SideBar from "@/components/organisms/side-bar/side-bar.view";
 
 
 export function Staff() {

@@ -1,4 +1,4 @@
-import { CalendarDays, ChevronLeft, ChevronRight, Clock, Rows2, TrendingUp } from "lucide-react";
+import { ArrowLeftCircleIcon, ArrowLeftIcon, CalendarDays, ChevronLeft, ChevronRight, Clock, Rows2, TrendingUp, X } from "lucide-react";
 import Link from "next/link";
 
 const tasks = [{},{},{},{},{},{},{},{},{},{},{},{},{}]
@@ -33,8 +33,13 @@ const slotsList = [[],[]]
 
 export default function Schedule() {
     return (
-        <>
-            <div className="flex justify-between items-center text-sm">
+        <div className="bg-red-0 h-full w-full bg-white h-full w-full max-w-96">
+            <div className="flex justify-between items-center text-sm bg-red-0 h-12 border-b px-4">
+                {/* <ArrowLeftIcon/> */}
+                <p className="text-lg font-bold">Vaga</p>
+                <X/>
+            </div>
+            <div className="flex justify-between items-center text-sm bg-red-0 h-12 border-b px-4">
                 <div>SEX 13 DEZ</div>
                 <div className="flex items-center justify-between gap-2">
                     <span>
@@ -56,11 +61,10 @@ export default function Schedule() {
                     </span>
                 </div>
             </div>
-            <div className="flex flex-col gap-4  py-6 my-6  border-y max-h-[600px] overflow-y-scroll">
+            <div className="flex flex-col mb-1 h-full overflow-y-scroll gap-1">
                 {
                     tasks.map(task => (
-                        <div className="flex flex-col">
-                        <Link href="" className="flex gap-6  py-3 h-min items-center bg-neutral-100 text-sm px-3">
+                        <Link href="" className="flex gap-6  py-3 h-min items-center bg-neutral-100 text-sm px-3 justify-center">
                             <div className="whitespace-nowrap flex flex-col gap-2 ">
                                 <div className="flex gap-2   ">
                                     <Clock 
@@ -88,10 +92,9 @@ export default function Schedule() {
                                 <div>(21) 96642-8712</div> */}
                             </div>
                         </Link>
-                        <span className="line h-px w-full bg-neutral-300"/>
-                        </div>
-                ))}
+                    ))
+                }
             </div>
-        </>
+        </div>
     )
 }

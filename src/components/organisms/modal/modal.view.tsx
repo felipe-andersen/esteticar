@@ -37,7 +37,7 @@ export function Modal({isOpen, onClose, children}: ModalType)  {
     return (
         <div
             onClick={() => onClose(false)}
-            className="fixed z-[45455545456656656565] top-0 bottom-0 right-0 left-0 flex items-center justify-center bg-black bg-opacity-50 "
+            className="fixed z-[1007] top-0 bottom-0 right-0 left-0 flex items-center justify-center bg-black bg-opacity-50 "
             aria-labelledby="modal-title"
             role="dialog"
             aria-modal="true"

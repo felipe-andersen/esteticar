@@ -1,31 +1,100 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import * as customerSchema from "@/shared/schemas/customer";
+import { NextResponse } from 'next/server';
+import logger from '@/lib/pino';
+
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        const obj = req.body;
-     
-        const { customer_name } =  obj.json();
-        res
-        if (!customer_name) {
-            return res.status(400).json({ error: 'Nome e email são obrigatórios' });
+type IBody = {
+    name: string
+}
+
+export async function POST(req: Request) {
+
+    function isRequestBodyValid(obj: any): obj is { name: string } {
+        return (
+            typeof obj === 'object' &&
+            obj !== null &&
+            typeof obj.name === 'string'
+        )
+    }
+
+    if (req.method !== 'POST') {
+        // res.setHeader('Allow', ['POST']);
+        // res.status(405).end(`Method ${req.method} Not Allowed`);
+    } else {
+        const body = await req.json();
+
+        if(!isRequestBodyValid(body)) {
+            return new Response('Invalid request body', { status: 400 });
+        } 
+
+        const data: IBody = body;
+        
+        const { name } = data;
+
+        if (!name) {
+            return new Response('Invalid or non-existent name', {
+            })
+        }
+        
+        if(customerSchema.name.safeParse(name).success! === false) { 
+            return new Response('Invalid data', {})
+        } 
+
+        const newCustomer = {
+            name: name
         }
 
         try {
             const customer = await prisma.customer.create({
-                data: { customer_name},
-            });
-            console.log(customer)
-            return res.status(201).json(customer);
-
+                data: newCustomer
+            })
+            return new NextResponse(
+                "Customer created", {status: 201}
+            )
         } catch (error: any) {
-            return res.status(400).json({ error: 'Erro ao criar cliente', details: error.message });
+            return new NextResponse(
+                "Could not create customer", {status: 500}
+            )
+            logger.error(error)
         }
-    } else {
-        res.setHeader('Allow', ['POST']);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
+
+type ICustomer = {
+    email: String
+    cpf: string
+    cnpj: string
+}
+
+export async function GET (req: Request) {
+    if (req.method != 'GET') {
+        return new NextResponse('Invalid method', {status: 400})
+    } else {
+        const body = await req.json()
+        const data: ICustomer = body
+    }
+
+
+    try {
+        // const customer = prisma.customer.findUnique({
+        //     where: {
+        //         OR: [
+        //           { phone: "idOuName" },
+        //           { cpf: "idOuName" },
+        //           { cnpj: "idOuName" },
+        //         ]
+        //     }
+        // })
+
+    } catch (error: any) {
+        return new NextResponse("Not found", {status: 500})
+        logger.error(error)
+    }
+}
+
+
 

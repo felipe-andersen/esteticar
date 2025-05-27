@@ -1,6 +1,6 @@
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = ["native", "linux-musl"]
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -15,10 +15,16 @@ enum UserStatus {
   suspended
 }
 
+// contry
 model Customer {
-  customer_id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  customer_public_id String? @unique @default(dbgenerated("gen_random_uuid()"))
-  customer_name      String
+  id        String   @id @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  publicId  String?  @unique @default(dbgenerated("gen_random_uuid()")) @map("public_id")
+  name      String
+  email     String?  @unique
+  cpf       String?  @unique
+  cnpj      String?  @unique
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
 }
 
 enum UserType {
@@ -26,6 +32,23 @@ enum UserType {
   client
   employee
   manager
+}
+
+// idiom | contry
+model Service {
+  id           String   @id @default(uuid())
+  name         String
+  description  String?
+  defaultPrice Float
+  type         String?
+  category     Category @relation(fields: [categoryName], references: [categoryName])
+  categoryName String
+}
+
+model Category {
+  id           String    @id @default(uuid())
+  categoryName String    @unique
+  Service      Service[]
 }
 
 model User {

@@ -4,21 +4,21 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Search, Plus, ArrowUpRight, Sidebar, CheckIcon, ArrowRightFromLine, ArrowLeftToLine} from "lucide-react";
+import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Search, Plus, ArrowUpRight, Sidebar, CheckIcon, ArrowRightFromLine, ArrowLeftToLine, ChevronRight, ChevronDown} from "lucide-react";
 import { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { trace } from "@opentelemetry/api";
-import createCustomer from './dashboard.model';
 import { Modal } from '@/components/organisms/modal/modal.view';
 import { Spinnaker } from 'next/font/google';
 import { CgSpinner } from 'react-icons/cg';
 import Schedule from '@/components/organisms/schedule/schedule.view';
 import { capitalizeWords } from '@/shared/capitalizeWords';
+import { createPortal } from 'react-dom';
+import { addCustomer } from './dashboard.model';
+import { Trans, useTranslation } from 'react-i18next'
 
-
-const vagas = ['1', "2", "3", "4", "5", "6", "7", '8' , 9]
 
 export function Main() {
     // 
@@ -49,10 +49,11 @@ export function Main() {
     }, []);
     
     const target = useRef(null);
-
+    const { t } = useTranslation('myNamespace');
+    const name = "felipe"
     return (
-    <main className={`flex   h-full box-border    overflow-hidden pl-7 bg-white`}>
-        <div className='flex w-full overflow-y-scroll   h-full    box-border '>
+    <main className={`relative flex h-full box-border overflow-hidden bg-white`}>
+        <div className='flex w-full overflow-y-scroll h-full box-border '>
             {/* <div  about="pdv" className='w-full h-40 flex items-center yjy  lg:justify-between  px-6 gap:6 border-b border-zinc-150 sm:flex-col lg:flex-row '>
                 <div className='flex flex-row items-center  w-75 h-full  overflow-hidden'>
                     <div className='h-[64px] w-[64px] overflow-hidden flex justify-center items-center  rounded-full  mr-2 bg-zinc-300' >
@@ -68,11 +69,25 @@ export function Main() {
                 </div>
             </div> */}
             <div className='flex flex-col h-full w-full'>
-                <section className='bg-white p-4 py-9 w-full'>
-                    <p className='text-xl font-semibold mb-1'>Bem vindo!</p>
+                <section className='bg-white p-4 py-9 w-full flex flex-col'>
+                    <p className='flex gap-1 items-center self-end whitespace-nowrap w-min bg-red-0 mb-3'>
+                        Barone Car 
+                        <ChevronDown size={16}/>
+                    </p>
+                    {/* <p className='text-xl font-semibold mb-1'>{t('Welcome to STTCR')}</p>
+                    <Trans i18nKey="" className='flex' >
+                        <div className='flex'>Hello, <strong>{name}</strong>. {t('STTCR')}.</div>
+                    </Trans>
+                    <Trans
+                        i18nKey="myKey" // optional -> fallbacks to defaults if not provided
+                        defaults="hello <0>{{what}}</0>" // optional defaultValue
+                        values={{ what: 'world'}}
+                        components={[<strong>univers</strong>]}
+                    /> */}
                     <p className='text-zinc-500 text-md'>
                             Gerencie sua empresa
                     </p>
+                    {/* <button onClick={() => addCustomer()}>adicionar</button> */}
                     <div className='p-4 flex flex-col border rounded-2xl'>
                         <p>Vamos começar</p>
                         <p className='mb-3'>Faça sua primeira venda</p>
@@ -80,7 +95,6 @@ export function Main() {
                             <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
                                 1
                                 {/* <CheckIcon/> */}
-                            
                             </div>
                             <p className='font-bold text-sm'>cadastre um produto ou serviço</p>
                             <p className='text-sm'>Well done!</p>
@@ -89,7 +103,6 @@ export function Main() {
                             <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
                                 1
                                 {/* <CheckIcon/> */}
-                            
                             </div>
                             <p className='font-bold text-sm'>cadastre um produto ou serviço</p>
                             <p className='text-sm'>Well done!</p>
@@ -107,15 +120,12 @@ export function Main() {
                                 <span>
                                      <p className='text-[11px]'>progress</p>
                                     <p className='text-xl font-bold'>25%</p>
-                                    
                                 </span>
                             </div>
                         </div>
                         <div className='flex flex-col gap-2 mb-6'>
                             {/* <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
                                 1
-                                
-                            
                             </div> */}
                             <p className='font-bold text-sm'>Adicione um nome para sua empresa</p>
                             <p className='text-sm'>Acesse a aba settings e configure um nome</p>
@@ -123,8 +133,6 @@ export function Main() {
                         <div className='flex flex-col gap-2 mb-6'>
                             {/* <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-sm'>
                                 1
-                                
-                            
                             </div> */}
                             <p className='font-bold text-sm'>Adicione um nome para sua empresa</p>
                             <p className='text-sm'>Acesse a aba settings e configure um nome</p>
@@ -134,7 +142,6 @@ export function Main() {
                             <div className='rounded-xl bg-violet-600 h-7 w-7 flex items-center justify-center text-white text-xs'>
                                 1
                                 {/* <CheckIcon/> */}
-                            
                             </div>
                             <p className='font-bold text-sm'>Cadastre um produto ou serviço</p>
                             <p className='text-sm'>Well done!</p>
@@ -159,9 +166,9 @@ export function Main() {
                         <p className='text-zinc-500'>
                             Gerencie as vagas no pátio
                         </p>
-                        <div className='flex gap-3 sm:gap-6  w-full flex-wrap  overflow-hidden'>
+                        <div className='relative flex gap-3 sm:gap-6  w-full flex-wrap  overflow-hidden'>
                             {
-                                vagas.map((name, key) => (
+                                Array.from({ length: 20 }, (_, i) => i + 1).map((name, key) => (
                                     <>
                                         <div 
                                             role='btn' 
@@ -199,19 +206,27 @@ export function Main() {
                                     </>
                                 ))
                             }
-                           <Modal
+                            {
+                                createPortal(<Modal
+                                    onClose={setIsModalOpen}
+                                    isOpen={isModalOpen}
+                                >
+                                    <div className=''>
+                                        <Schedule/>
+                                    </div>
+                                </Modal>, document.body)
+                            }
+                            {/* <Modal
                                 onClose={setIsModalOpen}
                                 isOpen={isModalOpen}
                             >
                                 <div className='p-6 bg-white h-full w-full max-w-96 '>
                                     <Schedule/>
                                 </div>
-                            </Modal>
+                            </Modal> */}
                         </div>
                     </div>
                 </div>
-                
-                
                 <section className='bg-white p-6 flex flex-col  py-9 gap-6 '>
                     <div className='flex justify-between items-center '>
                         <h2 className='border-b-2  border-zinc-900 text-lg font-bold flex gap-2 items-center h-10'>
@@ -303,7 +318,7 @@ export function Main() {
                                                     placement="left"
                                                 >
                                                     {(props) => (
-                                                    <Tooltip id="overlay-example" {...props}>
+                                                    <Tooltip id="overlay-example" {...props} className='z-[566565]'>
                                                         <div className='shadow-xl bg-white rounded p-5'>
                                                             <p className='text-md  mb-2'>
                                                                 Reagendar
@@ -329,8 +344,6 @@ export function Main() {
                         </div>
                     </div>
                 </section>
-
-              
             </div>
             {/* <div className=' w-1/4 h-full  p-4 sm md lg xl 2xl max-h-[700px] '>
                 <div className='flex flex-col justify-between gap-3 p-5 text-white imgf w-full h-72 bg-red-100  overflow-hidden rounded'>
@@ -352,7 +365,6 @@ export function Main() {
             </div> */}
         </div>
     </main>
-
     );
 }
 

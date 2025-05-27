@@ -1,42 +1,30 @@
 import { PrismaClient }  from '@prisma/client';
 
 
-const url = 'http://localhost:3000/user/services';
-
-export interface Servico {
-    name: string;
-    price: string;
-    description: string;
-    id: string;
-    type: string;
-    category: string;
-};
-  
-export async function fetchServices(): Promise<Servico[]> {
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-        throw new Error('');
+const prices = {
+    BRL: {
+      defaultPrice: 199.90,
+      range: {
+        min: 99.90,
+        max: 499.90
+      },
+      symbol: 'R$'
+    },
+    USD: {
+      defaultPrice: 39.90,
+      range: {
+        min: 19.90,
+        max: 99.90
+      },
+      symbol: '$'
+    },
+    EUR: {
+      defaultPrice: 34.90,
+      range: {
+        min: 17.90,
+        max: 89.90
+      },
+      symbol: '€'
     }
-    return response.json();
-};
-
-const prisma = new PrismaClient();
-
-async function main() {
-    //change to reference a table in your schema
-    const val = await prisma.user.findMany({
-        take: 10,
-    });
-    console.log(val);
-};
+  }
   
-  main()
-    .then(async () => {
-        await prisma.$disconnect();
-    })
-    .catch(async (e) => {
-        console.error(e);
-        await prisma.$disconnect();
-    process.exit(1);
-});

@@ -1,0 +1,7 @@
+{
+  "Welcome to STTCR": "",
+  "Hello, <1>{name}</1>": {
+    " {t('Welcome to STTCR')}": "Hello, <1>{name}</1>. {t('Welcome to STTCR')}."
+  },
+  "myKey": "hello <0>{{what}}</0>"
+}

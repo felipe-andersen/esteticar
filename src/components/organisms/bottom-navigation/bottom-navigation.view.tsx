@@ -22,7 +22,7 @@ export function BottomNavigation() {
 
     return (
         <>
-        <div className=" flex w-full dsmax-w-[380px] text-center border-t fixed bottom-0 bg-white h-12 sm:h-14 text-[10px] items-end py-1 z-100 ">
+        <div className=" flex w-full dsmax-w-[380px] text-center border-t fixed bottom-0 bg-white h-12 sm:h-14 text-[10px] items-end  z-[1006] ">
             <button 
                 className="flex flex-col gap-[1px] items-center justify-center w-[20%] text-neutral-500 bg-red-0 overflow-hidden "
                 onClick={() =>  router.push('/dashboard')}

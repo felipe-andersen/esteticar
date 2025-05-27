@@ -3,7 +3,7 @@
 
 import { result } from '@/components/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, ArrowRightIcon, ArrowLeft} from "lucide-react";
-import VerticalMenu from '@/components/organisms/side-bar';
+import VerticalMenu from '@/components/organisms/side-bar/side-bar.view';
 import { useState, useRef } from 'react';
 import { Header } from '@/components/organisms/header';
 import { FaSquareBehance } from 'react-icons/fa6';

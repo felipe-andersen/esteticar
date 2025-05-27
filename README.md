@@ -5,6 +5,25 @@ Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next
 Primeiro, execute o servidor de desenvolvimento.
 
 ```bash
+
+npm install
+
+```
+
+```bash
+
+npx prisma migrate dev
+
+```
+
+```bash
+
+npx prisma generate
+
+```
+
+```bash
+
 npm run dev
 # or
 yarn dev

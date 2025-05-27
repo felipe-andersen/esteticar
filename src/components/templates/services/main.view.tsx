@@ -1,34 +1,9 @@
 
 'use client'
-import { result } from '@/components/organisms';
 import { X, Bell, MessageSquareIcon, MoveRight, EllipsisVertical, Key, Table, List, Filter, Sidebar} from "lucide-react";
-
-import { Header } from '@/components/organisms/header';
-import { FaSquareBehance } from 'react-icons/fa6';
-import { CgAdd } from 'react-icons/cg';
-import { ServiceCategories } from '@/interfaces/ServiceCategory';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog"
 import { capitalizeWords } from '@/shared/capitalizeWords';
-import { createPortal } from 'react-dom';
 import React, { useState, Dispatch, SetStateAction } from "react";
-import { prisma } from '@/lib/prisma/prisma-client';
-import SideBar from '@/components/organisms/side-bar';
-
-// mswjs
 
 interface Category {
     category: string

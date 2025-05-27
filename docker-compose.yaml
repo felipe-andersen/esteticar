@@ -35,28 +35,28 @@ services:
   #   networks:
   #     - esteticar_net
 
-  adminer:
-    image: adminer
-    container_name: esteticar-adminer
-    restart: always
-    ports:
-      - 8100:8080
-    networks:
-      - esteticar_net
+  # adminer:
+  #   image: adminer
+  #   container_name: esteticar-adminer
+  #   restart: always
+  #   ports:
+  #     - 8100:8080
+  #   networks:
+  #     - esteticar_net
 
-  cloudbeaver:
-    image: dbeaver/cloudbeaver:latest
-    container_name: cloudbeaver
-    restart: unless-stopped
-    ports:
-      - "8998:8978"
-    # volumes:
-    #   - cloudbeaver-data:/opt/cloudbeaver/workspace
-    # environment:
-    #   - CB_ADMIN_NAME=admin
-    #   - CB_ADMIN_PASSWORD=Admin123
-    networks:
-      - esteticar_net
+  # cloudbeaver:
+  #   image: dbeaver/cloudbeaver:latest
+  #   container_name: cloudbeaver
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8998:8978"
+  #   # volumes:
+  #   #   - cloudbeaver-data:/opt/cloudbeaver/workspace
+  #   # environment:
+  #   #   - CB_ADMIN_NAME=admin
+  #   #   - CB_ADMIN_PASSWORD=Admin123
+  #   networks:
+  #     - esteticar_net
   # postgres:
   #   image: postgres
   #   container_name: postgres
@@ -103,36 +103,36 @@ services:
   # volumes:
   #   jenkins_home:
 
-  jaeger:
-    image: jaegertracing/all-in-one:latest
-    container_name: jaeger
-    ports:
-      - "16686:16686" # UI do Jaeger
-      # - "4317:4317" # OTLP gRPC
-      # - "4318:4318" # OTLP HTTP
-      - "5778:5778" # Configuração remota do agente
-      - "6831:6831/udp" # Thrift Compact
-      - "6832:6832/udp" # Thrift Binary
-      - "9411:9411" # Zipkin
-    restart: unless-stopped
-    networks:
-      - esteticar_net
+  # jaeger:
+  #   image: jaegertracing/all-in-one:latest
+  #   container_name: jaeger
+  #   ports:
+  #     - "16686:16686" # UI do Jaeger
+  #     # - "4317:4317" # OTLP gRPC
+  #     # - "4318:4318" # OTLP HTTP
+  #     - "5778:5778" # Configuração remota do agente
+  #     - "6831:6831/udp" # Thrift Compact
+  #     - "6832:6832/udp" # Thrift Binary
+  #     - "9411:9411" # Zipkin
+  #   restart: unless-stopped
+  #   networks:
+  #     - esteticar_net
 
-  otel-collector:
-    image: otel/opentelemetry-collector:latest
-    container_name: otel-collector
-    command: ["--config=/etc/otel-collector-config.yml"]
-    volumes:
-      - ./otel-collector-config.yml:/etc/otel-collector-config.yml
-    ports:
-      - "1888:1888" # pprof extension
-      - "13133:13133" # health_check extension
-      - "4317:4317" # OTLP gRPC receiver
-      - "4318:4318" # http gRPC receiver
-      - "55679:55679" # zpages extension
-    depends_on:
-      - jaeger
-    links:
-      - jaeger
-    networks:
-      - esteticar_net
+  # otel-collector:
+  #   image: otel/opentelemetry-collector:latest
+  #   container_name: otel-collector
+  #   command: ["--config=/etc/otel-collector-config.yml"]
+  #   volumes:
+  #     - ./otel-collector-config.yml:/etc/otel-collector-config.yml
+  #   ports:
+  #     - "1888:1888" # pprof extension
+  #     - "13133:13133" # health_check extension
+  #     - "4317:4317" # OTLP gRPC receiver
+  #     - "4318:4318" # http gRPC receiver
+  #     - "55679:55679" # zpages extension
+  #   depends_on:
+  #     - jaeger
+  #   links:
+  #     - jaeger
+  #   networks:
+  #     - esteticar_net

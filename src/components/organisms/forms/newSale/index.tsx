@@ -185,7 +185,7 @@ export function NewSale({setShowModal}:Props) {
                             <span className='flex  gap-1 text-gray-700'>
                                 <button 
                                     className='flex items-center gap-2 text-sm bg-zinc-0 h-5  w-min whitespace-nowrap   text-sm border-b-[2px] border-neutral-600'
-                                    onClick={() => setModalVisible(true)}
+                                    // onClick={() => setModalVisible(true)}
                                 >
                                     {/* <Search size={18} /> */}
                                     Pesquisar

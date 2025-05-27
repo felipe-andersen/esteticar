@@ -142,11 +142,8 @@ export default function RegisterWorker() {
             </div>
 
             <div className=" w-full h-min  flex  flex flex-col gap-2">
-
                 <span>Email</span>
-
                 <div className="h-12 w-full border-[2px] px-1 border-zinc-200 flex  rounded-lg  items-center ">
-
                     <input
                         className="  w-full h-full px-2 outline-none bg-transparent placeholder:text-neutral-400 lowercase"
                         // name="fullName" 
@@ -158,17 +155,11 @@ export default function RegisterWorker() {
                         // pattern="/^[A-Za-z]+$/i"
                         value={watch("defaultEmail")}
                     />
-
                     <span className="w-8 h-8 flex items-center justify-center ">
-
                         { errors.defaultEmail?.message &&  watch("defaultEmail") ? <span className="h-8 h-8 flex items-center justify-center text-red-400 "><Ban  size={14}/></span> : watch("defaultEmail") && <span className="w-8 h-8 flex items-center justify-center "><Check color='green' size={16}/></span> }
-
                     </span>
-
                 </div>
-           
                 { errors.defaultEmail?.message && getValues("defaultEmail") && <p className="min-h-5 text-xs text-red-400 flex gap-2 flex ">{inputErrorMsg.defaultEmail.invalidEmail ? inputErrorMsg.defaultEmail.invalidEmail : errors.defaultEmail?.message}</p> }
-
             </div>
 
             <div className=" w-full flex  flex flex-col gap-3">

@@ -179,6 +179,17 @@ model Service {
     id           String   @id @default(uuid())
     name         String
     description  String?
+    defaultPrice Float
+    priceRange   String?
+    type         String?
+    category     Category @relation(fields: [categoryName], references: [categoryName])
+    categoryName String
+}
+
+model ItemService {
+    id           String   @id @default(uuid())
+    name         String
+    description  String?
     price        Float
     type         String?
     category     Category @relation(fields: [categoryName], references: [categoryName])

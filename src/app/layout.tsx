@@ -3,10 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { initalizeTracing } from "@/instrumentation";
+// import { initalizeTracing } from "@/instrumentation";
 
 
-initalizeTracing()
+// initalizeTracing()
 
 const inter = Inter({ subsets: ["latin"] });
 const queryClient = new QueryClient()

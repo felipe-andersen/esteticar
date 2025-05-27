@@ -1,12 +1,14 @@
 'use client'
 import { result } from "@/lib/date-fns/config";
-import { ArrowRight, Bell, MessageSquareText, MessagesSquareIcon, RotateCcw, Search } from "lucide-react";
+import { ArrowRight, Bell, MenuIcon, MenuSquare, MessageSquareText, MessagesSquareIcon, RotateCcw, Search } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Modal } from "../modal/modal.view";
 import { useRouter } from 'next/navigation';
 import { usePathname, useSearchParams } from 'next/navigation'
+import SideBar from "../side-bar/side-bar.view";
+import logger from "@/lib/pino";
 
 interface Props {
     pageName?: string
@@ -31,14 +33,28 @@ export function Header ({
     const router = useRouter()
     const currentRoute = usePathname()
 
+    const renderSideBar = () => {
+        createPortal(<SideBar isVisibleTitle={true}/>, document.body)
+        logger.info("render side bar")
+    }
 
     return (
-        <header  className='w-full   flex flex-col fixed bg-white  z-50 '>
-            <div className='w-full h-14 sm:h-16 flex items-center justify-between px-6 border-b border-zinc-150  bg-white'>
-                <Link href={"/"} className="text-xl flex items-center gap-2 ">
-                    <RotateCcw size={18}/> 
-                    ôFlanela 
-                </Link>
+        <header  className='w-full h-12 sm:h-12  flex flex-col fixed bg-white  z-[1030] border-b '>
+            <div className='w-full h-full  flex items-center justify-between px-4 '>
+                <span className="flex gap-2">
+                    <button 
+                        onClick={() =>  createPortal(<SideBar isVisibleTitle={true}/>, document.body)} 
+                        className="text-xl flex items-center gap-2 "
+                    >
+                        <MenuIcon size={20} strokeWidth={1}/>
+                    </button>
+                    <Link 
+                        href={"/"} 
+                        className="text-xl flex items-center gap-2 ml-2"
+                    >
+                        {pageName}
+                    </Link>
+                </span>
                 {/* <span className="text-sm text-neutral-400">Offline há {result}</span> */}
                 {   currentRoute === '/pricing' ? 
                     <>
@@ -51,7 +67,7 @@ export function Header ({
                         </button> */}
                     </>
                     :
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-1 items-center">
                        
                         <button 
                             // href={'/pricing'} 
@@ -60,21 +76,12 @@ export function Header ({
                         >
                             Upgrade
                         </button>
-                        <div className={`bg-neutral-0 min-w-10 w-min sm:w-80 h-10  rounded-sm items-center flex overflow-hidden  overflow-hidden border-[1px] border-neutral-400`}>
-                            {inputSearchSize > 400 ? 
-                                <input 
-                                    className="w-full h-full outline-none text-sm pl-2"
-                                    placeholder="Pesquise"
-                                />
-                                : <></>
-                            }
-                            <button 
-                                onClick={() => {}}
-                                className="h-full w-10  flex items-center justify-center"
-                            >
-                                <Search size={18} strokeWidth={1}/>
-                            </button>
-                        </div>
+                        <button 
+                            onClick={() => {}}
+                            className="w-10 h-10  hover:bg-zinc-50 rounded-full flex items-center justify-center relative"
+                        >
+                            <Search strokeWidth={1} size={22}/>
+                        </button>
                        <Modal
                             isOpen={isModalOpen}
                             onClose={setIsModalOpen}
@@ -86,17 +93,21 @@ export function Header ({
                         <button 
                             className="w-10 h-10  hover:bg-zinc-50 rounded-full flex items-center justify-center relative"
                             onClick={() => setShowModal(showModal ? false : true)}
-                        >
-                            <div
-                                className="absolute mt-[-18px] mr-[-10px] h-2 w-2 flex items-center justify-center rounded-full bg-red-500 text-xs text-white"
-                            />
-                            <Bell strokeWidth={1} />
+                        >   
+                            {
+                                showModal && createPortal(
+                                    <div
+                                        className="fixed h-full w-full top-0 bottom-0 right-0 left-0 flex items-center justify-center  bg-red-500 text-xs text-white z-[1007]"
+                                    ></div>, document.body
+                                )
+                            }
+                            <Bell strokeWidth={1} size={22}/>
                         </button>
                         <button className="w-10 h-10  hover:bg-zinc-50 rounded-full flex items-center justify-center">
                             <div className="absolute mt-[-22px] mr-[-18px] h-5 w-5 flex items-center justify-center rounded-full bg-red-500 text-xs text-white">
                                 3
                             </div>
-                            <MessageSquareText strokeWidth={1}/>
+                            <MessageSquareText strokeWidth={1} size={22}/>
                         </button>
                     </div>
                 }

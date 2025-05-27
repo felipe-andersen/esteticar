@@ -5,7 +5,7 @@ import { Header } from "@/components/organisms/header";
 
 export default function Manage () {
     return (
-        <div>
+        <div className="w-screen h-screen overflow-hidden">
             {/* <Header/> */}
             <Main/>
             <BottomNavigation/>

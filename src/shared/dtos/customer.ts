@@ -1,4 +1,4 @@
-export interface CustormerData  {
+export interface ICustormer {
     publicID: string
     id: string
     name: string

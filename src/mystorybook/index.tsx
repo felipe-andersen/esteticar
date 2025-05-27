@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import './ui.css'
 import RegisterWorker from "@/components/organisms/forms/employee-registration-form";
-import SideBar from "@/components/organisms/side-bar";
+import SideBar from "@/components/organisms/side-bar/side-bar.view";
 
 export default function ComponentList() {
 

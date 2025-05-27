@@ -6,30 +6,6 @@ import react from "react";
 import { useEffect } from "react";
 import { trace } from "@opentelemetry/api";
 
-export default function MeuComponente() {
-  useEffect(() => {
-   
-    const tracer = trace.getTracer("header mount");
-    const span = tracer.startSpan("Montando MeuComponente");
-    
-    setTimeout(() => {
-        span.end(); // Finalizar o span após o efeito ser processado
-    }, 0);
-
-    return () => {
-        const unmountTracer = trace.getTracer("");
-        const unmountSpan = unmountTracer.startSpan("Desmontando MeuComponente");
-        unmountSpan.end();
-    };
-  }, []);
-
-  return (
-    <div>
-      <h1>Meu Componente com OpenTelemetry</h1>
-      <button onClick={() => {}}>Clique aqui</button>
-    </div>
-  );
-}
 
 const Main = react.memo(function Main () {
     const router = useRouter()
@@ -51,7 +27,7 @@ const Main = react.memo(function Main () {
       }, []);
     
     return (
-        <div className="flex flex-col mt-16 p-4 ">
+        <div className="flex flex-col sm:mt-16 p-4 h-[calc(100%-48px] sm:h-[calc(100%-56px] h-full w-full">
             <div className="mb-5 flex flex-col gap-2">
                 <h1 className="font-bold text-lg mb-0">Gerencie sua empresa</h1>
                 <button 
@@ -164,3 +140,5 @@ const Main = react.memo(function Main () {
         </div>
     )
 })
+
+export default Main

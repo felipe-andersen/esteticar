@@ -1,0 +1,2 @@
+## 🧾 Tabela: `customers`
+
